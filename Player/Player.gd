@@ -1,28 +1,27 @@
 extends KinematicBody2D
 
-const ACCELERATION = 50
-const MAX_SPEED = 0.8
-const FRICTION = 50
+# Load constants file
+onready var C = constants
 
 var velocity = Vector2.ZERO
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
-onready var animationState = animationTree.get("parameters/playback")
+onready var animationState = animationTree.get(C.playback)
 
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
-	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	input_vector.x = Input.get_action_strength(C.right) - Input.get_action_strength(C.left)
+	input_vector.y = Input.get_action_strength(C.down) - Input.get_action_strength(C.up)
 	input_vector = input_vector.normalized()
 	
 	if input_vector != Vector2.ZERO:
-		animationTree.set("parameters/Idle/blend_position", input_vector)
-		animationTree.set("parameters/Move/blend_position", input_vector)
+		animationTree.set(C.idleBlend, input_vector)
+		animationTree.set(C.moveBlend, input_vector)
 		animationState.travel("Move")
-		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
+		velocity = velocity.move_toward(input_vector * C.MAX_SPEED, C.ACCELERATION * delta)
 	else:
 		animationState.travel("Idle")
-		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+		velocity = velocity.move_toward(Vector2.ZERO, C.FRICTION * delta)
 	
 	move_and_collide(velocity)
