@@ -24,4 +24,4 @@ func _physics_process(delta):
 		animationState.travel("Idle")
 		velocity = velocity.move_toward(Vector2.ZERO, C.FRICTION * delta)
 	
-	move_and_collide(velocity)
+	move_and_slide(velocity)

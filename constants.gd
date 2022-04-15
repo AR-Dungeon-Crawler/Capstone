@@ -1,8 +1,8 @@
 extends Node
 
-const ACCELERATION = 60
-const MAX_SPEED = 0.8
-const FRICTION = 50
+const ACCELERATION = 500
+const MAX_SPEED = 40
+const FRICTION = 500
 
 # Strings
 const playback = "parameters/playback"
