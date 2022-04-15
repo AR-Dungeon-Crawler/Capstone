@@ -219,10 +219,11 @@ start_node = "Idle"
 [sub_resource type="AnimationNodeStateMachinePlayback" id=8]
 
 [sub_resource type="CapsuleShape2D" id=24]
-radius = 4.0
-height = 2.0
+radius = 3.0
+height = 0.0
 
 [node name="Player" type="KinematicBody2D"]
+collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -252,6 +253,6 @@ parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/Move/blend_position = Vector2( 0, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 11 )
+position = Vector2( 0, 12 )
 rotation = 1.5708
 shape = SubResource( 24 )
