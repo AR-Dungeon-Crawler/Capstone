@@ -9,6 +9,9 @@ onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get(C.playback)
 
+func _ready():
+	C.player = self
+
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength(C.right) - Input.get_action_strength(C.left)
