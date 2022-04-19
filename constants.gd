@@ -1,5 +1,6 @@
 extends Node
 
+var player
 const ACCELERATION = 500
 const MAX_SPEED = 40
 const FRICTION = 500

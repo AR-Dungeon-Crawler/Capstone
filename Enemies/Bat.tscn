@@ -36,13 +36,13 @@ radius = 4.12311
 
 [node name="Bat" type="KinematicBody2D"]
 position = Vector2( -8, -15 )
-collision_layer = 4
+collision_layer = 7
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 7, 15 )
 frames = SubResource( 6 )
 animation = "Fly"
-frame = 3
+frame = 4
 playing = true
 offset = Vector2( 0, -12 )
 
