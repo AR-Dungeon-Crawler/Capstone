@@ -1,7 +1,140 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://Player/player.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=50]
+resource_name = "DrawBowDown"
+length = 0.45
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 234, 235, 236, 237, 238, 239, 240, 241, 242 ]
+}
+
+[sub_resource type="Animation" id=51]
+resource_name = "DrawBowLeft"
+length = 0.45
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 221, 222, 223, 224, 225, 226, 227, 228, 229 ]
+}
+
+[sub_resource type="Animation" id=52]
+resource_name = "DrawBowRight"
+length = 0.45
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 247, 248, 249, 250, 251, 252, 253, 254, 255 ]
+}
+
+[sub_resource type="Animation" id=53]
+resource_name = "DrawBowUp"
+length = 0.45
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 208, 209, 210, 211, 212, 213, 214, 215, 216 ]
+}
+
+[sub_resource type="Animation" id=67]
+resource_name = "HoldBowDown"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 242 ]
+}
+
+[sub_resource type="Animation" id=68]
+resource_name = "HoldBowLeft"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 229 ]
+}
+
+[sub_resource type="Animation" id=69]
+resource_name = "HoldBowRight"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 255 ]
+}
+
+[sub_resource type="Animation" id=70]
+resource_name = "HoldBowUp"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 216 ]
+}
 
 [sub_resource type="Animation" id=11]
 resource_name = "IdleDown"
@@ -222,6 +355,56 @@ tracks/0/keys = {
 "values": [ 144 ]
 }
 
+[sub_resource type="AnimationNodeAnimation" id=54]
+animation = "DrawBowUp"
+
+[sub_resource type="AnimationNodeAnimation" id=55]
+animation = "DrawBowDown"
+
+[sub_resource type="AnimationNodeAnimation" id=56]
+animation = "DrawBowRight"
+
+[sub_resource type="AnimationNodeAnimation" id=57]
+animation = "DrawBowLeft"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=58]
+blend_point_0/node = SubResource( 54 )
+blend_point_0/pos = Vector2( 0, -160 )
+blend_point_1/node = SubResource( 55 )
+blend_point_1/pos = Vector2( 0, 160 )
+blend_point_2/node = SubResource( 56 )
+blend_point_2/pos = Vector2( 160, 0 )
+blend_point_3/node = SubResource( 57 )
+blend_point_3/pos = Vector2( -160, 0 )
+min_space = Vector2( -160, -160 )
+max_space = Vector2( 160, 160 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=71]
+animation = "HoldBowDown"
+
+[sub_resource type="AnimationNodeAnimation" id=72]
+animation = "HoldBowUp"
+
+[sub_resource type="AnimationNodeAnimation" id=73]
+animation = "HoldBowRight"
+
+[sub_resource type="AnimationNodeAnimation" id=74]
+animation = "HoldBowLeft"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=75]
+blend_point_0/node = SubResource( 71 )
+blend_point_0/pos = Vector2( 0, 160 )
+blend_point_1/node = SubResource( 72 )
+blend_point_1/pos = Vector2( 0, -160 )
+blend_point_2/node = SubResource( 73 )
+blend_point_2/pos = Vector2( 160, 0 )
+blend_point_3/node = SubResource( 74 )
+blend_point_3/pos = Vector2( -160, 0 )
+min_space = Vector2( -160, -160 )
+max_space = Vector2( 160, 160 )
+blend_mode = 1
+
 [sub_resource type="AnimationNodeAnimation" id=46]
 animation = "IdleDown"
 
@@ -236,15 +419,15 @@ animation = "IdleRight"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id=12]
 blend_point_0/node = SubResource( 46 )
-blend_point_0/pos = Vector2( 0, 90 )
+blend_point_0/pos = Vector2( 0, 160 )
 blend_point_1/node = SubResource( 47 )
 blend_point_1/pos = Vector2( -160, 0 )
 blend_point_2/node = SubResource( 48 )
-blend_point_2/pos = Vector2( 0, -90 )
+blend_point_2/pos = Vector2( 0, -160 )
 blend_point_3/node = SubResource( 49 )
 blend_point_3/pos = Vector2( 160, 0 )
-min_space = Vector2( -160, -90 )
-max_space = Vector2( 160, 90 )
+min_space = Vector2( -160, -160 )
+max_space = Vector2( 160, 160 )
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id=29]
@@ -261,62 +444,70 @@ animation = "MoveRight"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id=21]
 blend_point_0/node = SubResource( 29 )
-blend_point_0/pos = Vector2( 0, 90 )
+blend_point_0/pos = Vector2( 0, 160 )
 blend_point_1/node = SubResource( 30 )
 blend_point_1/pos = Vector2( -160, 0 )
 blend_point_2/node = SubResource( 31 )
-blend_point_2/pos = Vector2( 0, -90 )
+blend_point_2/pos = Vector2( 0, -160 )
 blend_point_3/node = SubResource( 32 )
 blend_point_3/pos = Vector2( 160, 0 )
-min_space = Vector2( -160, -90 )
-max_space = Vector2( 160, 90 )
+min_space = Vector2( -160, -160 )
+max_space = Vector2( 160, 160 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id=37]
+[sub_resource type="AnimationNodeAnimation" id=59]
 animation = "MoveDownReverse"
 
-[sub_resource type="AnimationNodeAnimation" id=38]
+[sub_resource type="AnimationNodeAnimation" id=60]
 animation = "MoveUpReverse"
 
-[sub_resource type="AnimationNodeAnimation" id=39]
-animation = "MoveLeftReverse"
-
-[sub_resource type="AnimationNodeAnimation" id=40]
+[sub_resource type="AnimationNodeAnimation" id=61]
 animation = "MoveRightReverse"
 
+[sub_resource type="AnimationNodeAnimation" id=62]
+animation = "MoveLeftReverse"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id=41]
-blend_point_0/node = SubResource( 37 )
-blend_point_0/pos = Vector2( 160, 180 )
-blend_point_1/node = SubResource( 38 )
-blend_point_1/pos = Vector2( 160, 0 )
-blend_point_2/node = SubResource( 39 )
-blend_point_2/pos = Vector2( 0, 90 )
-blend_point_3/node = SubResource( 40 )
-blend_point_3/pos = Vector2( 320, 90 )
-min_space = Vector2( 0, 0 )
-max_space = Vector2( 320, 180 )
+blend_point_0/node = SubResource( 59 )
+blend_point_0/pos = Vector2( 0, 90 )
+blend_point_1/node = SubResource( 60 )
+blend_point_1/pos = Vector2( 0, -90 )
+blend_point_2/node = SubResource( 61 )
+blend_point_2/pos = Vector2( 180, 0 )
+blend_point_3/node = SubResource( 62 )
+blend_point_3/pos = Vector2( -180, 0 )
+min_space = Vector2( -180, -90 )
+max_space = Vector2( 180, 90 )
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=22]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=23]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=42]
+[sub_resource type="AnimationNodeStateMachineTransition" id=63]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=43]
+[sub_resource type="AnimationNodeStateMachineTransition" id=64]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=44]
+[sub_resource type="AnimationNodeStateMachineTransition" id=65]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=45]
+[sub_resource type="AnimationNodeStateMachineTransition" id=66]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=76]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachine" id=7]
+states/DrawBow/node = SubResource( 58 )
+states/DrawBow/position = Vector2( 559, 232.66 )
+states/HoldBow/node = SubResource( 75 )
+states/HoldBow/position = Vector2( 819.95, 232.66 )
 states/Idle/node = SubResource( 12 )
 states/Idle/position = Vector2( 360, 111 )
 states/Move/node = SubResource( 21 )
 states/Move/position = Vector2( 559, 111 )
 states/MoveReverse/node = SubResource( 41 )
-states/MoveReverse/position = Vector2( 457.95, 201.66 )
-transitions = [ "Idle", "Move", SubResource( 22 ), "Move", "Idle", SubResource( 23 ), "Move", "MoveReverse", SubResource( 42 ), "MoveReverse", "Move", SubResource( 43 ), "Idle", "MoveReverse", SubResource( 44 ), "MoveReverse", "Idle", SubResource( 45 ) ]
+states/MoveReverse/position = Vector2( 75.95, 163.66 )
+transitions = [ "Idle", "Move", SubResource( 22 ), "Move", "Idle", SubResource( 23 ), "Idle", "DrawBow", SubResource( 63 ), "DrawBow", "Idle", SubResource( 64 ), "Move", "DrawBow", SubResource( 65 ), "DrawBow", "Move", SubResource( 66 ), "DrawBow", "HoldBow", SubResource( 76 ) ]
 start_node = "Idle"
 graph_offset = Vector2( -55.0501, 63.6597 )
 
@@ -338,6 +529,14 @@ vframes = 21
 frame = 144
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/DrawBowDown = SubResource( 50 )
+anims/DrawBowLeft = SubResource( 51 )
+anims/DrawBowRight = SubResource( 52 )
+anims/DrawBowUp = SubResource( 53 )
+anims/HoldBowDown = SubResource( 67 )
+anims/HoldBowLeft = SubResource( 68 )
+anims/HoldBowRight = SubResource( 69 )
+anims/HoldBowUp = SubResource( 70 )
 anims/IdleDown = SubResource( 11 )
 anims/IdleLeft = SubResource( 9 )
 anims/IdleRight = SubResource( 6 )
@@ -357,6 +556,8 @@ tree_root = SubResource( 7 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 8 )
+parameters/DrawBow/blend_position = Vector2( 0, 0 )
+parameters/HoldBow/blend_position = Vector2( 0, 0 )
 parameters/Idle/blend_position = Vector2( 0.253571, -1.55172 )
 parameters/Move/blend_position = Vector2( 0, -1.55172 )
 parameters/MoveReverse/blend_position = Vector2( 0, 0 )
