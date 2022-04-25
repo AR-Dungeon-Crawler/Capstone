@@ -1,7 +1,8 @@
-[gd_scene load_steps=110 format=2]
+[gd_scene load_steps=111 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/grey-tilemap-16.png" type="Texture" id=2]
+[ext_resource path="res://World/Room.gd" type="Script" id=3]
 [ext_resource path="res://Enemies/Bat.gd" type="Script" id=4]
 [ext_resource path="res://Enemies/Bat.tscn" type="PackedScene" id=5]
 
@@ -1015,6 +1016,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 2/z_index = 0
 
 [node name="Room" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
