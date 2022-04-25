@@ -222,29 +222,29 @@ tracks/0/keys = {
 "values": [ 144 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=25]
+[sub_resource type="AnimationNodeAnimation" id=46]
 animation = "IdleDown"
 
-[sub_resource type="AnimationNodeAnimation" id=26]
+[sub_resource type="AnimationNodeAnimation" id=47]
 animation = "IdleLeft"
 
-[sub_resource type="AnimationNodeAnimation" id=27]
+[sub_resource type="AnimationNodeAnimation" id=48]
 animation = "IdleUp"
 
-[sub_resource type="AnimationNodeAnimation" id=28]
+[sub_resource type="AnimationNodeAnimation" id=49]
 animation = "IdleRight"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id=12]
-blend_point_0/node = SubResource( 25 )
-blend_point_0/pos = Vector2( 160, 180 )
-blend_point_1/node = SubResource( 26 )
-blend_point_1/pos = Vector2( 0, 90 )
-blend_point_2/node = SubResource( 27 )
-blend_point_2/pos = Vector2( 160, 0 )
-blend_point_3/node = SubResource( 28 )
-blend_point_3/pos = Vector2( 320, 90 )
-min_space = Vector2( 0, 0 )
-max_space = Vector2( 320, 180 )
+blend_point_0/node = SubResource( 46 )
+blend_point_0/pos = Vector2( 0, 90 )
+blend_point_1/node = SubResource( 47 )
+blend_point_1/pos = Vector2( -160, 0 )
+blend_point_2/node = SubResource( 48 )
+blend_point_2/pos = Vector2( 0, -90 )
+blend_point_3/node = SubResource( 49 )
+blend_point_3/pos = Vector2( 160, 0 )
+min_space = Vector2( -160, -90 )
+max_space = Vector2( 160, 90 )
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id=29]
@@ -261,15 +261,15 @@ animation = "MoveRight"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id=21]
 blend_point_0/node = SubResource( 29 )
-blend_point_0/pos = Vector2( 160, 180 )
+blend_point_0/pos = Vector2( 0, 90 )
 blend_point_1/node = SubResource( 30 )
-blend_point_1/pos = Vector2( 0, 90 )
+blend_point_1/pos = Vector2( -160, 0 )
 blend_point_2/node = SubResource( 31 )
-blend_point_2/pos = Vector2( 160, 0 )
+blend_point_2/pos = Vector2( 0, -90 )
 blend_point_3/node = SubResource( 32 )
-blend_point_3/pos = Vector2( 320, 90 )
-min_space = Vector2( 0, 0 )
-max_space = Vector2( 320, 180 )
+blend_point_3/pos = Vector2( 160, 0 )
+min_space = Vector2( -160, -90 )
+max_space = Vector2( 160, 90 )
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id=37]
@@ -357,8 +357,8 @@ tree_root = SubResource( 7 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 8 )
-parameters/Idle/blend_position = Vector2( 160, 89.2241 )
-parameters/Move/blend_position = Vector2( 159.746, 82.1965 )
+parameters/Idle/blend_position = Vector2( 0.253571, -1.55172 )
+parameters/Move/blend_position = Vector2( 0, -1.55172 )
 parameters/MoveReverse/blend_position = Vector2( 0, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

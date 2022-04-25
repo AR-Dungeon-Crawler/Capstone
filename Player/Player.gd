@@ -25,7 +25,7 @@ func _physics_process(delta):
 	input_vector.y = Input.get_action_strength(C.down) - Input.get_action_strength(C.up)
 	input_vector = input_vector.normalized()
 	
-	var mouse_loc = get_viewport().get_mouse_position()
+	var mouse_loc = get_viewport().get_mouse_position() - Vector2(C.width/2, C.height/2)
 	
 	animationTree.set(C.idleBlend, mouse_loc)
 	animationTree.set(C.moveBlend, mouse_loc)
