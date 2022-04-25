@@ -9,7 +9,7 @@ onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get(C.playback)
 
-# What does this do?
+# What does this do? This makes the location of player available globally
 func _ready():
 	C.player = self
 

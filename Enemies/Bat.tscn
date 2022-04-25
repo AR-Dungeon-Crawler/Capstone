@@ -42,7 +42,7 @@ collision_layer = 7
 position = Vector2( 7, 15 )
 frames = SubResource( 6 )
 animation = "Fly"
-frame = 4
+frame = 1
 playing = true
 offset = Vector2( 0, -12 )
 
