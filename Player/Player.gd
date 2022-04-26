@@ -9,6 +9,7 @@ var velocity = Vector2.ZERO
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get(C.playback)
+onready var animationRoot = animationTree.get("tree_root")
 
 
 func _ready():
@@ -32,11 +33,14 @@ func _physics_process(delta):
 	
 	# Fire the arrow
 	if Input.is_action_just_released("i_shoot"):
-		var arrow = Arrow.instance()
-		get_parent().add_child(arrow)
-		arrow.dest = mouse_loc.normalized()
-		arrow.look_at(mouse_loc.normalized())  # rotates the sprite
-		arrow.position = position + mouse_loc.normalized() * arrow.offset
+		animationRoot.get_node("DrawBow").blend_mode = 1
+		if animationState.get_current_node() == "HoldBow":
+			animationState.travel("Idle")  # don't wait to reset animation state
+			var arrow = Arrow.instance()
+			get_parent().add_child(arrow)
+			arrow.dest = mouse_loc.normalized()
+			arrow.look_at(mouse_loc.normalized())  # rotates the sprite
+			arrow.position = position + mouse_loc.normalized() * arrow.offset
 	
 	# Load the arrow
 	elif Input.is_action_pressed("i_shoot"):
