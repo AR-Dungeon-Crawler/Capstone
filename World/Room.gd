@@ -16,15 +16,7 @@ func setup() -> void:
 #	var temp_path = str(OS.get_executable_path().get_base_dir()) + "/dungeon.txt"
 #	var img2grid_path = str(OS.get_executable_path().get_base_dir()) + "/PhotoToGrid.exe"
 
-	OS.shell_open(img2grid_path)
-
 	var file = File.new()
-	
-	while !file.file_exists(temp_path):
-		continue
-	
-	yield(get_tree().create_timer(0.25), "timeout")
-
 	file.open(temp_path, file.READ)
 	
 	_tile_map.clear()

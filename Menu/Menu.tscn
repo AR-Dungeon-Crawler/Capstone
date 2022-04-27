@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Menu/Menu.gd" type="Script" id=1]
+[ext_resource path="res://Menu/grid.jpg" type="Texture" id=2]
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.160784, 0.290196, 0.8, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+margin_top = -35.0
+margin_right = 325.0
+margin_bottom = 316.0
+texture = ExtResource( 2 )
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CenterContainer2" type="CenterContainer" parent="MarginContainer"]
+margin_right = 320.0
+margin_bottom = 180.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/CenterContainer2"]
+margin_left = 115.0
+margin_top = 68.0
+margin_right = 204.0
+margin_bottom = 112.0
+
+[node name="StartButton" type="Button" parent="MarginContainer/CenterContainer2/VBoxContainer2"]
+margin_right = 89.0
+margin_bottom = 20.0
+text = "Start"
+
+[node name="Instructions" type="Button" parent="MarginContainer/CenterContainer2/VBoxContainer2"]
+margin_top = 24.0
+margin_right = 89.0
+margin_bottom = 44.0
+text = "Instructions"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -64.0
+margin_top = 3.0
+margin_right = 65.0
+margin_bottom = 43.0
+
+[connection signal="pressed" from="MarginContainer/CenterContainer2/VBoxContainer2/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer2/VBoxContainer2/Instructions" to="." method="_on_Instructions_pressed"]
