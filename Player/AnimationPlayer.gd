@@ -12,4 +12,3 @@ func advance_node():
 	
 func set_carry():
 	animationRoot.get_node("DrawBow").blend_mode = 2
-	print(animationRoot.get_node("DrawBow").blend_mode)
