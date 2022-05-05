@@ -5,6 +5,7 @@ onready var C = constants
 var Arrow = preload("res://Player/Arrow.tscn")
 
 var velocity = Vector2.ZERO
+export var spread : float = 0.1
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
@@ -38,9 +39,9 @@ func _physics_process(delta):
 			animationState.travel("Idle")  # don't wait to reset animation state
 			var arrow = Arrow.instance()
 			get_parent().add_child(arrow)
-			arrow.dest = mouse_loc.normalized()
-			arrow.look_at(mouse_loc.normalized())  # rotates the sprite
-			arrow.position = position + mouse_loc.normalized() * arrow.offset
+			arrow.dest = mouse_loc.normalized().rotated(rand_range(-spread, spread))
+			arrow.look_at(arrow.dest)  # rotates the sprite
+			arrow.position = position + arrow.dest * arrow.offset
 	
 	# Load the arrow
 	elif Input.is_action_pressed("i_shoot"):
