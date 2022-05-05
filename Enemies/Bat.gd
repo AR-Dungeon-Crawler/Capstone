@@ -20,3 +20,7 @@ func _on_Timer_timeout():
 	get_parent().add_child(f_ball)
 	f_ball.dir = dir
 	f_ball.position = position + dir * offset
+
+
+func _on_Hurtbox_area_entered(area):
+	queue_free()
