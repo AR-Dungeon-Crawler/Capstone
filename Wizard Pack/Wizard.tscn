@@ -8,7 +8,7 @@
 [sub_resource type="AnimatedTexture" id=111]
 
 [sub_resource type="CapsuleShape2D" id=107]
-radius = 13.0
+radius = 10.168
 height = 24.0
 
 [sub_resource type="Animation" id=115]
@@ -33,11 +33,14 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1.5, 1.7, 1.701 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 1.5, 1.6, 1.7, 1.701 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "left_attack_box_on"
+}, {
+"args": [  ],
+"method": "create_stars"
 }, {
 "args": [  ],
 "method": "attack_animation_finished"
@@ -176,6 +179,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimationPlayer:playback_speed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
 
 [sub_resource type="Animation" id=110]
 resource_name = "RunRight"
@@ -210,12 +225,9 @@ states/Idle/position = Vector2( 434.2, 127.8 )
 position = Vector2( -1, -1 )
 collision_layer = 2
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 5, -3 )
+position = Vector2( 4.832, -18.5 )
 scale = Vector2( 0.552658, 0.552632 )
 texture = ExtResource( 1 )
 normal_map = SubResource( 111 )
@@ -224,7 +236,7 @@ vframes = 6
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 4 )
+position = Vector2( -0.167999, -11.5 )
 shape = SubResource( 107 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -243,12 +255,14 @@ parameters/playback = SubResource( 114 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
 
 [node name="HurtBox" type="Area2D" parent="."]
+position = Vector2( -0.167999, -15.5 )
 collision_layer = 2
 
 [node name="HurtCollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource( 117 )
 
 [node name="HitBoxPivot" type="Position2D" parent="."]
+position = Vector2( -0.167999, -15.5 )
 
 [node name="HitBoxP" type="Area2D" parent="HitBoxPivot"]
 position = Vector2( -10, 0 )

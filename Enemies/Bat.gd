@@ -23,4 +23,13 @@ func _on_Timer_timeout():
 
 
 func _on_Hurtbox_area_entered(area):
+	create_hit_effect()
 	queue_free()
+
+const HitEffect = preload("res://Wizard Pack/HitEffectSmall.tscn")
+	
+func create_hit_effect():
+	var hitEffect = HitEffect.instance()
+	var world = get_tree().current_scene
+	world.add_child(hitEffect)
+	hitEffect.global_position = get_node("Hurtbox/CollisionShape2D").global_position

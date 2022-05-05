@@ -1037,5 +1037,3 @@ position = Vector2( 71, 49 )
 [node name="Timer" type="Timer" parent="Bat"]
 wait_time = 3.0
 autostart = true
-
-[connection signal="timeout" from="Bat/Timer" to="Bat" method="_on_Timer_timeout"]

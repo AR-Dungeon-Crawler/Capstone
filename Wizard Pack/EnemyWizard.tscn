@@ -7,7 +7,8 @@
 [sub_resource type="AnimatedTexture" id=111]
 
 [sub_resource type="CapsuleShape2D" id=107]
-height = 8.0
+radius = 4.0
+height = 4.0
 
 [sub_resource type="Animation" id=115]
 resource_name = "Attack"
@@ -201,20 +202,19 @@ states/Idle/position = Vector2( 434.2, 127.8 )
 [sub_resource type="AnimationNodeStateMachinePlayback" id=114]
 
 [sub_resource type="CapsuleShape2D" id=117]
-radius = 12.0
+radius = 5.0
+height = 10.0
 
 [sub_resource type="CircleShape2D" id=118]
+radius = 6.01275
 
 [node name="EnemyWizard" type="KinematicBody2D"]
 position = Vector2( -1, -1 )
 collision_layer = 2
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="SpriteE" type="Sprite" parent="."]
-position = Vector2( 5, -3 )
+position = Vector2( 5.832, -19.5 )
 scale = Vector2( 0.552658, 0.552632 )
 texture = ExtResource( 2 )
 normal_map = SubResource( 111 )
@@ -223,7 +223,7 @@ vframes = 6
 frame = 1
 
 [node name="CollisionShape2DE" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 4 )
+position = Vector2( 1, -7 )
 shape = SubResource( 107 )
 
 [node name="AnimationPlayerE" type="AnimationPlayer" parent="."]
@@ -242,12 +242,15 @@ parameters/playback = SubResource( 114 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
 
 [node name="HurtBoxE" type="Area2D" parent="."]
+position = Vector2( 0.832001, -16.5 )
 monitorable = false
 
 [node name="HurtCollisionShape2DE" type="CollisionShape2D" parent="HurtBoxE"]
+position = Vector2( 0.167999, 0.499962 )
 shape = SubResource( 117 )
 
 [node name="HitBoxPivotE" type="Position2D" parent="."]
+position = Vector2( 0.832001, -16.5 )
 
 [node name="HitBoxE" type="Area2D" parent="HitBoxPivotE"]
 position = Vector2( -10, 0 )

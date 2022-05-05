@@ -20,6 +20,7 @@ animations = [ {
 } ]
 
 [node name="HitEffect" type="AnimatedSprite"]
+z_index = 2
 frames = SubResource( 3 )
 animation = "Animate"
 script = ExtResource( 1 )
