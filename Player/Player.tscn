@@ -583,8 +583,8 @@ graph_offset = Vector2( -55.0501, 63.6597 )
 [sub_resource type="AnimationNodeStateMachinePlayback" id=8]
 
 [sub_resource type="CapsuleShape2D" id=24]
-radius = 3.0
-height = 0.0
+radius = 2.99999
+height = 6.00002
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
