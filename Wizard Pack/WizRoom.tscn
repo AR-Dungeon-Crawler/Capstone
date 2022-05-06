@@ -1,10 +1,9 @@
-[gd_scene load_steps=114 format=2]
+[gd_scene load_steps=112 format=2]
 
 [ext_resource path="res://World/grey-tilemap-16.png" type="Texture" id=1]
-[ext_resource path="res://Wizard Pack/EnemyWizard.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Wizard Pack/Wizard.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Wizard Pack/EnemyWizard.gd" type="Script" id=4]
-[ext_resource path="res://Wizard Pack/Wizard.gd" type="Script" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 16, 4, 4, 4, 4, 12, 16, 12, 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -1015,8 +1014,6 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 2/shapes = [  ]
 2/z_index = 0
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=108]
-
 [sub_resource type="Animation" id=110]
 resource_name = "Staff"
 length = 1.4
@@ -1070,47 +1067,6 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -262141, 0, 0, -262140, 0, 1, -262139, 0, 1, -262138, 0, 1, -262137, 0, 1, -262136, 0, 1, -262135, 0, 1, -262134, 0, 1, -262133, 0, 1, -262132, 0, 1, -262131, 0, 1, -262130, 0, 1, -262129, 0, 1, -262128, 0, 1, -262127, 0, 2, -196605, 0, 65536, -196604, 0, 65537, -196603, 0, 65537, -196602, 0, 65537, -196601, 0, 65537, -196600, 0, 65537, -196599, 0, 65537, -196598, 0, 65537, -196597, 0, 65537, -196596, 0, 65537, -196595, 0, 65537, -196594, 0, 65537, -196593, 0, 65537, -196592, 0, 65537, -196591, 0, 65538, -131069, 0, 65536, -131068, 0, 65537, -131067, 0, 65541, -131066, 0, 131073, -131065, 0, 131073, -131064, 0, 131073, -131063, 0, 131073, -131062, 0, 131073, -131061, 0, 131073, -131060, 0, 131073, -131059, 0, 131073, -131058, 0, 131073, -131057, 0, 65542, -131056, 0, 65537, -131055, 0, 65538, -65533, 0, 65536, -65532, 0, 65537, -65531, 0, 65538, -65521, 0, 65536, -65520, 0, 65537, -65519, 0, 65538, 3, 0, 65536, 4, 0, 65537, 5, 0, 65538, 7, 0, 0, 8, 0, 1, 9, 0, 1, 10, 0, 1, 11, 0, 1, 12, 0, 1, 13, 0, 2, 15, 0, 65536, 16, 0, 65537, 17, 0, 65538, 65539, 0, 65536, 65540, 0, 65537, 65541, 0, 65538, 65543, 0, 65536, 65544, 0, 65537, 65545, 0, 65537, 65546, 0, 65537, 65547, 0, 65537, 65548, 0, 65537, 65549, 0, 65538, 65551, 0, 65536, 65552, 0, 65537, 65553, 0, 65538, 131075, 0, 65536, 131076, 0, 65537, 131077, 0, 65538, 131079, 0, 65536, 131080, 0, 65537, 131081, 0, 65537, 131082, 0, 65537, 131083, 0, 65537, 131084, 0, 65537, 131085, 0, 65538, 131087, 0, 65536, 131088, 0, 65537, 131089, 0, 65538, 196611, 0, 65536, 196612, 0, 65537, 196613, 0, 65538, 196615, 0, 131072, 196616, 0, 65542, 196617, 0, 65537, 196618, 0, 65541, 196619, 0, 131073, 196620, 0, 131073, 196621, 0, 131074, 196623, 0, 65536, 196624, 0, 65537, 196625, 0, 65538, 262147, 0, 65536, 262148, 0, 65537, 262149, 0, 65538, 262152, 0, 65536, 262153, 0, 65537, 262154, 0, 65538, 262159, 0, 65536, 262160, 0, 65537, 262161, 0, 65538, 327683, 0, 65536, 327684, 0, 65537, 327685, 0, 131077, 327686, 0, 1, 327687, 0, 1, 327688, 0, 131078, 327689, 0, 65537, 327690, 0, 131077, 327691, 0, 1, 327692, 0, 1, 327693, 0, 1, 327694, 0, 1, 327695, 0, 131078, 327696, 0, 65537, 327697, 0, 65538, 393219, 0, 65536, 393220, 0, 65537, 393221, 0, 65537, 393222, 0, 65537, 393223, 0, 65537, 393224, 0, 65537, 393225, 0, 65537, 393226, 0, 65537, 393227, 0, 65537, 393228, 0, 65537, 393229, 0, 65537, 393230, 0, 65537, 393231, 0, 65537, 393232, 0, 65537, 393233, 0, 65538, 458755, 0, 131072, 458756, 0, 131073, 458757, 0, 131073, 458758, 0, 131073, 458759, 0, 131073, 458760, 0, 131073, 458761, 0, 131073, 458762, 0, 131073, 458763, 0, 131073, 458764, 0, 131073, 458765, 0, 131073, 458766, 0, 131073, 458767, 0, 131073, 458768, 0, 131073, 458769, 0, 131074 )
 
-[node name="PlayableWizard" parent="." instance=ExtResource( 2 )]
-position = Vector2( 84, 83 )
-z_index = 1
-collision_layer = 1
-collision_mask = 13
-script = ExtResource( 5 )
-
-[node name="SpriteE" parent="PlayableWizard" index="0"]
-scale = Vector2( 0.4, 0.38 )
-
-[node name="CollisionShape2DE" parent="PlayableWizard" index="1"]
-position = Vector2( 2, -11 )
-
-[node name="AnimationTreeE" parent="PlayableWizard" index="3"]
-parameters/playback = SubResource( 108 )
-
-[node name="HurtBoxE" parent="PlayableWizard" index="4"]
-collision_layer = 2
-collision_mask = 12
-
-[node name="HurtCollisionShape2DE" parent="PlayableWizard/HurtBoxE" index="0"]
-position = Vector2( 1.168, 0.499962 )
-scale = Vector2( 1.00188, 1.008 )
-
-[node name="HitBoxE" parent="PlayableWizard/HitBoxPivotE" index="0"]
-collision_layer = 16
-collision_mask = 5
-
-[node name="HitCollisionShape2DE" parent="PlayableWizard/HitBoxPivotE/HitBoxE" index="0"]
-position = Vector2( 37.995, -9.305 )
-
-[node name="HitBox2E" parent="PlayableWizard/HitBoxPivotE" index="1"]
-collision_layer = 16
-collision_mask = 5
-
-[node name="LHitCollisionShape2DE" parent="PlayableWizard/HitBoxPivotE/HitBox2E" index="0"]
-position = Vector2( -8.242, -9.124 )
-
-[node name="Camera2D" type="Camera2D" parent="PlayableWizard"]
-current = true
-
 [node name="EnemyWizard" parent="." instance=ExtResource( 3 )]
 position = Vector2( 188, 28 )
 z_index = 1
@@ -1125,8 +1081,8 @@ anims/Staff = SubResource( 110 )
 parameters/playback = SubResource( 109 )
 
 [node name="HurtBox" parent="EnemyWizard" index="4"]
-collision_layer = 4
-collision_mask = 3
+collision_layer = 256
+collision_mask = 16
 
 [node name="Position2D" type="Position2D" parent="EnemyWizard/HitBoxPivot/HitBoxP" index="1"]
 position = Vector2( 43, -20 )
@@ -1137,5 +1093,11 @@ position = Vector2( -13.834, -20.059 )
 [node name="Position2D" type="Position2D" parent="EnemyWizard/HitBoxPivot/HitBox2" index="1"]
 position = Vector2( -12.173, -21.229 )
 
-[editable path="PlayableWizard"]
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 157, 100 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+zoom = Vector2( 0.9, 0.9 )
+
 [editable path="EnemyWizard"]

@@ -126,7 +126,7 @@ func left_attack_box_off():
 const HitEffect = preload("res://Wizard Pack/HitEffect.tscn")
 var vortex = preload("res://Wizard Pack/VortexArea.tscn")
 var stars = preload("res://Wizard Pack/Stars.tscn")
-onready var player = get_parent().get_node("PlayableWizard")
+onready var player = get_parent().get_node("Player")
 
 func create_vortex():
 	var vortex1 = vortex.instance()
@@ -154,7 +154,15 @@ var diagonal_array = \
 	Vector2(1,1),
 	Vector2(1,-1),
 	Vector2(-1,1),
-	Vector2(-1,-1) \
+	Vector2(-1,-1),
+	Vector2(1,0.5),
+	Vector2(0.5, 1),
+	Vector2(-0.5,1),
+	Vector2(-1, 0.5),
+	Vector2(-1,-0.5),
+	Vector2(-0.5,-1),
+	Vector2(0.5,-1),
+	Vector2(1,0.5) \
 	]
 func create_stars():
 	var spawn
@@ -180,21 +188,21 @@ func create_hit_effect():
 	world.add_child(hitEffect)
 	hitEffect.global_position = get_node("HurtBox/HurtCollisionShape2D").global_position
 
-var stagger = 2
-var hits_to_vortex = 8
+var stagger = 12
+var hits_to_vortex = 30
 func _on_HurtBox_area_entered(area):
 	create_hit_effect()
 	stagger -= 1
 	hits_to_vortex -= 1
 	if stagger <= 0:
-		stagger = 2
+		stagger = 12
 		if stats.health <= 1:
 			stats.health -= 1
 			return
 		stats.health -= 1
 		state = HURT
 	elif hits_to_vortex <= 0 and stagger <= 0:
-		stagger = 2
+		stagger = 12
 		if stats.health <=1:
 			stats.health -= 1
 			return

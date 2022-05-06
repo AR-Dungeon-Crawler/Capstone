@@ -4,6 +4,14 @@ var dir = Vector2()
 var player
 var fireball = preload("res://Fireball/Fireball.tscn")
 var offset = 20
+onready var room = get_tree().current_scene
+
+func check_enemy_numbers():
+	var enemy_number = (get_tree().get_nodes_in_group("Enemy").size())
+	print(enemy_number)
+	if enemy_number <= 1:
+		get_tree().change_scene("res://Wizard Pack/WizRoom.tscn")
+
 func _ready():
 	player = constants.player
 	
@@ -24,7 +32,9 @@ func _on_Timer_timeout():
 
 func _on_Hurtbox_area_entered(area):
 	create_hit_effect()
+	check_enemy_numbers()
 	queue_free()
+	
 
 const HitEffect = preload("res://Wizard Pack/HitEffectSmall.tscn")
 	
