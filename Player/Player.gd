@@ -5,10 +5,13 @@ onready var C = constants
 var Arrow = preload("res://Player/Arrow.tscn")
 
 var velocity = Vector2.ZERO
-export var spread : float = 0.1
+export var spread : float = 1
+export var attack_cooldown : float = 0.5
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
+onready var stopwatch = $Stopwatch
+onready var cooldown = $Cooldown
 onready var animationState = animationTree.get(C.playback)
 onready var animationRoot = animationTree.get("tree_root")
 
@@ -34,17 +37,27 @@ func _physics_process(delta):
 	
 	# Fire the arrow
 	if Input.is_action_just_released("i_shoot"):
+		stopwatch.stop_stopwatch()
+		if cooldown.time_elapsed < attack_cooldown:  # an arrow can only be fired twice a second
+			return
+		cooldown.start_stopwatch()
+		spread = spread - stopwatch.time_elapsed * 2  # speeds up the accuracy calibration
+		if spread < 0:
+			spread = 0
 		animationRoot.get_node("DrawBow").blend_mode = 1
-		if animationState.get_current_node() == "HoldBow":
-			animationState.travel("Idle")  # don't wait to reset animation state
-			var arrow = Arrow.instance()
-			get_parent().add_child(arrow)
-			arrow.dest = mouse_loc.normalized().rotated(rand_range(-spread, spread))
-			arrow.look_at(arrow.dest)  # rotates the sprite
-			arrow.position = position + arrow.dest * arrow.offset
+		#if animationState.get_current_node() == "HoldBow":
+		animationState.travel("Idle")  # don't wait to reset animation state
+		var arrow = Arrow.instance()
+		get_parent().add_child(arrow)
+		arrow.dest = mouse_loc.normalized().rotated(rand_range(-spread, spread))
+		arrow.look_at(arrow.dest)  # rotates the sprite
+		arrow.position = position + arrow.dest * arrow.offset
 	
 	# Load the arrow
 	elif Input.is_action_pressed("i_shoot"):
+		if stopwatch.running == false:
+			spread = 1
+			stopwatch.start_stopwatch()
 		var current_node = animationState.get_current_node()
 		# Only play draw animation if not currently drawing (prevents unwanted animation loops)
 		if current_node == "Move" or current_node == "Idle":
