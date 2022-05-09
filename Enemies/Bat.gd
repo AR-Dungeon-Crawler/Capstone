@@ -1,9 +1,13 @@
 extends KinematicBody2D
 
+onready var line2D = $Line2D
 var dir = Vector2()
 var player
 var fireball = preload("res://Fireball/Fireball.tscn")
 var offset = 20
+var velocity = Vector2.ZERO
+var path = []
+var nav = null
 onready var room = get_tree().current_scene
 
 func check_enemy_numbers():
@@ -14,11 +18,35 @@ func check_enemy_numbers():
 
 func _ready():
 	player = constants.player
+	yield(owner, "ready")
+	nav = owner.nav
 	
 func _physics_process(delta):
-	dir = get_dir(player)
-	move_and_slide(dir * constants.MAX_SPEED / 4)
-	
+	line2D.global_position = Vector2.ZERO
+	print(player)
+	if player:
+		generate_path()
+		navigate()
+	move()
+
+func navigate():	# Define the next position to go to
+	if path.size() > 0:
+		velocity = global_position.direction_to(path[1]) * constants.MAX_SPEED
+		
+		# If reached the destination, remove this point from path array
+		if global_position == path[0]:
+			path.remove(0)
+		
+func generate_path():	# It's obvious
+	print(nav)
+	if nav != null and player != null:
+		path = nav.get_simple_path(global_position, player.global_position, true)
+		print(path)
+		line2D.points = path
+		
+func move():
+	velocity = move_and_slide(velocity, Vector2(0, 0))
+
 func get_dir(target):
 	return (target.position - position).normalized()
 
