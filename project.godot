@@ -96,6 +96,7 @@ i_shoot={
 2d_physics/layer_5="ArrowHitbox"
 2d_physics/layer_6="PlayerHurtbox"
 2d_physics/layer_7="EnemyHurtbox"
+2d_physics/layer_8="Chest"
 
 [physics]
 
