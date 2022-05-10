@@ -7,6 +7,8 @@ var Arrow = preload("res://Player/Arrow.tscn")
 var velocity = Vector2.ZERO
 export var spread : float = 1
 export var attack_cooldown : float = 0.5
+export var arrow_count : int = 1
+var added_spread : float = 0.1
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
@@ -37,21 +39,31 @@ func _physics_process(delta):
 	
 	# Fire the arrow
 	if Input.is_action_just_released("i_shoot"):
-		stopwatch.stop_stopwatch()
+		# Start cooldown on firing
 		if cooldown.time_elapsed < attack_cooldown:  # an arrow can only be fired twice a second
 			return
-		cooldown.start_stopwatch()
+		cooldown.start_stopwatch()  # resets the cooldown timer
+		
+		# Check how long bow was drawn for accuracy
+		stopwatch.stop_stopwatch()
 		spread = spread - stopwatch.time_elapsed * 2  # speeds up the accuracy calibration
 		if spread < 0:
 			spread = 0
+			
+		# Manually adjust some animation attributes (needed to fix some graphical issues)
 		animationRoot.get_node("DrawBow").blend_mode = 1
-		#if animationState.get_current_node() == "HoldBow":
 		animationState.travel("Idle")  # don't wait to reset animation state
-		var arrow = Arrow.instance()
-		get_parent().add_child(arrow)
-		arrow.dest = mouse_loc.normalized().rotated(rand_range(-spread, spread))
-		arrow.look_at(arrow.dest)  # rotates the sprite
-		arrow.position = position + arrow.dest * arrow.offset
+		
+		# Create arrow entities and fire toward mouse
+		for i in range(arrow_count):
+			var arrow = Arrow.instance()
+			get_parent().add_child(arrow)
+			arrow.dest = mouse_loc.normalized().rotated(
+				# Each additional arrow has increased spread range
+				rand_range(-spread - added_spread * i, spread + added_spread * i)
+				)
+			arrow.look_at(arrow.dest)  # rotates the sprite
+			arrow.position = position + arrow.dest * arrow.offset
 	
 	# Load the arrow
 	elif Input.is_action_pressed("i_shoot"):
