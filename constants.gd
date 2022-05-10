@@ -1,8 +1,8 @@
 extends Node
 
 var player
-const ACCELERATION = 500
-const MAX_SPEED = 40
+var ACCELERATION = 500
+var MAX_SPEED = 40
 const FRICTION = 500
 
 # Screen dimensions (type: int)

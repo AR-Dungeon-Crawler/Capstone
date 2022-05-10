@@ -9,6 +9,7 @@ export var spread : float = 1
 export var attack_cooldown : float = 0.5
 export var arrow_count : int = 1
 var added_spread : float = 0.1
+var powerups = ['arrow', 'accuracy', 'movespeed']
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
@@ -19,6 +20,7 @@ onready var animationRoot = animationTree.get("tree_root")
 
 
 func _ready():
+	randomize()
 	C.player = self
 
 
@@ -46,29 +48,20 @@ func _physics_process(delta):
 		
 		# Check how long bow was drawn for accuracy
 		stopwatch.stop_stopwatch()
-		spread = spread - stopwatch.time_elapsed * 2  # speeds up the accuracy calibration
-		if spread < 0:
-			spread = 0
+		var shot_spread = spread - stopwatch.time_elapsed * 2  # speeds up the accuracy calibration
+		if shot_spread < 0:
+			shot_spread = 0
 			
 		# Manually adjust some animation attributes (needed to fix some graphical issues)
 		animationRoot.get_node("DrawBow").blend_mode = 1
 		animationState.travel("Idle")  # don't wait to reset animation state
 		
 		# Create arrow entities and fire toward mouse
-		for i in range(arrow_count):
-			var arrow = Arrow.instance()
-			get_parent().add_child(arrow)
-			arrow.dest = mouse_loc.normalized().rotated(
-				# Each additional arrow has increased spread range
-				rand_range(-spread - added_spread * i, spread + added_spread * i)
-				)
-			arrow.look_at(arrow.dest)  # rotates the sprite
-			arrow.position = position + arrow.dest * arrow.offset
+		fire_arrows(mouse_loc, shot_spread)
 	
 	# Load the arrow
 	elif Input.is_action_pressed("i_shoot"):
 		if stopwatch.running == false:
-			spread = 1
 			stopwatch.start_stopwatch()
 		var current_node = animationState.get_current_node()
 		# Only play draw animation if not currently drawing (prevents unwanted animation loops)
@@ -88,6 +81,18 @@ func _physics_process(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, C.FRICTION * delta)
 		
 	move_and_slide(velocity)
+	
+	
+func fire_arrows(mouse_loc, shot_spread):
+	for i in range(arrow_count):
+			var arrow = Arrow.instance()
+			get_parent().add_child(arrow)
+			arrow.dest = mouse_loc.normalized().rotated(
+				# Each additional arrow has increased spread range
+				rand_range(-shot_spread - added_spread * i, shot_spread + added_spread * i)
+				)
+			arrow.look_at(arrow.dest)  # rotates the sprite
+			arrow.position = position + arrow.dest * arrow.offset
 		
 	
 func update_animation_blends(mouse_loc):
@@ -99,3 +104,19 @@ func update_animation_blends(mouse_loc):
 	animationTree.set(C.moveReverseBlend, mouse_loc)
 	animationTree.set(C.drawBowBlend, mouse_loc)
 	animationTree.set(C.holdBowBlend, mouse_loc)
+
+
+func _on_Hitbox_area_entered(area):
+	if area.get_parent().is_in_group('Chest'):
+		var power = powerups[randi() % powerups.size()]
+		if power == 'arrow':
+			print('arrow')
+			arrow_count += 1
+		if power == 'movespeed':
+			print('maxspeed')
+			C.MAX_SPEED *= 1.2
+			C.ACCELERATION *= 1.2
+		if power == 'accuracy':
+			print('accuracy')
+			spread -= 0.1
+		
