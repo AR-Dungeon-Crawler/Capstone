@@ -40,7 +40,7 @@ func navigate():	# Define the next position to go to
 func generate_path():	# It's obvious
 	print(nav)
 	if nav != null and player != null:
-		path = nav.get_simple_path(global_position, player.global_position, true)
+		path = nav.get_simple_path(global_position, player.global_position, false)
 		print(path)
 		line2D.points = path
 		
