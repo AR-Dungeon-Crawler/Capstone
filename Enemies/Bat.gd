@@ -9,8 +9,8 @@ var fireball = preload("res://Fireball/Fireball.tscn")
 var Chest = preload("res://World/Chest.tscn")
 var offset = 20
 var velocity = Vector2.ZERO
-var path = []
-var nav = null
+var path: Array = []
+var levelNavigation: Navigation2D = null
 onready var room = get_tree().current_scene
 
 func check_enemy_numbers():
@@ -20,13 +20,18 @@ func check_enemy_numbers():
 
 func _ready():
 	player = constants.player
-	yield(owner, "ready")
-	nav = owner.nav
+	yield(get_tree(), "idle_frame")
+	var tree = get_tree()
+	if tree.has_group("LevelNavigation"):
+		levelNavigation = tree.get_nodes_in_group("LevelNavigation")[0]
+	if tree.has_group("Player"):
+		player = tree.get_nodes_in_group("Player")[0]
+#	yield(owner, "ready")
 	randomize()
 	
 func _physics_process(delta):
 	# line2D.global_position = Vector2.ZERO  # for debugging
-	if player:
+	if player and levelNavigation:
 		generate_path()
 		navigate()
 	move()
@@ -37,11 +42,11 @@ func navigate():	# Define the next position to go to
 		
 		# If reached the destination, remove this point from path array
 		if global_position == path[0]:
-			path.remove(0)
+			path.pop_front()
 		
 func generate_path():	# It's obvious
-	if nav != null and player != null:
-		path = nav.get_simple_path(global_position, player.global_position, false)
+	if levelNavigation != null and player != null:
+		path = levelNavigation.get_simple_path(global_position, player.global_position, false)
 		# line2D.points = path  # for debugging
 		
 func move():

@@ -3,7 +3,7 @@
 
 extends Area2D
 
-var SPEED = 300
+var SPEED = 400
 var velocity = Vector2.ZERO
 var dest = Vector2()
 var offset = 10

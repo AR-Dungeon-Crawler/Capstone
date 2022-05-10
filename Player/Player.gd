@@ -18,6 +18,7 @@ onready var cooldown = $Cooldown
 onready var animationState = animationTree.get(C.playback)
 onready var animationRoot = animationTree.get("tree_root")
 
+var countDelta = 0
 
 func _ready():
 	randomize()
@@ -61,6 +62,7 @@ func _physics_process(delta):
 	
 	# Load the arrow
 	elif Input.is_action_pressed("i_shoot"):
+		countDelta += delta
 		if stopwatch.running == false:
 			stopwatch.start_stopwatch()
 		var current_node = animationState.get_current_node()
@@ -84,6 +86,9 @@ func _physics_process(delta):
 	
 	
 func fire_arrows(mouse_loc, shot_spread):
+	#countDelta makes arrow shoot faster if mouse is held longer.
+	if countDelta > 0.6:
+		countDelta = 1
 	for i in range(arrow_count):
 			var arrow = Arrow.instance()
 			get_parent().add_child(arrow)
@@ -91,8 +96,10 @@ func fire_arrows(mouse_loc, shot_spread):
 				# Each additional arrow has increased spread range
 				rand_range(-shot_spread - added_spread * i, shot_spread + added_spread * i)
 				)
+			arrow.SPEED = arrow.SPEED * (countDelta)
 			arrow.look_at(arrow.dest)  # rotates the sprite
 			arrow.position = position + arrow.dest * arrow.offset
+	countDelta = 0
 		
 	
 func update_animation_blends(mouse_loc):

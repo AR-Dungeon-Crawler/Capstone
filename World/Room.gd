@@ -1,6 +1,6 @@
 extends Node2D
 onready var _player : KinematicBody2D = $Player
-onready var _tile_map : TileMap = $TileMap
+onready var _tile_map : TileMap = $Navigation2D/TileMap
 onready var nav = $Navigation2D
 var enemyScene = load("res://Enemies/Bat.tscn")
 
