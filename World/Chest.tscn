@@ -39,7 +39,7 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 4, 3 )
 
-[node name="Chest" type="StaticBody2D"]
+[node name="Chest" type="StaticBody2D" groups=["Chest"]]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 2 )
@@ -48,7 +48,7 @@ script = ExtResource( 2 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
