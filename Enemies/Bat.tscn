@@ -49,7 +49,7 @@ script = ExtResource( 3 )
 position = Vector2( 7, 15 )
 frames = SubResource( 6 )
 animation = "Fly"
-frame = 2
+frame = 4
 playing = true
 offset = Vector2( 0, -12 )
 

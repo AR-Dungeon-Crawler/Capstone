@@ -1,10 +1,15 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://Player/player.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Player/AnimationPlayer.gd" type="Script" id=3]
 [ext_resource path="res://World/Stopwatch.tscn" type="PackedScene" id=4]
 [ext_resource path="res://World/Cooldown.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Hitbox/Hitbox.tscn" type="PackedScene" id=6]
+
+[sub_resource type="CapsuleShape2D" id=24]
+radius = 2.99999
+height = 6.00002
 
 [sub_resource type="Animation" id=50]
 resource_name = "DrawBowDown"
@@ -584,9 +589,8 @@ graph_offset = Vector2( -55.0501, 63.6597 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=8]
 
-[sub_resource type="CapsuleShape2D" id=24]
-radius = 2.99999
-height = 6.00002
+[sub_resource type="RectangleShape2D" id=78]
+extents = Vector2( 6.5, 11.5 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
@@ -598,6 +602,12 @@ texture = ExtResource( 1 )
 hframes = 13
 vframes = 21
 frame = 144
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, 12 )
+rotation = 1.5708
+shape = SubResource( 24 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/DrawBowDown = SubResource( 50 )
@@ -634,12 +644,17 @@ parameters/Idle/blend_position = Vector2( 0.253571, -1.55172 )
 parameters/Move/blend_position = Vector2( 0, -1.55172 )
 parameters/MoveReverse/blend_position = Vector2( 0, 0 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 12 )
-rotation = 1.5708
-shape = SubResource( 24 )
-
 [node name="Stopwatch" parent="." instance=ExtResource( 4 )]
 
 [node name="Cooldown" parent="." instance=ExtResource( 5 )]
 margin_bottom = 14.0
+
+[node name="Hitbox" parent="." instance=ExtResource( 6 )]
+collision_layer = 2
+collision_mask = 1
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2( -0.5, 2.5 )
+shape = SubResource( 78 )
+
+[editable path="Hitbox"]
