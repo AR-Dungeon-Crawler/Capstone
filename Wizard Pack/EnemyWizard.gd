@@ -188,8 +188,8 @@ func create_hit_effect():
 	world.add_child(hitEffect)
 	hitEffect.global_position = get_node("HurtBox/HurtCollisionShape2D").global_position
 
-var stagger = 12
-var hits_to_vortex = 30
+var stagger = 20
+var hits_to_vortex = 40
 func _on_HurtBox_area_entered(area):
 	create_hit_effect()
 	stagger -= 1
