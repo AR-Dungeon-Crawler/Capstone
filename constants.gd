@@ -5,6 +5,11 @@ var ACCELERATION = 500
 var MAX_SPEED = 40
 const FRICTION = 500
 
+# UI Elements
+var arrows = 1
+var speed = 0
+var accuracy = 0
+
 # Screen dimensions (type: int)
 var width = ProjectSettings.get("display/window/size/width")
 var height = ProjectSettings.get("display/window/size/height")

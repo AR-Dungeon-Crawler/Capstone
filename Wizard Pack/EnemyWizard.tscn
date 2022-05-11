@@ -1,20 +1,21 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Wizard Pack/EnemyWizard.gd" type="Script" id=1]
 [ext_resource path="res://Wizard Pack/fullsheet.png" type="Texture" id=2]
-[ext_resource path="res://Wizard Pack/Stats.gd" type="Script" id=3]
+[ext_resource path="res://Wizard Pack/StatsP.gd" type="Script" id=3]
+[ext_resource path="res://Wizard Pack/HitBox.gd" type="Script" id=4]
 
 [sub_resource type="AnimatedTexture" id=111]
 
 [sub_resource type="CapsuleShape2D" id=107]
-radius = 4.0
-height = 4.0
+radius = 12.168
+height = 24.664
 
 [sub_resource type="Animation" id=115]
 resource_name = "Attack"
 length = 1.7
 tracks/0/type = "value"
-tracks/0/path = NodePath("SpriteE:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -32,11 +33,14 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1.5, 1.7, 1.701 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 1.5, 1.6, 1.7, 1.701 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "left_attack_box_on"
+}, {
+"args": [  ],
+"method": "create_stars"
 }, {
 "args": [  ],
 "method": "attack_animation_finished"
@@ -46,7 +50,7 @@ tracks/1/keys = {
 } ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("HitBoxPivotE:rotation_degrees")
+tracks/2/path = NodePath("HitBoxPivot:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -58,7 +62,7 @@ tracks/2/keys = {
 "values": [ 0.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("HitBoxPivotE/HitBoxE/HitCollisionShape2DE:disabled")
+tracks/3/path = NodePath("HitBoxPivot/HitBoxP/HitCollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -72,19 +76,19 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=119]
 resource_name = "Death"
-length = 1.5
+length = 1.6
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("SpriteE:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 24, 25, 26, 27, 28, 29, 28, 29, 29, 28, 28, 29, 29, 30, 30 ]
+"values": [ 24, 24, 25, 26, 27, 28, 28, 29, 29, 28, 28, 29, 29, 30, 30, 30 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -93,7 +97,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1.5 ),
+"times": PoolRealArray( 1.6 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -106,7 +110,7 @@ resource_name = "Hurt"
 length = 0.6
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("SpriteE:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -137,7 +141,7 @@ resource_name = "Idle"
 length = 0.7
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("SpriteE:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -152,7 +156,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=109]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("SpriteE:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -164,7 +168,7 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("HitBoxPivotE/HitBoxE/HitCollisionShape2DE:disabled")
+tracks/1/path = NodePath("HitBoxPivot/HitBoxP/HitCollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -175,13 +179,25 @@ tracks/1/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimationPlayer:playback_speed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
 
 [sub_resource type="Animation" id=110]
 resource_name = "RunRight"
 length = 0.8
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("SpriteE:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -202,19 +218,20 @@ states/Idle/position = Vector2( 434.2, 127.8 )
 [sub_resource type="AnimationNodeStateMachinePlayback" id=114]
 
 [sub_resource type="CapsuleShape2D" id=117]
-radius = 5.0
-height = 10.0
 
 [sub_resource type="CircleShape2D" id=118]
-radius = 6.01275
+
+[sub_resource type="CircleShape2D" id=120]
+radius = 13.8924
 
 [node name="EnemyWizard" type="KinematicBody2D"]
 position = Vector2( -1, -1 )
-collision_layer = 2
+collision_layer = 49152
+collision_mask = 4097
 script = ExtResource( 1 )
 
-[node name="SpriteE" type="Sprite" parent="."]
-position = Vector2( 5.832, -19.5 )
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 4.832, -18.5 )
 scale = Vector2( 0.552658, 0.552632 )
 texture = ExtResource( 2 )
 normal_map = SubResource( 111 )
@@ -222,11 +239,11 @@ hframes = 8
 vframes = 6
 frame = 1
 
-[node name="CollisionShape2DE" type="CollisionShape2D" parent="."]
-position = Vector2( 1, -7 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 2.98023e-08, -15 )
 shape = SubResource( 107 )
 
-[node name="AnimationPlayerE" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Attack = SubResource( 115 )
 anims/Death = SubResource( 119 )
 anims/Hurt = SubResource( 116 )
@@ -234,42 +251,51 @@ anims/Idle = SubResource( 108 )
 anims/RESET = SubResource( 109 )
 anims/RunRight = SubResource( 110 )
 
-[node name="AnimationTreeE" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 113 )
-anim_player = NodePath("../AnimationPlayerE")
+anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 114 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
 
-[node name="HurtBoxE" type="Area2D" parent="."]
-position = Vector2( 0.832001, -16.5 )
-monitorable = false
+[node name="HurtBox" type="Area2D" parent="."]
+position = Vector2( -0.167999, -15.5 )
+collision_layer = 16384
+collision_mask = 4100
 
-[node name="HurtCollisionShape2DE" type="CollisionShape2D" parent="HurtBoxE"]
-position = Vector2( 0.167999, 0.499962 )
+[node name="HurtCollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource( 117 )
 
-[node name="HitBoxPivotE" type="Position2D" parent="."]
-position = Vector2( 0.832001, -16.5 )
+[node name="HitBoxPivot" type="Position2D" parent="."]
+position = Vector2( -0.167999, -15.5 )
 
-[node name="HitBoxE" type="Area2D" parent="HitBoxPivotE"]
+[node name="HitBoxP" type="Area2D" parent="HitBoxPivot"]
 position = Vector2( -10, 0 )
+script = ExtResource( 4 )
 
-[node name="HitCollisionShape2DE" type="CollisionShape2D" parent="HitBoxPivotE/HitBoxE"]
+[node name="HitCollisionShape2D" type="CollisionShape2D" parent="HitBoxPivot/HitBoxP"]
 position = Vector2( 51.293, -10.62 )
 shape = SubResource( 118 )
 disabled = true
 
-[node name="HitBox2E" type="Area2D" parent="HitBoxPivotE"]
+[node name="HitBox2" type="Area2D" parent="HitBoxPivot"]
 position = Vector2( -10, 0 )
 
-[node name="LHitCollisionShape2DE" type="CollisionShape2D" parent="HitBoxPivotE/HitBox2E"]
-position = Vector2( -22.071, -11.738 )
+[node name="LHitCollisionShape2D" type="CollisionShape2D" parent="HitBoxPivot/HitBox2"]
+position = Vector2( -24.832, -11.5 )
 shape = SubResource( 118 )
 disabled = true
 
-[node name="Stats" type="Node" parent="."]
+[node name="StatsP" type="Node" parent="."]
 script = ExtResource( 3 )
 
-[connection signal="area_entered" from="HurtBoxE" to="." method="_on_HurtBox_area_entered"]
-[connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 32768
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( 0, -15 )
+shape = SubResource( 120 )
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="no_health" from="StatsP" to="." method="_on_StatsP_no_health"]

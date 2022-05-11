@@ -32,14 +32,17 @@ func _physics_process(delta):
 	move()
 
 func navigate():	# Define the next position to go to
-	if path.size() > 0:
-		velocity = global_position.direction_to(path[1]) * speed
-		
-		# If reached the destination, remove this point from path array
-		if global_position == path[0]:
-			path.pop_front()
+	if is_instance_valid(player):
+		if path.size() > 0:
+			velocity = global_position.direction_to(path[1]) * speed
+			
+			# If reached the destination, remove this point from path array
+			if global_position == path[0]:
+				path.pop_front()
 		
 func generate_path():	# It's obvious
+	if !is_instance_valid(player):
+		return
 	if levelNavigation != null and player != null:
 		path = levelNavigation.get_simple_path(global_position, player.global_position, false)
 		# line2D.points = path  # for debugging

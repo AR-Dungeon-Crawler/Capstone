@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://Player/player.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://World/Stopwatch.tscn" type="PackedScene" id=4]
 [ext_resource path="res://World/Cooldown.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Hitbox/Hitbox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Player/StatsPlayer.gd" type="Script" id=7]
+[ext_resource path="res://Player/Hurtbox.gd" type="Script" id=8]
 
 [sub_resource type="CapsuleShape2D" id=24]
 radius = 2.99999
@@ -592,6 +594,10 @@ graph_offset = Vector2( -55.0501, 63.6597 )
 [sub_resource type="RectangleShape2D" id=78]
 extents = Vector2( 6.5, 11.5 )
 
+[sub_resource type="CapsuleShape2D" id=79]
+radius = 6.0
+height = 10.0
+
 [node name="Player" type="KinematicBody2D"]
 z_index = 2
 collision_layer = 2
@@ -651,7 +657,7 @@ parameters/MoveReverse/blend_position = Vector2( 0, 0 )
 margin_bottom = 14.0
 
 [node name="Hitbox" parent="." instance=ExtResource( 6 )]
-collision_layer = 2
+collision_layer = 6
 collision_mask = 1
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
@@ -660,6 +666,24 @@ shape = SubResource( 78 )
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="StatsPlayer" type="Node" parent="."]
+script = ExtResource( 7 )
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 4096
+collision_mask = 49152
+script = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2( 0, 3 )
+shape = SubResource( 79 )
+
+[node name="Timer" type="Timer" parent="Hurtbox"]
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="invincibility_ended" from="Hurtbox" to="Hurtbox" method="_on_Hurtbox_invincibility_ended"]
+[connection signal="invincibility_started" from="Hurtbox" to="Hurtbox" method="_on_Hurtbox_invincibility_started"]
+[connection signal="timeout" from="Hurtbox/Timer" to="Hurtbox" method="_on_Timer_timeout"]
 
 [editable path="Hitbox"]

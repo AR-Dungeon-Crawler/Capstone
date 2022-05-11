@@ -48,7 +48,7 @@ script = ExtResource( 2 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -64,4 +64,3 @@ visible = false
 shape = SubResource( 7 )
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
-[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_Area2D_area_entered"]
