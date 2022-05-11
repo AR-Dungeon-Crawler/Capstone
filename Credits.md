@@ -1,6 +1,9 @@
 Open Source Artwork Credits:
 [Dungeon Wall Tileset](https://opengameart.org/content/dungeon-tileset) ([Author: Buch](https://opengameart.org/users/buch))
 
+Chest Animation Credits:
+[Chest Animation](https://elthen.itch.io/pixel-art-destructible-objects) ([Author: Elthen](https://elthen.itch.io/))
+
 [Universal LPC Spritesheet Generator](https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator/)
 Authors: Stephen Challener (Redshrike), Johannes Sjölund (wulax), Manuel Riecke (MrBeast), bluecarrot16, David Conway Jr. (JaidynReiman), Thane Brimhall (pennomi), laetissima, Joe White, Matthew Krohn (makrohn)
 
@@ -40,5 +43,3 @@ Authors: Stephen Challener (Redshrike), Johannes Sjölund (wulax), Manuel Riecke
 
 - ammo/arrow.png: by Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
     - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
-
-
