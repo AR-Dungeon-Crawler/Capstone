@@ -51,6 +51,7 @@ func _physics_process(delta):
 	if Input.is_action_just_released("i_shoot"):
 		# Start cooldown on firing
 		if cooldown.time_elapsed < attack_cooldown:  # an arrow can only be fired twice a second
+			countDelta = 0
 			return
 		cooldown.start_stopwatch()  # resets the cooldown timer
 		
