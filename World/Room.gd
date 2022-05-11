@@ -25,6 +25,7 @@ func setup() -> void:
 	var x = 0
 	var y = 0
 	
+	#Go through dungeon.txt and create dungeon based on the .txt file.
 	while !file.eof_reached():
 		var line = file.get_csv_line()
 		
@@ -46,7 +47,7 @@ func setup() -> void:
 					
 			x += 1
 			
-		print(line)
+		#print(line)
 		y += 1
 		x = 0
 	file.close()
@@ -55,8 +56,18 @@ func setup() -> void:
 	#get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_2D, SceneTree.STRETCH_ASPECT_KEEP, map_size_px)
 	#OS.set_window_size(1 * map_size_px)
 	
+	# Remove dungeon.txt file so that it can be generated anew each time.
 	var file_remove = Directory.new()
 	file_remove.remove(temp_path)
 
 func _ready() -> void:
 	setup()
+
+func _on_EnemyCountTimer_timeout():
+	"""
+	Check enemy numbers, if 0 then load boss scene.
+	"""
+	var enemy_number = (get_tree().get_nodes_in_group("Enemy").size())
+	print("TIME", enemy_number)
+	if enemy_number <= 0:
+		get_tree().change_scene("res://Wizard Pack/WizRoom.tscn")

@@ -1075,3 +1075,8 @@ autostart = true
 
 [node name="Chest" parent="." instance=ExtResource( 4 )]
 position = Vector2( 168, 57 )
+
+[node name="EnemyCountTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="EnemyCountTimer" to="." method="_on_EnemyCountTimer_timeout"]

@@ -13,11 +13,6 @@ var path: Array = []
 var levelNavigation: Navigation2D = null
 onready var room = get_tree().current_scene
 
-func check_enemy_numbers():
-	var enemy_number = (get_tree().get_nodes_in_group("Enemy").size())
-	if enemy_number <= 1:
-		get_tree().change_scene("res://Wizard Pack/WizRoom.tscn")
-
 func _ready():
 	player = constants.player
 	yield(get_tree(), "idle_frame")
@@ -65,7 +60,6 @@ func _on_Timer_timeout():
 
 func _on_Hurtbox_area_entered(area):
 	create_hit_effect()
-	check_enemy_numbers()
 	# Check if enemy drops a powerup
 	if rand_range(0, 100) <= drop_chance:
 		var chest = Chest.instance()

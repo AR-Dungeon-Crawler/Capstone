@@ -593,6 +593,7 @@ graph_offset = Vector2( -55.0501, 63.6597 )
 extents = Vector2( 6.5, 11.5 )
 
 [node name="Player" type="KinematicBody2D"]
+z_index = 2
 collision_layer = 2
 script = ExtResource( 2 )
 

@@ -31,7 +31,7 @@ scale = 0.5
 color_ramp = SubResource( 4 )
 
 [node name="VortexArea" type="Area2D"]
-z_index = 2
+z_index = 4
 collision_layer = 8
 collision_mask = 2
 script = ExtResource( 1 )

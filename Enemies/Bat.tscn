@@ -41,15 +41,18 @@ radius = 5.0
 height = 4.0
 
 [node name="Bat" type="KinematicBody2D" groups=["Enemy"]]
+z_index = 3
 collision_layer = 0
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
+speed = 10
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
 animation = "Fly"
+frame = 3
 playing = true
 offset = Vector2( 0, -12 )
 
