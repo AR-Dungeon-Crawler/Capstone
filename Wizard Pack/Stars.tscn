@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Stars.gd" type="Script" id=1]
+[ext_resource path="res://Wizard Pack/Stars.gd" type="Script" id=1]
 [ext_resource path="res://Wizard Pack/Godot-particle-and-vfx-textures/textures/64/alpha/spotlight_5.png" type="Texture" id=2]
 
 [sub_resource type="CanvasItemMaterial" id=1]
