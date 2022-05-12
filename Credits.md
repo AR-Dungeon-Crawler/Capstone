@@ -6,6 +6,7 @@ Open Source Audio Credits:
 [Bat Death Sound](https://opengameart.org/content/items-door-fire-weapon-hits) (Author: Jute)  
 [Bow Shoot Sound](https://opengameart.org/content/bow-arrow-shot) ([Author: dorkster](https://opengameart.org/users/dorkster))  
 [Background Music](https://github.com/uheartbeast/youtube-tutorials/blob/master/Action%20RPG/Action%20RPG%20Resources.zip) ([Author: HeartBeast](https://www.youtube.com/channel/UCrHQNOyU1q6BFEfkNq2CYMA))  
+[Hit Sound](https://opengameart.org/content/punch-slap-n-kick) ([Author: CGEffex](https://freesound.org/people/CGEffex/))
 
 [Universal LPC Spritesheet Generator](https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator/)
 Authors: Stephen Challener (Redshrike), Johannes Sjölund (wulax), Manuel Riecke (MrBeast), bluecarrot16, David Conway Jr. (JaidynReiman), Thane Brimhall (pennomi), laetissima, Joe White, Matthew Krohn (makrohn)
