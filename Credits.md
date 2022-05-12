@@ -7,7 +7,7 @@ Open Source Audio Credits:
 [Bow Shoot Sound](https://opengameart.org/content/bow-arrow-shot) ([Author: dorkster](https://opengameart.org/users/dorkster))  
 [Background Music](https://github.com/uheartbeast/youtube-tutorials/blob/master/Action%20RPG/Action%20RPG%20Resources.zip) ([Author: HeartBeast](https://www.youtube.com/channel/UCrHQNOyU1q6BFEfkNq2CYMA))  
 [Boss Theme Music](https://opengameart.org/content/boss-theme) ([Author: remaxim](https://opengameart.org/users/remaxim))  
-[Hit Sound](https://opengameart.org/content/punch-slap-n-kick) ([Author: CGEffex](https://freesound.org/people/CGEffex/))
+[Hit Sound](https://opengameart.org/content/punch-slap-n-kick) ([Author: CGEffex](https://freesound.org/people/CGEffex/))  
 [Player Hurt and Death Sounds](https://opengameart.org/content/5-hit-sounds-dying) ([Author: TinyWorlds](https://opengameart.org/users/tinyworlds))
 
 [Universal LPC Spritesheet Generator](https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator/)
