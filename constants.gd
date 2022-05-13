@@ -1,14 +1,14 @@
 extends Node
 
-var player
-var ACCELERATION = 500
-var MAX_SPEED = 40
-const FRICTION = 500
-
 # UI Elements
 var arrows = 1
 var speed = 0
 var accuracy = 0
+
+var player
+var ACCELERATION = 500 * (speed * 1.1)
+var MAX_SPEED = 40 * (speed * 1.1)
+var FRICTION = 500 * (speed * 1.1)
 
 # Screen dimensions (type: int)
 var width = ProjectSettings.get("display/window/size/width")
