@@ -1,21 +1,24 @@
 extends KinematicBody2D
 
-# onready var line2D = $Line2D
-export var speed : int = 20
-export var drop_chance : float = 50
-export var health : int = 1
 var dir = Vector2()
 var player
-var fireball = preload("res://Fireball/Fireball.tscn")
-var Chest = preload("res://World/Chest.tscn")
-var DeathSound = preload("res://Music and Sounds/BatDeath.tscn")
-var HitSound = preload("res://Music and Sounds/HitSound.tscn")
-var HitEffect = preload("res://Wizard Pack/HitEffectSmall.tscn")
 var offset = 20
 var velocity = Vector2.ZERO
 var path: Array = []
 var levelNavigation: Navigation2D = null
 onready var room = get_tree().current_scene
+
+# Bat Stats
+export var speed : int = 20
+export var drop_chance : float = 50
+export var health : int = 1
+
+# Preloaded .tscn
+var fireball = preload("res://Fireball/Fireball.tscn")
+var Chest = preload("res://World/Chest.tscn")
+var DeathSound = preload("res://Music and Sounds/BatDeath.tscn")
+var HitSound = preload("res://Music and Sounds/HitSound.tscn")
+var HitEffect = preload("res://Wizard Pack/HitEffectSmall.tscn")
 
 func _ready():
 	player = constants.player
@@ -27,7 +30,20 @@ func _ready():
 		player = tree.get_nodes_in_group("Player")[0]
 #	yield(owner, "ready")
 	randomize()
-	
+
+func get_dir(target):
+	return (target.position - position).normalized()
+
+func _on_Timer_timeout():
+	dir = get_dir(player)
+	var f_ball = fireball.instance()
+	get_parent().add_child(f_ball)
+	f_ball.dir = dir
+	f_ball.position = position + dir * offset
+
+
+#################### Navigation and Pathfinding ####################
+
 func _physics_process(delta):
 	# line2D.global_position = Vector2.ZERO  # for debugging
 	if player and levelNavigation:
@@ -53,17 +69,9 @@ func generate_path():	# It's obvious
 		
 func move():
 	velocity = move_and_slide(velocity, Vector2(0, 0))
+	
 
-func get_dir(target):
-	return (target.position - position).normalized()
-
-func _on_Timer_timeout():
-	dir = get_dir(player)
-	var f_ball = fireball.instance()
-	get_parent().add_child(f_ball)
-	f_ball.dir = dir
-	f_ball.position = position + dir * offset
-
+#################### Death and Damage ####################
 
 func _on_Hurtbox_area_entered(area):
 	create_hit_effect()
@@ -79,7 +87,6 @@ func _on_Hurtbox_area_entered(area):
 		get_parent().add_child(DeathSound.instance())
 		queue_free()
 	
-
 func create_hit_effect():
 	var hitEffect = HitEffect.instance()
 	var world = get_tree().current_scene

@@ -1,5 +1,13 @@
 extends KinematicBody2D
 
+var velocity = Vector2.ZERO
+export var spread : float = 1
+export var attack_cooldown : float = 0.5
+var added_spread : float = 0.1
+var powerups = ['arrow', 'accuracy', 'movespeed']
+var stats = StatsPlayer
+var countDelta = 0
+
 # Load constants file and scenes
 onready var C = constants
 var Arrow = preload("res://Player/Arrow.tscn")
@@ -7,13 +15,7 @@ var ArrowShootSound = preload("res://Music and Sounds/ArrowShoot.tscn")
 var PlayerDeathSound = preload("res://Music and Sounds/PlayerDeath.tscn")
 var HitEffect = preload("res://Wizard Pack/HitEffect.tscn")
 
-var velocity = Vector2.ZERO
-export var spread : float = 1
-export var attack_cooldown : float = 0.5
-var added_spread : float = 0.1
-var powerups = ['arrow', 'accuracy', 'movespeed']
-var stats = StatsPlayer
-
+# Node references
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var stopwatch = $Stopwatch
@@ -26,8 +28,6 @@ onready var chargebar = get_parent().get_node("Camera2D/HealthUI/ChargeFull")
 onready var arrowCount = get_parent().get_node("Camera2D/HealthUI/ArrowCt")
 onready var speedCount = get_parent().get_node("Camera2D/HealthUI/BootCt")
 onready var accuracyCount = get_parent().get_node("Camera2D/HealthUI/BullseyeCt")
-
-var countDelta = 0
 
 func _ready():
 	stats.connect("no_health", self, "death")
@@ -55,6 +55,7 @@ func _physics_process(delta):
 	if Input.is_action_just_released("i_shoot"):
 		# Start cooldown on firing
 		if cooldown.time_elapsed < attack_cooldown:  # an arrow can only be fired twice a second
+			# Reset countDelta now to reflect an accurate charge bar.
 			countDelta = 0
 			return
 		cooldown.start_stopwatch()  # resets the cooldown timer
@@ -126,8 +127,10 @@ func update_animation_blends(mouse_loc):
 	animationTree.set(C.moveReverseBlend, mouse_loc)
 	animationTree.set(C.drawBowBlend, mouse_loc)
 	animationTree.set(C.holdBowBlend, mouse_loc)
-	
-	
+
+
+#################### Death and Damage ####################
+
 func create_hit_effect():
 	var hitEffect = HitEffect.instance()
 	var world = get_tree().current_scene
@@ -147,18 +150,24 @@ func death():
 	queue_free()
 
 
-func _on_Hitbox_area_entered(area):
-	if area.get_parent().is_in_group('Chest'):
-		var power = powerups[randi() % powerups.size()]
-		if power == 'arrow':
-			C.arrows += 1
-		if power == 'movespeed':
-			C.speed += 1
-			adjust_speed()
-		if power == 'accuracy':
-			C.accuracy += 1
-			spread -= 0.1
-			
+func _on_Hurtbox_area_entered(area):
+	hurtbox.start_invincibility(0.5)
+	create_hit_effect()
+	create_hit_sound()
+	stats.health -= 1
+	
+
+#################### UI and Powerups Management ####################
+
+func update_UI():
+	chargebar.rect_size.x = countDelta * 100
+	if countDelta == 1:
+		chargebar.rect_size.x = 59
+	arrowCount.text = "x" + str(C.arrows)
+	speedCount.text = "x" + str(C.speed)
+	accuracyCount.text = "x" + str(C.accuracy)
+	
+	
 func adjust_speed():
 	"""
 	Diminishing returns for movement speed bonuses.
@@ -172,17 +181,16 @@ func adjust_speed():
 	if C.speed < 10:
 		C.ACCELERATION = (500 * C.speed) + C.ACCELERATION
 		C.FRICTION = (500 * C.speed) + C.FRICTION
+		
 
-func _on_Hurtbox_area_entered(area):
-	hurtbox.start_invincibility(0.5)
-	create_hit_effect()
-	create_hit_sound()
-	stats.health -= 1
-
-func update_UI():
-	chargebar.rect_size.x = countDelta * 100
-	if countDelta == 1:
-		chargebar.rect_size.x = 59
-	arrowCount.text = "x" + str(C.arrows)
-	speedCount.text = "x" + str(C.speed)
-	accuracyCount.text = "x" + str(C.accuracy)
+func _on_Hitbox_area_entered(area):
+	if area.get_parent().is_in_group('Chest'):
+		var power = powerups[randi() % powerups.size()]
+		if power == 'arrow':
+			C.arrows += 1
+		if power == 'movespeed':
+			C.speed += 1
+			adjust_speed()
+		if power == 'accuracy':
+			C.accuracy += 1
+			spread -= 0.1
