@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/playerhit4.ogg-45cf6521f8e620fa8d8b17896fcec7d4.oggstr"
+
+[deps]
+
+source_file="res://Music and Sounds/playerhit4.ogg"
+dest_files=[ "res://.import/playerhit4.ogg-45cf6521f8e620fa8d8b17896fcec7d4.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

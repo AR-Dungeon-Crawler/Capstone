@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://Player/player.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
@@ -8,7 +8,8 @@
 [ext_resource path="res://Hitbox/Hitbox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Player/StatsPlayer.gd" type="Script" id=7]
 [ext_resource path="res://Player/Hurtbox.gd" type="Script" id=8]
-[ext_resource path="res://Player/Stopwatch.gd" type="Script" id=9]
+[ext_resource path="res://Player/PlayerHitSounds.gd" type="Script" id=9]
+[ext_resource path="res://Music and Sounds/playerhit1.ogg" type="AudioStream" id=10]
 
 [sub_resource type="CapsuleShape2D" id=24]
 radius = 2.99999
@@ -653,7 +654,6 @@ parameters/Move/blend_position = Vector2( 0, -1.55172 )
 parameters/MoveReverse/blend_position = Vector2( 0, 0 )
 
 [node name="Stopwatch" parent="." instance=ExtResource( 4 )]
-script = ExtResource( 9 )
 
 [node name="Cooldown" parent="." instance=ExtResource( 5 )]
 margin_bottom = 14.0
@@ -681,6 +681,10 @@ position = Vector2( 0, 3 )
 shape = SubResource( 79 )
 
 [node name="Timer" type="Timer" parent="Hurtbox"]
+
+[node name="PlayerHitSounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+script = ExtResource( 9 )
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

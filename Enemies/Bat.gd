@@ -3,10 +3,14 @@ extends KinematicBody2D
 # onready var line2D = $Line2D
 export var speed : int = 20
 export var drop_chance : float = 50
+export var health : int = 1
 var dir = Vector2()
 var player
 var fireball = preload("res://Fireball/Fireball.tscn")
 var Chest = preload("res://World/Chest.tscn")
+var DeathSound = preload("res://Music and Sounds/BatDeath.tscn")
+var HitSound = preload("res://Music and Sounds/HitSound.tscn")
+var HitEffect = preload("res://Wizard Pack/HitEffectSmall.tscn")
 var offset = 20
 var velocity = Vector2.ZERO
 var path: Array = []
@@ -63,16 +67,19 @@ func _on_Timer_timeout():
 
 func _on_Hurtbox_area_entered(area):
 	create_hit_effect()
-	# Check if enemy drops a powerup
-	if rand_range(0, 100) <= drop_chance:
-		var chest = Chest.instance()
-		get_parent().add_child(chest)
-		chest.position = global_position
-	queue_free()
+	health -= 1
+	if health >= 1:
+		get_parent().add_child(HitSound.instance())
+	elif health <= 0:
+		# Check if enemy drops a powerup
+		if rand_range(0, 100) <= drop_chance:
+			var chest = Chest.instance()
+			get_parent().add_child(chest)
+			chest.position = global_position
+		get_parent().add_child(DeathSound.instance())
+		queue_free()
 	
 
-const HitEffect = preload("res://Wizard Pack/HitEffectSmall.tscn")
-	
 func create_hit_effect():
 	var hitEffect = HitEffect.instance()
 	var world = get_tree().current_scene

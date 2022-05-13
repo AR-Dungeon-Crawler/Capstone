@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Music and Sounds/bossattack1.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Music and Sounds/BossStarAttackSound.gd" type="Script" id=2]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+autoplay = true
+script = ExtResource( 2 )
+
+[connection signal="finished" from="." to="." method="_on_AudioStreamPlayer_finished"]
