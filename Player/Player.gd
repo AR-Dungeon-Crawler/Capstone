@@ -153,8 +153,6 @@ func _on_Hitbox_area_entered(area):
 		if power == 'arrow':
 			C.arrows += 1
 		if power == 'movespeed':
-			C.MAX_SPEED *= 1.2
-			C.ACCELERATION *= 1.2
 			C.speed += 1
 		if power == 'accuracy':
 			C.accuracy += 1
