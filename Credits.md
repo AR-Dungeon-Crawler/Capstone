@@ -9,6 +9,7 @@ Open Source Audio Credits:
 [Boss Theme Music](https://opengameart.org/content/boss-theme) ([Author: remaxim](https://opengameart.org/users/remaxim))  
 [Hit Sound](https://opengameart.org/content/punch-slap-n-kick) ([Author: CGEffex](https://freesound.org/people/CGEffex/))  
 [Player Hurt and Death Sounds](https://opengameart.org/content/5-hit-sounds-dying) ([Author: TinyWorlds](https://opengameart.org/users/tinyworlds))
+[Boss Attack Sounds](https://opengameart.org/content/63-digital-sound-effects-lasers-phasers-space-etc) ([Author: Kenny](https://opengameart.org/users/kenney))
 
 [Universal LPC Spritesheet Generator](https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator/)
 Authors: Stephen Challener (Redshrike), Johannes Sjölund (wulax), Manuel Riecke (MrBeast), bluecarrot16, David Conway Jr. (JaidynReiman), Thane Brimhall (pennomi), laetissima, Joe White, Matthew Krohn (makrohn)
