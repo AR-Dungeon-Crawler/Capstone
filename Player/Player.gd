@@ -3,6 +3,9 @@ extends KinematicBody2D
 # Load constants file and scenes
 onready var C = constants
 var Arrow = preload("res://Player/Arrow.tscn")
+var ArrowShootSound = preload("res://Music and Sounds/ArrowShoot.tscn")
+var PlayerDeathSound = preload("res://Music and Sounds/PlayerDeath.tscn")
+var HitEffect = preload("res://Wizard Pack/HitEffect.tscn")
 
 var velocity = Vector2.ZERO
 export var spread : float = 1
@@ -18,6 +21,7 @@ onready var cooldown = $Cooldown
 onready var animationState = animationTree.get(C.playback)
 onready var animationRoot = animationTree.get("tree_root")
 onready var hurtbox = $Hurtbox
+onready var hit_sounds = $PlayerHitSounds
 onready var chargebar = get_parent().get_node("Camera2D/HealthUI/ChargeFull")
 onready var arrowCount = get_parent().get_node("Camera2D/HealthUI/ArrowCt")
 onready var speedCount = get_parent().get_node("Camera2D/HealthUI/BootCt")
@@ -26,7 +30,7 @@ onready var accuracyCount = get_parent().get_node("Camera2D/HealthUI/BullseyeCt"
 var countDelta = 0
 
 func _ready():
-	stats.connect("no_health", self, "queue_free")
+	stats.connect("no_health", self, "death")
 	randomize()
 	C.player = self
 
@@ -110,6 +114,7 @@ func fire_arrows(mouse_loc, shot_spread):
 			arrow.look_at(arrow.dest)  # rotates the sprite
 			arrow.position = position + arrow.dest * arrow.offset
 	countDelta = 0
+	get_parent().add_child(ArrowShootSound.instance())
 		
 	
 func update_animation_blends(mouse_loc):
@@ -121,34 +126,44 @@ func update_animation_blends(mouse_loc):
 	animationTree.set(C.moveReverseBlend, mouse_loc)
 	animationTree.set(C.drawBowBlend, mouse_loc)
 	animationTree.set(C.holdBowBlend, mouse_loc)
-
-const HitEffect = preload("res://Wizard Pack/HitEffect.tscn")
+	
 	
 func create_hit_effect():
 	var hitEffect = HitEffect.instance()
 	var world = get_tree().current_scene
 	world.add_child(hitEffect)
 	hitEffect.global_position = get_node("Hitbox/CollisionShape2D").global_position
+	# Hit Sound
+	hit_sounds.play_sound('hit1')
+	
+
+func create_hit_sound():
+	var filenum = randi() % 5 + 1
+	hit_sounds.play_sound('hit' + str(filenum))
+	
+	
+func death():
+	get_parent().add_child(PlayerDeathSound.instance())
+	queue_free()
+
 
 func _on_Hitbox_area_entered(area):
 	if area.get_parent().is_in_group('Chest'):
 		var power = powerups[randi() % powerups.size()]
 		if power == 'arrow':
-			print('arrow')
 			C.arrows += 1
 		if power == 'movespeed':
-			print('maxspeed')
 			C.MAX_SPEED *= 1.2
 			C.ACCELERATION *= 1.2
 			C.speed += 1
 		if power == 'accuracy':
-			print('accuracy')
 			C.accuracy += 1
 			spread -= 0.1
 
 func _on_Hurtbox_area_entered(area):
 	hurtbox.start_invincibility(0.5)
 	create_hit_effect()
+	create_hit_sound()
 	stats.health -= 1
 
 func update_UI():

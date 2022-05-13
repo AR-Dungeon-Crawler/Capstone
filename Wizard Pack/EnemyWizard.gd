@@ -11,6 +11,8 @@ var last_direction = "L"
 var state = MOVE_L
 var lock_state = false
 
+var HitSound = preload("res://Music and Sounds/HitSound.tscn")
+
 onready var animationPlayer = $AnimationPlayer
 onready var stats = $StatsP
 
@@ -126,11 +128,15 @@ func left_attack_box_off():
 const HitEffect = preload("res://Wizard Pack/HitEffect.tscn")
 var vortex = preload("res://Wizard Pack/VortexArea.tscn")
 var stars = preload("res://Wizard Pack/Stars.tscn")
+var stars_sound = preload("res://Music and Sounds/BossStarAttackSound.tscn")
+var vortex_sound = preload("res://Music and Sounds/BossVortexAttackSound.tscn")
 onready var player = get_parent().get_node("Player")
 
 func create_vortex():
 	var vortex1 = vortex.instance()
 	get_tree().current_scene.add_child(vortex1)
+	print('got here')
+	get_parent().add_child(vortex_sound.instance())
 	if $Sprite.flip_h == true:
 		vortex1.global_position = get_node("HitBoxPivot/HitBox2/Position2D").global_position
 	if $Sprite.flip_h == false:
@@ -166,6 +172,7 @@ var diagonal_array = \
 	]
 func create_stars():
 	var spawn
+	get_parent().add_child(stars_sound.instance())
 	if $Sprite.flip_h == true:
 		spawn = get_node("HitBoxPivot/HitBox2/LHitCollisionShape2D").global_position
 	if $Sprite.flip_h == false:
@@ -192,6 +199,8 @@ var stagger = 20
 var hits_to_vortex = 40
 func _on_HurtBox_area_entered(area):
 	create_hit_effect()
+	if stats.health >= 2:
+		get_parent().add_child(HitSound.instance())
 	stagger -= 1
 	hits_to_vortex -= 1
 	if stagger <= 0:
