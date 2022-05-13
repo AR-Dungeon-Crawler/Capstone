@@ -154,9 +154,24 @@ func _on_Hitbox_area_entered(area):
 			C.arrows += 1
 		if power == 'movespeed':
 			C.speed += 1
+			adjust_speed()
 		if power == 'accuracy':
 			C.accuracy += 1
 			spread -= 0.1
+			
+func adjust_speed():
+	"""
+	Diminishing returns for movement speed bonuses.
+	"""
+	if C.speed <= 2:
+		C.MAX_SPEED = (5 * C.speed) + C.MAX_SPEED
+	if C.speed <= 6:
+		C.MAX_SPEED = (2 ^ C.speed) + C.MAX_SPEED
+	else:
+		C.MAX_SPEED = 2 + C.MAX_SPEED
+	if C.speed < 10:
+		C.ACCELERATION = (500 * C.speed) + C.ACCELERATION
+		C.FRICTION = (500 * C.speed) + C.FRICTION
 
 func _on_Hurtbox_area_entered(area):
 	hurtbox.start_invincibility(0.5)
@@ -165,7 +180,7 @@ func _on_Hurtbox_area_entered(area):
 	stats.health -= 1
 
 func update_UI():
-	chargebar.rect_size.x = countDelta * 59
+	chargebar.rect_size.x = countDelta * 100
 	if countDelta == 1:
 		chargebar.rect_size.x = 59
 	arrowCount.text = "x" + str(C.arrows)

@@ -4,7 +4,7 @@
 [ext_resource path="res://Wizard Pack/Godot-particle-and-vfx-textures/textures/64/alpha/effect_4.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 10.0499
+radius = 11.8914
 
 [sub_resource type="CanvasItemMaterial" id=2]
 render_priority = 1
@@ -31,6 +31,7 @@ scale = 0.5
 color_ramp = SubResource( 4 )
 
 [node name="VortexArea" type="Area2D" groups=["Enemy"]]
+scale = Vector2( 1.6, 1.6 )
 z_index = 4
 collision_layer = 16384
 collision_mask = 4096

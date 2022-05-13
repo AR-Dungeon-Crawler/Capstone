@@ -31,7 +31,7 @@ func setup() -> void:
 		
 		for item in line:
 			if item == "#":
-				_tile_map.set_cell(x, y, 1)
+				_tile_map.set_cell(x, y, 0)
 				
 			elif item == " " or "E" or "S":
 				_tile_map.set_cell(x, y, 2)
@@ -59,6 +59,8 @@ func setup() -> void:
 	# Remove dungeon.txt file so that it can be generated anew each time.
 	var file_remove = Directory.new()
 	file_remove.remove(temp_path)
+	
+	_tile_map.update_bitmask_region()
 
 func _ready() -> void:
 	setup()

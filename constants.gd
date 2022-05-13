@@ -6,9 +6,9 @@ var speed = 0
 var accuracy = 0
 
 var player
-var ACCELERATION = 500 * (speed * 1.1)
-var MAX_SPEED = 40 * (speed * 1.1)
-var FRICTION = 500 * (speed * 1.1)
+var ACCELERATION = 500
+var MAX_SPEED = 50
+var FRICTION = 500
 
 # Screen dimensions (type: int)
 var width = ProjectSettings.get("display/window/size/width")

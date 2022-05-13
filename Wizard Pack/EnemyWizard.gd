@@ -135,7 +135,6 @@ onready var player = get_parent().get_node("Player")
 func create_vortex():
 	var vortex1 = vortex.instance()
 	get_tree().current_scene.add_child(vortex1)
-	print('got here')
 	get_parent().add_child(vortex_sound.instance())
 	if $Sprite.flip_h == true:
 		vortex1.global_position = get_node("HitBoxPivot/HitBox2/Position2D").global_position
@@ -186,7 +185,7 @@ func create_stars():
 		var star = stars.instance()
 		get_tree().current_scene.add_child(star)
 		star.global_position = spawn
-		star.speed = 100
+		star.speed = 150
 		star.direction = vect
 	
 func create_hit_effect():

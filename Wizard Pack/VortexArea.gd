@@ -1,7 +1,7 @@
 extends Area2D
 
 var direction = Vector2.ZERO
-var SPEED = 60
+var SPEED = 80
 var velocity = Vector2.ZERO
 
 func _physics_process(delta):
