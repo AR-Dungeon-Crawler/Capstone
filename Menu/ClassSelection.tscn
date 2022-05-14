@@ -1,0 +1,109 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Player/player.png" type="Texture" id=1]
+[ext_resource path="res://Wizard Pack/fullsheet.png" type="Texture" id=2]
+[ext_resource path="res://UI/Macondo-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://UI/WizardUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Menu/ClassSelection.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 9
+font_data = ExtResource( 3 )
+
+[sub_resource type="AnimatedTexture" id=2]
+
+[node name="ClassSelection" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_right = 2.0
+color = Color( 0.160784, 0.290196, 0.8, 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 123.0
+margin_right = 198.0
+margin_bottom = 16.0
+rect_pivot_offset = Vector2( 59, -16 )
+custom_fonts/font = SubResource( 1 )
+text = "Select Your Class"
+
+[node name="Back" type="Button" parent="."]
+margin_left = 94.0
+margin_top = 155.0
+margin_right = 228.0
+margin_bottom = 175.0
+text = "Back to Main Menu"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 11.0
+margin_top = 71.0
+margin_right = 148.0
+margin_bottom = 124.0
+custom_fonts/font = SubResource( 1 )
+text = "Aim with the mouse, and charge your
+bow by holding down the left mouse
+button. Release to fire your arrow."
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 169.0
+margin_top = 71.0
+margin_right = 319.0
+margin_bottom = 124.0
+custom_fonts/font = SubResource( 1 )
+text = "Prepare spell charges by holding down
+spacebar. Cast your spell by pressing
+the Enter key."
+
+[node name="SpriteE" type="Sprite" parent="."]
+position = Vector2( 252, 30 )
+scale = Vector2( 0.409145, 0.373026 )
+z_index = 2
+texture = ExtResource( 2 )
+normal_map = SubResource( 2 )
+hframes = 8
+vframes = 6
+frame = 34
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 64, 27 )
+scale = Vector2( 0.59375, 0.59375 )
+texture = ExtResource( 1 )
+offset = Vector2( 15.058, 3.944 )
+hframes = 13
+vframes = 21
+frame = 32
+
+[node name="SelectArcher" type="Button" parent="."]
+margin_left = 11.0
+margin_top = 128.0
+margin_right = 145.0
+margin_bottom = 148.0
+text = "Select Archer"
+
+[node name="SelectWizard" type="Button" parent="."]
+margin_left = 178.0
+margin_top = 128.0
+margin_right = 312.0
+margin_bottom = 148.0
+text = "Select Wizard"
+
+[node name="HealthUI" parent="." instance=ExtResource( 5 )]
+margin_left = 34.88
+margin_top = 3.0
+margin_right = 113.88
+margin_bottom = 68.0
+
+[node name="WizardUI" parent="." instance=ExtResource( 4 )]
+margin_left = 210.0
+margin_top = 3.0
+margin_right = -34.0
+margin_bottom = -109.0
+
+[connection signal="pressed" from="SelectArcher" to="." method="_on_SelectArcher_pressed"]
+[connection signal="pressed" from="SelectWizard" to="." method="_on_SelectWizard_pressed"]
