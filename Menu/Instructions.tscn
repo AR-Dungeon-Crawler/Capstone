@@ -44,4 +44,5 @@ margin_right = 283.0
 margin_bottom = 148.0
 text = "View Explanation of Game Mechanics"
 
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="Mechanics" to="." method="_on_Mechanics_pressed"]
