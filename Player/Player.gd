@@ -33,6 +33,8 @@ func _ready():
 	stats.connect("no_health", self, "death")
 	randomize()
 	C.player = self
+	if stats.health == 0:
+		stats.health = 5
 
 
 func _input(event):
