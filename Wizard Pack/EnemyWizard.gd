@@ -282,6 +282,8 @@ func _on_HurtBox_area_entered(area):
 
 func _on_StatsP_no_health():
 	state = DYING
+	get_tree().change_scene("res://Menu/EndGame.tscn")
+	
 	
 	
 func free():
