@@ -323,7 +323,7 @@ collision_mask = 4096
 monitorable = false
 
 [node name="HurtCollisionShape2DE" type="CollisionShape2D" parent="HurtBoxE"]
-position = Vector2( 0.168, 19.231 )
+position = Vector2( 0.168, 17.356 )
 shape = SubResource( 117 )
 
 [node name="HitBoxPivotE" type="Position2D" parent="."]
