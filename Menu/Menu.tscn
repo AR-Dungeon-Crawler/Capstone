@@ -6,6 +6,7 @@
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = 5.0
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -26,24 +27,30 @@ anchor_bottom = 1.0
 
 [node name="CenterContainer2" type="CenterContainer" parent="MarginContainer"]
 margin_right = 320.0
-margin_bottom = 180.0
+margin_bottom = 185.0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/CenterContainer2"]
-margin_left = 115.0
-margin_top = 68.0
-margin_right = 204.0
-margin_bottom = 112.0
+margin_left = 105.0
+margin_top = 58.0
+margin_right = 214.0
+margin_bottom = 126.0
 
 [node name="StartButton" type="Button" parent="MarginContainer/CenterContainer2/VBoxContainer2"]
-margin_right = 89.0
+margin_right = 109.0
 margin_bottom = 20.0
 text = "Start"
 
 [node name="Instructions" type="Button" parent="MarginContainer/CenterContainer2/VBoxContainer2"]
 margin_top = 24.0
-margin_right = 89.0
+margin_right = 109.0
 margin_bottom = 44.0
 text = "Instructions"
+
+[node name="Maze generation" type="Button" parent="MarginContainer/CenterContainer2/VBoxContainer2"]
+margin_top = 48.0
+margin_right = 109.0
+margin_bottom = 68.0
+text = "Generate Maze"
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_left = 0.5
@@ -55,3 +62,4 @@ margin_bottom = 43.0
 
 [connection signal="pressed" from="MarginContainer/CenterContainer2/VBoxContainer2/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="MarginContainer/CenterContainer2/VBoxContainer2/Instructions" to="." method="_on_Instructions_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer2/VBoxContainer2/Maze generation" to="." method="_on_Maze_generation_pressed"]

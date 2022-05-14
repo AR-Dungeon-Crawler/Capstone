@@ -9,6 +9,7 @@ var enemyScene = load("res://Enemies/Bat.tscn")
 #onready var size := inner_size + 2 * perimeter_size
 
 func setup() -> void:
+	return 
 	# TEST version
 	var temp_path = ProjectSettings.globalize_path("res://dungeon.txt")
 	var img2grid_path = ProjectSettings.globalize_path("res://PhotoToGrid.exe")
