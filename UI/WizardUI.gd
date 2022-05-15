@@ -9,12 +9,12 @@ onready var healthUIEmpty = $HealthEmpty
 func set_life(value):
 	life = clamp(value, 0, max_life)
 	if healthUIFull != null:
-		healthUIFull.rect_size.y = life * 12
+		healthUIFull.rect_size.y = life * 10
 	
 func set_max_life(value):
 	max_life = max(value, 1)
 	if healthUIEmpty != null:
-		healthUIEmpty.rect_size.y = max_life * 12
+		healthUIEmpty.rect_size.y = max_life * 10
 	
 func _ready():
 	self.max_life = StatsWizard.max_health
