@@ -114,7 +114,7 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "free"
+"method": "death_animation_finished"
 } ]
 }
 

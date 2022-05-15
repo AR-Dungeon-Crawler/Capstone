@@ -30,9 +30,9 @@ margin_bottom = 180.0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/CenterContainer2"]
 margin_left = 115.0
-margin_top = 68.0
+margin_top = 71.244
 margin_right = 204.0
-margin_bottom = 112.0
+margin_bottom = 139.244
 
 [node name="StartButton" type="Button" parent="MarginContainer/CenterContainer2/VBoxContainer2"]
 margin_right = 89.0
@@ -45,6 +45,12 @@ margin_right = 89.0
 margin_bottom = 44.0
 text = "Instructions"
 
+[node name="Quit" type="Button" parent="MarginContainer/CenterContainer2/VBoxContainer2"]
+margin_top = 48.0
+margin_right = 89.0
+margin_bottom = 68.0
+text = "Quit"
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
@@ -55,3 +61,4 @@ margin_bottom = 43.0
 
 [connection signal="pressed" from="MarginContainer/CenterContainer2/VBoxContainer2/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="MarginContainer/CenterContainer2/VBoxContainer2/Instructions" to="." method="_on_Instructions_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer2/VBoxContainer2/Quit" to="." method="_on_Quit_pressed"]

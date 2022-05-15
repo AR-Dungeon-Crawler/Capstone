@@ -105,5 +105,6 @@ margin_top = 3.0
 margin_right = -34.0
 margin_bottom = -109.0
 
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="SelectArcher" to="." method="_on_SelectArcher_pressed"]
 [connection signal="pressed" from="SelectWizard" to="." method="_on_SelectWizard_pressed"]

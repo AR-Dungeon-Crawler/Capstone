@@ -174,6 +174,8 @@ func move_state(delta):
 	
 	move_and_slide(velocity * MAX_SPEED)
 	
+func death_animation_finished():
+	get_tree().change_scene("res://Menu/EndGameWizard.tscn")
 		
 func cast_animation_finished():
 	state = MOVE
