@@ -82,7 +82,7 @@ func _on_Hurtbox_area_entered(area):
 		# Check if enemy drops a powerup
 		if rand_range(0, 100) <= drop_chance:
 			var chest = Chest.instance()
-			get_parent().add_child(chest)
+			get_parent().call_deferred("add_child", chest)
 			chest.position = global_position
 		get_parent().add_child(DeathSound.instance())
 		queue_free()
