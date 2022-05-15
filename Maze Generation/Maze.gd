@@ -62,4 +62,9 @@ func make_maze():
 		elif stack:
 			current = stack.pop_back()
 		yield(get_tree(), "idle_frame")
-
+	
+	for x in range(-1, width + 1):
+		for y in range(-1, height + 1):
+			if x == -1 or x == width or y == -1 or y == height:
+				Map.set_cellv(Vector2(x, y), 1)
+				yield(get_tree(), "idle_frame")

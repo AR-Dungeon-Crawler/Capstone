@@ -9,6 +9,8 @@
 [ext_resource path="res://Music and Sounds/Music.mp3" type="AudioStream" id=7]
 [ext_resource path="res://Maze Generation/Maze.gd" type="Script" id=8]
 
+[sub_resource type="AnimationNodeStateMachinePlayback" id=108]
+
 [sub_resource type="ConvexPolygonShape2D" id=106]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
@@ -71,10 +73,17 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 2/shapes = [  ]
 2/z_index = 0
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=108]
-
 [node name="Node" type="Node2D"]
 script = ExtResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 135, 94 )
+
+[node name="AnimationTree" parent="Player" index="3"]
+parameters/playback = SubResource( 108 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
 
 [node name="Navigation2D" type="Navigation2D" parent="." groups=["LevelNavigation"]]
 
@@ -121,15 +130,6 @@ position = Vector2( 167, 57 )
 
 [node name="EnemyCountTimer" type="Timer" parent="."]
 autostart = true
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 135, 94 )
-
-[node name="AnimationTree" parent="Player" index="3"]
-parameters/playback = SubResource( 108 )
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 135, 94 )
