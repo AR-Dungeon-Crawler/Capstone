@@ -1,7 +1,7 @@
 extends Node2D
 onready var _player : KinematicBody2D = $Player
 onready var _tile_map : TileMap = $Navigation2D/TileMap
-onready var nav = $Navigation2D
+
 var enemyScene = load("res://Enemies/Bat.tscn")
 
 #export var inner_size := Vector2(11, 11)
@@ -9,7 +9,9 @@ var enemyScene = load("res://Enemies/Bat.tscn")
 #onready var size := inner_size + 2 * perimeter_size
 
 func setup() -> void:
+	
 	return 
+	
 	# TEST version
 	var temp_path = ProjectSettings.globalize_path("res://dungeon.txt")
 	var img2grid_path = ProjectSettings.globalize_path("res://PhotoToGrid.exe")

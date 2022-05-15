@@ -16,6 +16,5 @@ func _on_StartButton_pressed():
 func _on_Instructions_pressed():
 	get_tree().change_scene("res://Menu/Instructions.tscn")
 
-
 func _on_Maze_generation_pressed():
-	get_tree().change_scene("res://World/Room.tscn")
+	get_tree().change_scene("res://Maze Generation/Maze.tscn")

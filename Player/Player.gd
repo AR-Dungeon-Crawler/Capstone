@@ -33,6 +33,8 @@ func _ready():
 	stats.connect("no_health", self, "death")
 	randomize()
 	C.player = self
+	if stats.health == 0:
+		stats.health = 5
 
 
 func _input(event):
@@ -148,6 +150,7 @@ func create_hit_sound():
 func death():
 	get_parent().add_child(PlayerDeathSound.instance())
 	queue_free()
+	get_tree().change_scene("res://Menu/EndGame.tscn")
 
 
 func _on_Hurtbox_area_entered(area):
