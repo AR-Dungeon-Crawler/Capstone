@@ -1,24 +1,24 @@
 extends Node2D
 
-const N = 0
-const E = 0
-const S = 0
-const W = 0
+const N = 1
+const E = 1
+const S = 1
+const W = 1
 
 var cell_walls = {Vector2(0, -1): N, Vector2(1, 0): E, 
 				  Vector2(0, 1): S, Vector2(-1, 0): W}
 
 var tile_size = 64  # tile size (in pixels)
-var width = 11  # width of map (in tiles)
-var height = 8  # height of map (in tiles)
+var width = 12  # width of map (in tiles)
+var height = 10  # height of map (in tiles)
+var rng = RandomNumberGenerator.new()
 
 # get a reference to the map for convenience
 onready var Map = $TileMap
 
 func _ready():
-	randomize()
+	rng.randomize()
 	tile_size = Map.cell_size
-	print(tile_size)
 	make_maze()
 	
 func check_neighbors(cell, unvisited):
@@ -37,7 +37,8 @@ func make_maze():
 	for x in range(width):
 		for y in range(height):
 			unvisited.append(Vector2(x, y))
-			Map.set_cellv(Vector2(x, y), N|E|S|W)
+			Map.set_cellv(Vector2(x, y), 1)
+			 
 	var current = Vector2(0, 0)
 	unvisited.erase(current)
 	# execute recursive backtracker algorithm
@@ -48,11 +49,17 @@ func make_maze():
 			stack.append(current)
 			# remove walls from *both* cells
 			var dir = next - current
+			print("dir ", dir)
+			print("Map.get_cellv ", Map.get_cellv(current))
 			var current_walls = Map.get_cellv(current) - cell_walls[dir]
 			var next_walls = Map.get_cellv(next) - cell_walls[-dir]
-			Map.set_cellv(current, current_walls)
-			Map.set_cellv(next, next_walls)
+			print("current_walls ", current_walls)
+			print("next_walls ", next_walls)
+			Map.set_cellv(current, rng.randi_range(1, 2))
+			Map.set_cellv(next, rng.randi_range(1, 2))
 			current = next
 			unvisited.erase(current)
 		elif stack:
 			current = stack.pop_back()
+		yield(get_tree(), "idle_frame")
+
