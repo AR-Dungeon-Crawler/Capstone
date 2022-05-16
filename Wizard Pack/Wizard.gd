@@ -35,18 +35,9 @@ enum {
 
 var state = MOVE
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	stats.connect("no_health", self, "death")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 func _physics_process(delta):
 	
@@ -166,7 +157,12 @@ func move_state(delta):
 			singles.queue_free()
 		var released = release.instance()
 		self.add_child(released)
-		released.get_node("Charge").amount = 15 * charge_count
+		if charge_count == 1:
+			released.get_node("Charge").amount = 1
+		elif charge_count < 4 and charge_count > 1:
+			released.get_node("Charge").amount = 3 * charge_count
+		elif charge_count >=4:
+			released.get_node("Charge").amount = 15 * charge_count
 		released.scale = Vector2((0.20 + (charge_count * 0.1)), (0.20 + (charge_count * 0.1)))
 		released.global_position = self.global_position
 		charge_count = 0
@@ -174,6 +170,11 @@ func move_state(delta):
 	
 	move_and_slide(velocity * MAX_SPEED)
 	
+func death_animation_finished():
+	get_tree().change_scene("res://Menu/EndGameWizard.tscn")
+	C.wizManaBonus = 0
+	C.wizPower = 3
+	C.wizSpeed = 0
 		
 func cast_animation_finished():
 	state = MOVE

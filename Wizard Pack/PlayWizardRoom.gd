@@ -57,8 +57,8 @@ func setup() -> void:
 	#OS.set_window_size(1 * map_size_px)
 	
 	# Remove dungeon.txt file so that it can be generated anew each time.
-	var file_remove = Directory.new()
-	file_remove.remove(temp_path)
+#	var file_remove = Directory.new()
+#	file_remove.remove(temp_path)
 	
 	_tile_map.update_bitmask_region()
 

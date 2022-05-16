@@ -35,6 +35,9 @@ func _ready():
 	C.player = self
 	if stats.health == 0:
 		stats.health = 5
+		C.arrows = 1
+		C.speed = 0
+		C.accuracy = 0
 
 
 func _input(event):
@@ -151,6 +154,7 @@ func death():
 	get_parent().add_child(PlayerDeathSound.instance())
 	queue_free()
 	get_tree().change_scene("res://Menu/EndGame.tscn")
+	
 
 
 func _on_Hurtbox_area_entered(area):
