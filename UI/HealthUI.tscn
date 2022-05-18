@@ -5,10 +5,11 @@
 [ext_resource path="res://UI/Boarder6.png" type="Texture" id=3]
 [ext_resource path="res://UI/Boarder7.png" type="Texture" id=4]
 [ext_resource path="res://UI/Back4.png" type="Texture" id=5]
-[ext_resource path="res://Player/arrow.png" type="Texture" id=6]
+[ext_resource path="res://Player/Bow/arrow.png" type="Texture" id=6]
 [ext_resource path="res://UI/bullseye.png" type="Texture" id=7]
 [ext_resource path="res://UI/boots.png" type="Texture" id=8]
 [ext_resource path="res://UI/Macondo-Regular.ttf" type="DynamicFontData" id=9]
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 10

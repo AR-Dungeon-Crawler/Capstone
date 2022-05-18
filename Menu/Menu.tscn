@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Menu/Menu.gd" type="Script" id=1]
-[ext_resource path="res://Menu/grid.jpg" type="Texture" id=2]
+[ext_resource path="res://Menu/Scripts/Menu.gd" type="Script" id=1]
+[ext_resource path="res://Menu/Images/grid.jpg" type="Texture" id=2]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -30,17 +30,10 @@ margin_right = 320.0
 margin_bottom = 185.0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/CenterContainer2"]
-
 margin_left = 105.0
-margin_top = 58.0
+margin_top = 46.0
 margin_right = 214.0
-margin_bottom = 126.0
-
-margin_left = 115.0
-margin_top = 71.244
-margin_right = 204.0
-margin_bottom = 139.244
-
+margin_bottom = 138.0
 
 [node name="StartButton" type="Button" parent="MarginContainer/CenterContainer2/VBoxContainer2"]
 margin_right = 109.0
@@ -53,7 +46,6 @@ margin_right = 109.0
 margin_bottom = 44.0
 text = "Instructions"
 
-
 [node name="Maze generation" type="Button" parent="MarginContainer/CenterContainer2/VBoxContainer2"]
 margin_top = 48.0
 margin_right = 109.0
@@ -61,11 +53,10 @@ margin_bottom = 68.0
 text = "Generate Maze"
 
 [node name="Quit" type="Button" parent="MarginContainer/CenterContainer2/VBoxContainer2"]
-margin_top = 48.0
-margin_right = 89.0
-margin_bottom = 68.0
+margin_top = 72.0
+margin_right = 109.0
+margin_bottom = 92.0
 text = "Quit"
-
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_left = 0.5
@@ -77,8 +68,5 @@ margin_bottom = 43.0
 
 [connection signal="pressed" from="MarginContainer/CenterContainer2/VBoxContainer2/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="MarginContainer/CenterContainer2/VBoxContainer2/Instructions" to="." method="_on_Instructions_pressed"]
-
 [connection signal="pressed" from="MarginContainer/CenterContainer2/VBoxContainer2/Maze generation" to="." method="_on_Maze_generation_pressed"]
-
 [connection signal="pressed" from="MarginContainer/CenterContainer2/VBoxContainer2/Quit" to="." method="_on_Quit_pressed"]
-
