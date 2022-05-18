@@ -12,13 +12,13 @@ config_version=4
 
 config/name="Capstone"
 run/main_scene="res://Menu/LoadMenu.tscn"
-boot_splash/image="res://Menu/Untitled.png"
+boot_splash/image="res://Menu/Images/Loading.png"
 config/icon="res://icon.png"
 
 [autoload]
 
-constants="*res://constants.gd"
-StatsPlayer="*res://Player/StatsPlayer.gd"
+constants="*res://Global/constants.gd"
+StatsPlayer="*res://Player/Scripts/StatsPlayer.gd"
 StatsWizard="*res://Wizard Pack/Stats.gd"
 
 [display]

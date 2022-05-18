@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bossattack2.mp3-8727ddad785473ab892ac719def03b3e.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/Audio Files/bossattack2.mp3"
+dest_files=[ "res://.import/bossattack2.mp3-8727ddad785473ab892ac719def03b3e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

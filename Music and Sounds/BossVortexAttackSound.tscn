@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Music and Sounds/BossVortexAttackSound.gd" type="Script" id=1]
-[ext_resource path="res://Music and Sounds/bossattack2.mp3" type="AudioStream" id=2]
+[ext_resource path="res://Music and Sounds/Scripts/BossVortexAttackSound.gd" type="Script" id=1]
+[ext_resource path="res://Music and Sounds/Audio Files/bossattack2.mp3" type="AudioStream" id=2]
+
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
 stream = ExtResource( 2 )

@@ -1,12 +1,13 @@
 [gd_scene load_steps=114 format=2]
 
-[ext_resource path="res://Music and Sounds/Music.mp3" type="AudioStream" id=1]
-[ext_resource path="res://World/grey-tilemap-16.png" type="Texture" id=2]
+[ext_resource path="res://Music and Sounds/Audio Files/Music.mp3" type="AudioStream" id=1]
+[ext_resource path="res://World/Tilemap/grey-tilemap-16.png" type="Texture" id=2]
 [ext_resource path="res://World/Chest.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Enemies/Bat.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemies/Bat/Bat.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/WizardUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Wizard Pack/PlayableWizard.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Wizard Pack/PlayWizardRoom.gd" type="Script" id=7]
+
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 16, 4, 4, 4, 4, 12, 16, 12, 16, 16, 0, 16, 0, 0, 16, 0 )
