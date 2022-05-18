@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+
 var dir = Vector2()
 var player
 var offset = 20
@@ -7,11 +8,14 @@ var velocity = Vector2.ZERO
 var path: Array = []
 var levelNavigation: Navigation2D = null
 onready var room = get_tree().current_scene
+onready var softCollision = $SoftCollision
+
 
 # Bat Stats
 export var speed : int = 20
 export var drop_chance : float = 50
 export var health : int = 1
+
 
 # Preloaded .tscn
 var fireball = preload("res://Fireball/Fireball.tscn")
@@ -19,6 +23,7 @@ var Chest = preload("res://World/Chest.tscn")
 var DeathSound = preload("res://Music and Sounds/BatDeath.tscn")
 var HitSound = preload("res://Music and Sounds/HitSound.tscn")
 var HitEffect = preload("res://Wizard Pack/HitEffectSmall.tscn")
+
 
 func _ready():
 	player = constants.player
@@ -31,8 +36,10 @@ func _ready():
 #	yield(owner, "ready")
 	randomize()
 
+
 func get_dir(target):
 	return (target.position - position).normalized()
+
 
 func _on_Timer_timeout():
 	dir = get_dir(player)
@@ -51,7 +58,9 @@ func _physics_process(delta):
 		navigate()
 	move()
 
-func navigate():	# Define the next position to go to
+
+# Define the next position to go to
+func navigate():	
 	if is_instance_valid(player):
 		if path.size() > 0:
 			velocity = global_position.direction_to(path[1]) * speed
@@ -60,14 +69,18 @@ func navigate():	# Define the next position to go to
 			if global_position == path[0]:
 				path.pop_front()
 		
-func generate_path():	# It's obvious
+		
+func generate_path():
 	if !is_instance_valid(player):
 		return
 	if levelNavigation != null and player != null:
 		path = levelNavigation.get_simple_path(global_position, player.global_position, false)
 		# line2D.points = path  # for debugging
 		
+		
 func move():
+	if softCollision.is_colliding():
+		velocity += softCollision.get_push_vector()
 	velocity = move_and_slide(velocity, Vector2(0, 0))
 	
 
@@ -87,6 +100,7 @@ func _on_Hurtbox_area_entered(area):
 			chest.position = global_position
 		get_parent().add_child(DeathSound.instance())
 		queue_free()
+	
 	
 func create_hit_effect():
 	var hitEffect = HitEffect.instance()
