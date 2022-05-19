@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/Font/Macondo-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Menu/Scripts/EndGame.gd" type="Script" id=2]
+[ext_resource path="res://Player/Sprite/player.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 9
+font_data = ExtResource( 1 )
+
+[node name="WinGameDefault" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.160784, 0.290196, 0.8, 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 11.0
+margin_top = 2.0
+margin_right = 115.0
+margin_bottom = 17.0
+rect_scale = Vector2( 3, 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Congratulations, You Won!"
+
+[node name="PlayAgainWin" type="Button" parent="."]
+margin_left = 61.0
+margin_top = 125.0
+margin_right = 271.0
+margin_bottom = 145.0
+text = "Keep Powerups and Play Again!"
+
+[node name="MainMenuWin" type="Button" parent="."]
+margin_left = 91.0
+margin_top = 152.0
+margin_right = 241.0
+margin_bottom = 172.0
+text = "Back to Main Menu"
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 155, 75 )
+scale = Vector2( 1.40625, 1.40625 )
+texture = ExtResource( 3 )
+hframes = 13
+vframes = 21
+frame = 31
+
+[connection signal="pressed" from="PlayAgainWin" to="." method="_on_PlayAgainWin_pressed"]
+[connection signal="pressed" from="MainMenuWin" to="." method="_on_MainMenuWin_pressed"]
