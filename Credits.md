@@ -6,6 +6,7 @@ Open Source Artwork Credits:
 [Godot-particle-and-vfx-textures](https://github.com/RPicster/Godot-particle-and-vfx-textures/) ([Author: Raffaele Picca](https://www.raffaelepicca.com/)) <br>
 [Potions Pack](https://varipixels.itch.io/potions-sprites) ([Author: VanPixels](https://varipixels.itch.io/))  
 [RPG Items Pack](https://alexs-assets.itch.io/16x16-rpg-item-pack) ([Author: Alex's Assets](https://alexs-assets.itch.io/))  
+[HealthBars/LifeBars](https://spikerman.itch.io/health-bars-life-bars) ([Author: SpikerMan](https://spikerman.itch.io/)) 
 
 Open Source Audio Credits:  
 [Bat Death Sound](https://opengameart.org/content/items-door-fire-weapon-hits) (Author: Jute)  
