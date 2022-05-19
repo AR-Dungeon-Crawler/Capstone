@@ -2,7 +2,7 @@ Open Source Artwork Credits:
 [Dungeon Wall Tileset](https://opengameart.org/content/dungeon-tileset) ([Author: Buch](https://opengameart.org/users/buch))  
 [Chest Animation](https://elthen.itch.io/pixel-art-destructible-objects) ([Author: Elthen](https://elthen.itch.io/))  
 [Wizard Pack](https://luizmelo.itch.io/wizard-pack) ([Author: LuizMelo](https://luizmelo.itch.io/))  
-[Godot-particle-and-vfx-textures](https://github.com/RPicster/Godot-particle-and-vfx-textures/) ([Author: Raffaele Picca](https//:www.raffaelepicca.com/)) 
+[Godot-particle-and-vfx-textures](https://github.com/RPicster/Godot-particle-and-vfx-textures/) ([Author: Raffaele Picca](https://www.raffaelepicca.com/)) 
 
 Open Source Audio Credits:  
 [Bat Death Sound](https://opengameart.org/content/items-door-fire-weapon-hits) (Author: Jute)  
