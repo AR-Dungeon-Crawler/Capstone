@@ -3,7 +3,7 @@ Open Source Artwork Credits:
 [Chest Animation](https://elthen.itch.io/pixel-art-destructible-objects) ([Author: Elthen](https://elthen.itch.io/))  
 
 [Wizard Pack](https://luizmelo.itch.io/wizard-pack) ([Author: LuizMelo](https://luizmelo.itch.io/))  
-[Godot-particle-and-vfx-textures](https://github.com/RPicster/Godot-particle-and-vfx-textures/) ([Author: Raffaele Picca](https://www.raffaelepicca.com/)) 
+[Godot-particle-and-vfx-textures](https://github.com/RPicster/Godot-particle-and-vfx-textures/) ([Author: Raffaele Picca](https://www.raffaelepicca.com/)) <br>
 [Potions Pack](https://varipixels.itch.io/potions-sprites) ([Author: VanPixels](https://varipixels.itch.io/))  
 [RPG Items Pack](https://alexs-assets.itch.io/16x16-rpg-item-pack) ([Author: Alex's Assets](https://alexs-assets.itch.io/))  
 
