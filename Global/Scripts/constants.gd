@@ -1,15 +1,18 @@
 extends Node
 
+
 # Default Player UI Elements
 var arrows = 1
 var speed = 0
 var accuracy = 0
+
 
 # Default Player constants
 var player
 var ACCELERATION = 500
 var MAX_SPEED = 50
 var FRICTION = 500
+
 
 # Wizard UI Elements
 var wizPower = 3

@@ -2,7 +2,7 @@ extends Node2D
 onready var _player : KinematicBody2D = $Player
 onready var _tile_map : TileMap = $Navigation2D/TileMap
 onready var nav = $Navigation2D
-var enemyScene = load("res://Enemies/Bat.tscn")
+var enemyScene = load("res://Enemies/Bat/Bat.tscn")
 
 #export var inner_size := Vector2(11, 11)
 #export var perimeter_size := Vector2(1, 1)

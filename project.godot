@@ -17,7 +17,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-constants="*res://Global/constants.gd"
+constants="*res://Global/Scripts/constants.gd"
 StatsPlayer="*res://Player/Scripts/StatsPlayer.gd"
 StatsWizard="*res://Wizard Pack/Stats.gd"
 
@@ -110,6 +110,7 @@ enter={
 2d_physics/layer_7="EnemyHurtbox"
 2d_physics/layer_8="Chest"
 2d_physics/layer_9="SoftCollision"
+2d_physics/layer_10="EnemyHitbox"
 
 [physics]
 

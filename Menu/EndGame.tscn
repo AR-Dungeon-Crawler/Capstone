@@ -1,8 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://UI/Macondo-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI/Font/Macondo-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Menu/Scripts/EndGame.gd" type="Script" id=2]
 [ext_resource path="res://Player/Sprite/player.png" type="Texture" id=3]
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 11

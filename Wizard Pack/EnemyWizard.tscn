@@ -271,6 +271,8 @@ position = Vector2( -0.167999, -15.5 )
 
 [node name="HitBoxP" type="Area2D" parent="HitBoxPivot"]
 position = Vector2( -10, 0 )
+collision_layer = 32769
+collision_mask = 33
 script = ExtResource( 4 )
 
 [node name="HitCollisionShape2D" type="CollisionShape2D" parent="HitBoxPivot/HitBoxP"]
@@ -280,6 +282,8 @@ disabled = true
 
 [node name="HitBox2" type="Area2D" parent="HitBoxPivot"]
 position = Vector2( -10, 0 )
+collision_layer = 32769
+collision_mask = 33
 
 [node name="LHitCollisionShape2D" type="CollisionShape2D" parent="HitBoxPivot/HitBox2"]
 position = Vector2( -24.832, -11.5 )
@@ -291,7 +295,7 @@ script = ExtResource( 3 )
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 32768
-collision_mask = 5
+collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2( 0, -15 )

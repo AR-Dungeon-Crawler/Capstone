@@ -1,14 +1,15 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://UI/boots.png" type="Texture" id=1]
-[ext_resource path="res://UI/Boarder6.png" type="Texture" id=2]
-[ext_resource path="res://UI/manapower.png" type="Texture" id=3]
-[ext_resource path="res://UI/Bar2.png" type="Texture" id=4]
-[ext_resource path="res://UI/Bar3.png" type="Texture" id=5]
-[ext_resource path="res://UI/Boarder10.png" type="Texture" id=6]
-[ext_resource path="res://UI/Macondo-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://UI/Images/boots.png" type="Texture" id=1]
+[ext_resource path="res://UI/Images/Boarder6.png" type="Texture" id=2]
+[ext_resource path="res://UI/Images/manapower.png" type="Texture" id=3]
+[ext_resource path="res://UI/Images/Bar2.png" type="Texture" id=4]
+[ext_resource path="res://UI/Images/Bar3.png" type="Texture" id=5]
+[ext_resource path="res://UI/Images/Boarder10.png" type="Texture" id=6]
+[ext_resource path="res://UI/Font/Macondo-Regular.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://Wizard Pack/Godot-particle-and-vfx-textures/textures/64/alpha/spotlight_1.png" type="Texture" id=8]
-[ext_resource path="res://UI/WizardUI.gd" type="Script" id=9]
+[ext_resource path="res://UI/Scripts/WizardUI.gd" type="Script" id=9]
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
