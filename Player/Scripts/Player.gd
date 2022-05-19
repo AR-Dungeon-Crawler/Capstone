@@ -190,6 +190,7 @@ func adjust_speed():
 		C.FRICTION = (500 * C.speed) + C.FRICTION
 		
 
+# Player has a 'hitbox' used for picking up chests
 func _on_Hitbox_area_entered(area):
 	if area.get_parent().is_in_group('Chest'):
 		var power = powerups[randi() % powerups.size()]
