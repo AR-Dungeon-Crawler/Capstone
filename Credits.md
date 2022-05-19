@@ -1,4 +1,4 @@
-Open Source Artwork Credits:  
+Open Source and Free Artwork Credits:  
 [Dungeon Wall Tileset](https://opengameart.org/content/dungeon-tileset) ([Author: Buch](https://opengameart.org/users/buch))  
 [Chest Animation](https://elthen.itch.io/pixel-art-destructible-objects) ([Author: Elthen](https://elthen.itch.io/))  
 
@@ -8,7 +8,7 @@ Open Source Artwork Credits:
 [RPG Items Pack](https://alexs-assets.itch.io/16x16-rpg-item-pack) ([Author: Alex's Assets](https://alexs-assets.itch.io/))  
 [HealthBars/LifeBars](https://spikerman.itch.io/health-bars-life-bars) ([Author: SpikerMan](https://spikerman.itch.io/)) 
 
-Open Source Audio Credits:  
+Open Source and Free Audio Credits:  
 [Bat Death Sound](https://opengameart.org/content/items-door-fire-weapon-hits) (Author: Jute)  
 [Bow Shoot Sound](https://opengameart.org/content/bow-arrow-shot) ([Author: dorkster](https://opengameart.org/users/dorkster))  
 [Background Music](https://github.com/uheartbeast/youtube-tutorials/blob/master/Action%20RPG/Action%20RPG%20Resources.zip) ([Author: HeartBeast](https://www.youtube.com/channel/UCrHQNOyU1q6BFEfkNq2CYMA))  
