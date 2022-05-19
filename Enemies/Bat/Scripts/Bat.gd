@@ -2,19 +2,15 @@ extends KinematicBody2D
 
 
 var dir = Vector2()
-var player
-var offset = 20
 var velocity = Vector2.ZERO
 var path: Array = []
 var levelNavigation: Navigation2D = null
+onready var player = constants.player  # player being targeted
 onready var room = get_tree().current_scene
 onready var softCollision = $SoftCollision
-
-
-# Bat Stats
-export var speed : int = 20
-export var drop_chance : float = 50
-export var health : int = 1
+onready var sprite = $AnimatedSprite
+onready var stats = $StatsBat
+onready var fireball_timer = $FireballTimer
 
 
 # Preloaded .tscn
@@ -26,7 +22,19 @@ var HitEffect = preload("res://Effects/HitEffectSmall.tscn")
 
 
 func _ready():
-	player = constants.player
+	
+	# Determine power level of bat (normal vs super)
+	randomize()
+	if rand_range(0, 100) <= stats.super_chance:
+		stats.load_superbat_stats()
+		sprite.self_modulate = Color(1, 0, 0)
+	else:
+		stats.load_bat_stats()
+		
+	# Delay start of fireball attacks
+	if stats.bat_type == 'super':
+		delay_fireball(stats.fireball_delay)
+		
 	yield(get_tree(), "idle_frame")
 	var tree = get_tree()
 	if tree.has_group("LevelNavigation"):
@@ -34,19 +42,14 @@ func _ready():
 	if tree.has_group("Player"):
 		player = tree.get_nodes_in_group("Player")[0]
 #	yield(owner, "ready")
-	randomize()
 
 
 func get_dir(target):
 	return (target.position - position).normalized()
 
 
-func _on_Timer_timeout():
-	dir = get_dir(player)
-	var f_ball = fireball.instance()
-	get_parent().add_child(f_ball)
-	f_ball.dir = dir
-	f_ball.position = position + dir * offset
+func _on_FireballTimer_timeout():
+	shoot_fireball()
 
 
 #################### Navigation and Pathfinding ####################
@@ -63,7 +66,7 @@ func _physics_process(delta):
 func navigate():	
 	if is_instance_valid(player):
 		if path.size() > 0:
-			velocity = global_position.direction_to(path[1]) * speed
+			velocity = global_position.direction_to(path[1]) * stats.speed
 			
 			# If reached the destination, remove this point from path array
 			if global_position == path[0]:
@@ -88,12 +91,12 @@ func move():
 
 func _on_Hurtbox_area_entered(area):
 	create_hit_effect()
-	health -= 1
-	if health >= 1:
+	stats.health -= 1
+	if stats.health >= 1:
 		get_parent().add_child(HitSound.instance())
-	elif health <= 0:
+	elif stats.health <= 0:
 		# Check if enemy drops a powerup
-		if rand_range(0, 100) <= drop_chance:
+		if rand_range(0, 100) <= stats.drop_chance:
 			var chest = Chest.instance()
 			# Call deferred for add child to get rid of physics flushing queries error.
 			get_parent().call_deferred("add_child", chest)
@@ -107,3 +110,35 @@ func create_hit_effect():
 	var world = get_tree().current_scene
 	world.add_child(hitEffect)
 	hitEffect.global_position = get_node("Hurtbox/CollisionShape2D").global_position
+	
+	
+#################### Attacking (Fireball) ####################
+
+# Fireball spawns 15 pixels above center of bat sprite
+var fireball_offset = Vector2(0, 15)
+
+
+# Set a delay so fireballs fire at different times
+func delay_fireball(time):
+	var timer = Timer.new()
+	timer.set_one_shot(true)
+	timer.connect("timeout", self, "_timer_callback")
+	add_child(timer)
+	timer.start(time)
+	
+	
+func _timer_callback():
+	fireball_timer.start()
+
+
+func shoot_fireball():
+	dir = get_fireball_dir(player)
+	var f_ball = fireball.instance()
+	get_parent().add_child(f_ball)
+	f_ball.position = position + dir - fireball_offset
+	f_ball.dir = dir
+	
+
+func get_fireball_dir(target):
+	# Need to remove the offset when getting target direction
+	return (target.position - position + fireball_offset).normalized()
