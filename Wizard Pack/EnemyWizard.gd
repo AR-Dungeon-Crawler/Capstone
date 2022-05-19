@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-var stagger = 30	# Hits taken before staggered animation is triggered.
-var hits_to_vortex = 60		# Hits taken before vortex attack phase starts.
+var stagger = 15	# Hits taken before staggered animation is triggered.
+var hits_to_vortex = 30		# Hits taken before vortex attack phase starts.
 var rng = RandomNumberGenerator.new()
 var random_num = 0
 var velocity = Vector2.ZERO
