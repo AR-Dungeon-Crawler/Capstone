@@ -14,10 +14,14 @@ var MAX_SPEED = 50
 var FRICTION = 500
 
 
-# Wizard UI Elements
+# Wizard Constants and UI Elements
 var wizPower = 3
 var wizSpeed = 0
 var wizManaBonus = 0
+
+var wizACCEL = 500
+var wizMAX_SPEED = 45
+var wizFRICTION = 500
 
 
 # Screen dimensions (type: int)

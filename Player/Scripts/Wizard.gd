@@ -2,10 +2,6 @@ extends KinematicBody2D
 
 onready var C = constants
 
-var ACCEL = 500
-var MAX_SPEED = 45
-var FRICTION = 500
-
 var velocity = Vector2.ZERO
 var rng = RandomNumberGenerator.new()
 var random_num = 0
@@ -134,11 +130,11 @@ func move_state(delta):
 		else:
 			animationPlayer.play("RunRight")
 			$SpriteE.flip_h = true
-		velocity += input_vector * ACCEL * delta
-		velocity = velocity.clamped(MAX_SPEED * delta)
+		velocity += input_vector * C.wizACCEL * delta
+		velocity = velocity.clamped(C.wizMAX_SPEED * delta)
 	else:
 		animationPlayer.play("Idle")
-		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+		velocity = velocity.move_toward(Vector2.ZERO, C.wizFRICTION * delta)
 		
 	if Input.is_action_pressed("space"):
 		if mana <= 1:
@@ -168,7 +164,7 @@ func move_state(delta):
 		charge_count = 0
 		
 	
-	move_and_slide(velocity * MAX_SPEED)
+	move_and_slide(velocity * C.wizMAX_SPEED)
 	
 func death_animation_finished():
 	get_tree().change_scene("res://Menu/EndGameWizard.tscn")
@@ -234,14 +230,14 @@ func adjust_speed():
 	Diminishing returns for movement speed bonuses.
 	"""
 	if C.wizSpeed <= 2:
-		MAX_SPEED = (5 * C.wizSpeed) + MAX_SPEED
+		C.wizMAX_SPEED = (5 * C.wizSpeed) + C.wizMAX_SPEED
 	if C.wizSpeed <= 6:
-		MAX_SPEED = (2 * C.wizSpeed) + MAX_SPEED
+		C.wizMAX_SPEED = (2 * C.wizSpeed) + C.wizMAX_SPEED
 	else:
-		MAX_SPEED = 2 + MAX_SPEED
+		C.wizMAX_SPEED = 2 + C.wizMAX_SPEED
 	if C.speed < 10:
-		ACCEL = (500 * C.wizSpeed) + ACCEL
-		FRICTION = (500 * C.wizSpeed) + FRICTION
+		C.wizACCEL = (500 * C.wizSpeed) + C.wizACCEL
+		C.wizFRICTION = (500 * C.wizSpeed) + C.wizFRICTION
 		
 func update_UI(delta):
 	manabar.rect_size.x = mana
