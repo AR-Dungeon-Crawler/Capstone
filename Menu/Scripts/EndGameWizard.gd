@@ -6,4 +6,4 @@ func _on_MainMenu_pressed():
 
 
 func _on_PlayAgainWiz_pressed():
-	get_tree().change_scene("res://Wizard Pack/PlayWizardRoom.tscn")
+	get_tree().change_scene("res://World/PlayWizardRoom.tscn")

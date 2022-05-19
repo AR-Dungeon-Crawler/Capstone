@@ -1,8 +1,8 @@
 extends Node2D
 onready var _player : KinematicBody2D = $Player
-onready var _tile_map : TileMap = $Navigation2D/TileMap
+onready var _tile_map : TileMap = $Navigation2D/Maze/TileMap
 
-var enemyScene = load("res://Enemies/Bat.tscn")
+var enemyScene = load("res://Enemies/Bat/Bat.tscn")
 
 #export var inner_size := Vector2(11, 11)
 #export var perimeter_size := Vector2(1, 1)
@@ -74,4 +74,4 @@ func _on_EnemyCountTimer_timeout():
 	"""
 	var enemy_number = (get_tree().get_nodes_in_group("Enemy").size())
 	if enemy_number <= 0:
-		get_tree().change_scene("res://Wizard Pack/WizRoom.tscn")
+		get_tree().change_scene("res://World/BossRoom.tscn")

@@ -7,8 +7,9 @@
 [ext_resource path="res://UI/Images/Bar3.png" type="Texture" id=5]
 [ext_resource path="res://UI/Images/Boarder10.png" type="Texture" id=6]
 [ext_resource path="res://UI/Font/Macondo-Regular.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://Wizard Pack/Godot-particle-and-vfx-textures/textures/64/alpha/spotlight_1.png" type="Texture" id=8]
+[ext_resource path="res://Effects/Textures/spotlight_1.png" type="Texture" id=8]
 [ext_resource path="res://UI/Scripts/WizardUI.gd" type="Script" id=9]
+
 
 
 [sub_resource type="DynamicFont" id=1]

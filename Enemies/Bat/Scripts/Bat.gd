@@ -22,7 +22,7 @@ var fireball = preload("res://Enemies/Bat/Attack/Fireball.tscn")
 var Chest = preload("res://World/Chest.tscn")
 var DeathSound = preload("res://Music and Sounds/BatDeath.tscn")
 var HitSound = preload("res://Music and Sounds/HitSound.tscn")
-var HitEffect = preload("res://Wizard Pack/HitEffectSmall.tscn")
+var HitEffect = preload("res://Effects/HitEffectSmall.tscn")
 
 
 func _ready():

@@ -13,7 +13,7 @@ onready var C = constants
 var Arrow = preload("res://Player/Bow/Arrow.tscn")
 var ArrowShootSound = preload("res://Music and Sounds/ArrowShoot.tscn")
 var PlayerDeathSound = preload("res://Music and Sounds/PlayerDeath.tscn")
-var HitEffect = preload("res://Wizard Pack/HitEffect.tscn")
+var HitEffect = preload("res://Effects/HitEffect.tscn")
 
 # Node references
 onready var animationPlayer = $AnimationPlayer

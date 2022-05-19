@@ -19,7 +19,7 @@ config/icon="res://icon.png"
 
 constants="*res://Global/Scripts/constants.gd"
 StatsPlayer="*res://Player/Scripts/StatsPlayer.gd"
-StatsWizard="*res://Wizard Pack/Stats.gd"
+StatsWizard="*res://Player/Scripts/Stats.gd"
 
 [display]
 
