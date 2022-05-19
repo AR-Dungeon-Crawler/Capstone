@@ -3,7 +3,6 @@ Open Source Artwork Credits:
 [Chest Animation](https://elthen.itch.io/pixel-art-destructible-objects) ([Author: Elthen](https://elthen.itch.io/))  
 [Wizard Pack](https://luizmelo.itch.io/wizard-pack) ([Author: LuizMelo](https://luizmelo.itch.io/))  
 [Godot-particle-and-vfx-textures](https://github.com/RPicster/Godot-particle-and-vfx-textures/) ([Author: Raffaele Picca](https://www.raffaelepicca.com/)) 
-
 [Potions Pack](https://varipixels.itch.io/potions-sprites) ([Author: VanPixels](https://varipixels.itch.io/))  
 
 Open Source Audio Credits:  
