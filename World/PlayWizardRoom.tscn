@@ -1095,3 +1095,5 @@ position = Vector2( 144, 96 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
+
+[connection signal="timeout" from="EnemyCountTimer" to="." method="_on_EnemyCountTimer_timeout"]

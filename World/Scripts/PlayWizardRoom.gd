@@ -64,11 +64,11 @@ func setup() -> void:
 
 func _ready() -> void:
 	setup()
-#
-#func _on_EnemyCountTimer_timeout():
-#	"""
-#	Check enemy numbers, if 0 then load boss scene.
-#	"""
-#	var enemy_number = (get_tree().get_nodes_in_group("Enemy").size())
-#	if enemy_number <= 0:
-#		get_tree().change_scene("res://Wizard Pack/WizRoom.tscn")
+
+func _on_EnemyCountTimer_timeout():
+	"""
+	Check enemy numbers, if 0 then load WinGameWizard
+	"""
+	var enemy_number = (get_tree().get_nodes_in_group("Enemy").size())
+	if enemy_number <= 0:
+		get_tree().change_scene("res://Menu/WinGameWizard.tscn")

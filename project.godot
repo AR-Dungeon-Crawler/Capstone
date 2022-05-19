@@ -115,3 +115,7 @@ enter={
 [physics]
 
 common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_clear_color=Color( 0, 0.0156863, 0.14902, 1 )

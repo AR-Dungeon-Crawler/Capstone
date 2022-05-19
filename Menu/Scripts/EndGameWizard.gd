@@ -7,3 +7,11 @@ func _on_MainMenu_pressed():
 
 func _on_PlayAgainWiz_pressed():
 	get_tree().change_scene("res://World/PlayWizardRoom.tscn")
+
+
+func _on_PlayAgainWizWin_pressed():
+	get_tree().change_scene("res://World/PlayWizardRoom.tscn")
+
+
+func _on_MainMenuWinWiz_pressed():
+	get_tree().change_scene("res://Menu/Menu.tscn")

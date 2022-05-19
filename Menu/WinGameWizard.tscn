@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI/Font/Macondo-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Player/Sprite/fullsheet.png" type="Texture" id=2]
+[ext_resource path="res://Menu/Scripts/EndGameWizard.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 9
+font_data = ExtResource( 1 )
+
+[sub_resource type="AnimatedTexture" id=2]
+
+[node name="WinGameWizard" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.160784, 0.290196, 0.8, 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 11.0
+margin_top = 2.0
+margin_right = 115.0
+margin_bottom = 17.0
+rect_scale = Vector2( 3, 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Congratulations, You Won!"
+
+[node name="SpriteE" type="Sprite" parent="."]
+position = Vector2( 169, 78 )
+scale = Vector2( 1.09682, 1 )
+z_index = 2
+texture = ExtResource( 2 )
+normal_map = SubResource( 2 )
+hframes = 8
+vframes = 6
+frame = 45
+
+[node name="PlayAgainWizWin" type="Button" parent="."]
+margin_left = 61.0
+margin_top = 125.0
+margin_right = 271.0
+margin_bottom = 145.0
+text = "Keep Powerups and Play Again!"
+
+[node name="MainMenuWinWiz" type="Button" parent="."]
+margin_left = 91.0
+margin_top = 152.0
+margin_right = 241.0
+margin_bottom = 172.0
+text = "Back to Main Menu"
+
+[connection signal="pressed" from="PlayAgainWizWin" to="." method="_on_PlayAgainWizWin_pressed"]
+[connection signal="pressed" from="MainMenuWinWiz" to="." method="_on_MainMenuWinWiz_pressed"]
