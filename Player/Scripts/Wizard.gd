@@ -13,6 +13,7 @@ var powerups = ['power', 'mana', 'movespeed']
 
 onready var animationTree = $AnimationTreeE
 onready var animationPlayer = $AnimationPlayerE
+onready var effectPlayer = get_parent().get_node("Camera2D/CanvasLayer/ColorRect/AnimationPlayer")
 var charge = preload("res://Effects/SingleCharge.tscn")
 var release = preload("res://Effects/Release.tscn")
 onready var manabar = get_parent().get_node("Camera2D/WizardUI/ManaFull")
@@ -26,7 +27,8 @@ enum {
 	ATTACK,
 	DYING,
 	CHARGE,
-	CAST
+	CAST,
+	REPEL
 }
 
 var state = MOVE
@@ -55,6 +57,10 @@ func _physics_process(delta):
 			
 		CAST:
 			cast_state(delta)
+			
+		REPEL:
+			cast_repel(delta)
+			
 			
 	update_UI(delta)
 	
@@ -93,6 +99,11 @@ func add_charge():
 			charged.z_index = 3
 		charged.global_position = self.global_position
 	charge_count += 1
+			
+func cast_repel(delta):
+	velocity = Vector2.ZERO
+	animationPlayer.play("Repel")
+	effectPlayer.play("shockwave")
 			
 func cast_state(delta):
 	velocity = Vector2.ZERO
@@ -163,6 +174,12 @@ func move_state(delta):
 		released.global_position = self.global_position
 		charge_count = 0
 		
+	if Input.is_action_just_pressed("r_alt"):
+		if mana < 18:
+			return
+		else:
+			mana -= 18
+			state = REPEL
 	
 	move_and_slide(velocity * C.wizMAX_SPEED)
 	
@@ -174,6 +191,15 @@ func death_animation_finished():
 	C.wizACCEL = 500
 	C.wizMAX_SPEED = 45
 	C.wizFRICTION = 500
+	
+func cast_repel_middle():
+	var enemies = (get_tree().get_nodes_in_group("Enemy"))
+	for enemy in enemies:
+		enemy.pushback(self.position)
+	
+	var fireballs = (get_tree().get_nodes_in_group("Fireball"))
+	for ball in fireballs:
+		ball.queue_free()
 		
 func cast_animation_finished():
 	state = MOVE

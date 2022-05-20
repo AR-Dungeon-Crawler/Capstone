@@ -11,7 +11,7 @@ onready var softCollision = $SoftCollision
 onready var sprite = $AnimatedSprite
 onready var stats = $StatsBat
 onready var fireball_timer = $FireballTimer
-
+var knockback = Vector2.ZERO
 
 # Preloaded .tscn
 var fireball = preload("res://Enemies/Bat/Attack/Fireball.tscn")
@@ -60,6 +60,9 @@ func _physics_process(delta):
 		generate_path()
 		navigate()
 	move()
+	
+	knockback = knockback.move_toward(Vector2.ZERO, 200 * delta)
+	knockback = move_and_slide(knockback)
 
 
 # Define the next position to go to
@@ -85,6 +88,24 @@ func move():
 	if softCollision.is_colliding():
 		velocity += softCollision.get_push_vector()
 	velocity = move_and_slide(velocity, Vector2(0, 0))
+	
+func pushback(target):
+	knockback = -(target - position) * 3
+	apply_slow()
+	
+func apply_slow():
+	var speedTimer = Timer.new()
+	speedTimer.set_one_shot(true)
+	speedTimer.set_wait_time(2)
+	speedTimer.connect("timeout", self, "_restore_speed")
+	add_child(speedTimer)
+	speedTimer.start()
+	stats.speed -= 10
+
+func _restore_speed():
+	if is_instance_valid(self):
+		stats.speed += 10
+
 	
 
 #################### Death and Damage ####################
@@ -136,7 +157,7 @@ func shoot_fireball():
 	var f_ball = fireball.instance()
 	get_parent().add_child(f_ball)
 	f_ball.position = position + dir - fireball_offset
-	f_ball.dir = dir
+	f_ball.dir = dir * .75
 	
 
 func get_fireball_dir(target):

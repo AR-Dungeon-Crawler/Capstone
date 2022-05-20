@@ -57,8 +57,9 @@ margin_right = 319.0
 margin_bottom = 124.0
 custom_fonts/font = SubResource( 1 )
 text = "Prepare spell charges by holding down
-spacebar. Cast your spell by pressing
-the Enter key."
+spacebar. Enter key to release charges.
+Press Right Alt to release a shockwave,
+pushing enemies and slowing them."
 
 [node name="SpriteE" type="Sprite" parent="."]
 position = Vector2( 252, 30 )
