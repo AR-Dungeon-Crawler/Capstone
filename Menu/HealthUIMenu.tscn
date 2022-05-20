@@ -1,0 +1,122 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Player/Bow/arrow.png" type="Texture" id=1]
+[ext_resource path="res://UI/Images/boots.png" type="Texture" id=2]
+[ext_resource path="res://UI/Images/bullseye.png" type="Texture" id=3]
+[ext_resource path="res://UI/Images/Bar2.png" type="Texture" id=4]
+[ext_resource path="res://UI/Images/Back4.png" type="Texture" id=5]
+[ext_resource path="res://UI/Images/Boarder6.png" type="Texture" id=6]
+[ext_resource path="res://UI/Images/Boarder7.png" type="Texture" id=7]
+[ext_resource path="res://UI/Font/Macondo-Regular.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 10
+font_data = ExtResource( 8 )
+
+[node name="HealthUIMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HealthEmptyMenu" type="TextureRect" parent="."]
+margin_left = 9.0
+margin_top = 64.0
+margin_right = 17.0
+margin_bottom = 111.0
+rect_rotation = 180.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="HealthFullMenu" type="TextureRect" parent="."]
+margin_left = 9.0
+margin_top = 64.0
+margin_right = 17.0
+margin_bottom = 111.0
+rect_rotation = 180.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="ChargeEmptyMenu" type="TextureRect" parent="."]
+margin_left = 9.0
+margin_top = 57.0
+margin_right = 70.0
+margin_bottom = 64.0
+texture = ExtResource( 7 )
+expand = true
+
+[node name="ChargeFullMenu" type="TextureRect" parent="."]
+margin_left = 10.0
+margin_top = 57.0
+margin_right = 24.0
+margin_bottom = 64.0
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Menu" type="TextureRect" parent="."]
+margin_left = 18.0
+margin_top = 43.0
+margin_right = 30.0
+margin_bottom = 46.0
+rect_rotation = 90.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Arrow1" type="TextureRect" parent="Menu"]
+margin_left = 0.999998
+margin_top = -5.0
+margin_right = 13.0
+margin_bottom = -2.0
+rect_rotation = 20.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Arrow2" type="TextureRect" parent="Menu"]
+margin_left = 3.8147e-06
+margin_top = 6.0
+margin_right = 12.0
+margin_bottom = 9.0
+rect_rotation = -20.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="BootsMenu" type="TextureRect" parent="."]
+margin_left = 31.0
+margin_top = 44.0
+margin_right = 41.0
+margin_bottom = 54.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="BullseyeMenu" type="TextureRect" parent="."]
+margin_left = 53.0
+margin_top = 45.0
+margin_right = 62.0
+margin_bottom = 53.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="ArrowCtMenu" type="Label" parent="."]
+margin_left = 17.0
+margin_top = 48.0
+margin_right = 33.131
+margin_bottom = 62.0
+rect_scale = Vector2( 0.758569, 0.761657 )
+custom_fonts/font = SubResource( 1 )
+text = "x1"
+
+[node name="BootCtMenu" type="Label" parent="."]
+margin_left = 39.0
+margin_top = 48.0
+margin_right = 55.131
+margin_bottom = 62.0
+rect_scale = Vector2( 0.758569, 0.761657 )
+custom_fonts/font = SubResource( 1 )
+text = "x0"
+
+[node name="BullseyeCtMenu" type="Label" parent="."]
+margin_left = 58.0
+margin_top = 48.0
+margin_right = 74.131
+margin_bottom = 62.0
+rect_scale = Vector2( 0.758569, 0.761657 )
+custom_fonts/font = SubResource( 1 )
+text = "x0"
