@@ -33,11 +33,11 @@ func _ready():
 	stats.connect("no_health", self, "death")
 	randomize()
 	C.player = self
-	if stats.health == 0:
-		stats.health = 5
-		C.arrows = 1
-		C.speed = 0
-		C.accuracy = 0
+#	if stats.health == 0:
+#		stats.health = 5
+#		C.arrows = 1
+#		C.speed = 0
+#		C.accuracy = 0
 
 
 func _input(event):
@@ -152,6 +152,13 @@ func create_hit_sound():
 	
 func death():
 	get_parent().add_child(PlayerDeathSound.instance())
+	stats.health = 5
+	C.arrows = 1
+	C.speed = 0
+	C.accuracy = 0
+	C.ACCELERATION = 500
+	C.MAX_SPEED = 50
+	C.FRICTION = 500
 	queue_free()
 	get_tree().change_scene("res://Menu/EndGame.tscn")
 	

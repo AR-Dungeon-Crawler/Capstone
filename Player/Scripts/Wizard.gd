@@ -64,10 +64,10 @@ func _physics_process(delta):
 			mana = 0
 		countDelta += delta
 		if charge_count == 0:
-			if countDelta > 0.4 - (0.05 * (C.wizPower/4)):
+			if countDelta > 0.25 - (0.05 * (C.wizPower/4)):
 				countDelta = 0
 				add_charge()
-		if countDelta > 0.7 - (0.05 * (C.wizPower/4)):
+		if countDelta > 0.55 - (0.05 * (C.wizPower/4)):
 			countDelta = 0
 			add_charge()
 		if Input.is_action_pressed("space"):
@@ -171,6 +171,9 @@ func death_animation_finished():
 	C.wizManaBonus = 0
 	C.wizPower = 3
 	C.wizSpeed = 0
+	C.wizACCEL = 500
+	C.wizMAX_SPEED = 45
+	C.wizFRICTION = 500
 		
 func cast_animation_finished():
 	state = MOVE
