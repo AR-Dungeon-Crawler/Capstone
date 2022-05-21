@@ -1,9 +1,10 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Player/Scripts/Wizard.gd" type="Script" id=1]
 [ext_resource path="res://Player/Scripts/Stats.gd" type="Script" id=2]
 [ext_resource path="res://Player/Sprite/fullsheet.png" type="Texture" id=3]
 [ext_resource path="res://Hitbox/Hitbox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Player/HurtBoxE.gd" type="Script" id=5]
 
 [sub_resource type="AnimatedTexture" id=111]
 
@@ -120,7 +121,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=116]
 resource_name = "Hurt"
-length = 0.6
+length = 0.35
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("SpriteE:frame")
@@ -129,10 +130,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 40, 43, 42, 41, 42, 43 ]
+"values": [ 43, 42, 41, 42 ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -141,7 +142,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.6 ),
+"times": PoolRealArray( 0.3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -354,10 +355,13 @@ position = Vector2( 0.832001, -16.5 )
 collision_layer = 32
 collision_mask = 49152
 monitorable = false
+script = ExtResource( 5 )
 
 [node name="HurtCollisionShape2DE" type="CollisionShape2D" parent="HurtBoxE"]
 position = Vector2( 0.168, 17.356 )
 shape = SubResource( 117 )
+
+[node name="Timer" type="Timer" parent="HurtBoxE"]
 
 [node name="HitBoxPivotE" type="Position2D" parent="."]
 position = Vector2( 1, 1 )
@@ -394,6 +398,9 @@ position = Vector2( 1, 1 )
 shape = SubResource( 131 )
 
 [connection signal="area_entered" from="HurtBoxE" to="." method="_on_HurtBox_area_entered"]
+[connection signal="invincibility_ended" from="HurtBoxE" to="HurtBoxE" method="_on_HurtBoxE_invincibility_ended"]
+[connection signal="invincibility_started" from="HurtBoxE" to="HurtBoxE" method="_on_HurtBoxE_invincibility_started"]
+[connection signal="timeout" from="HurtBoxE/Timer" to="HurtBoxE" method="_on_Timer_timeout"]
 [connection signal="no_health" from="StatsWizard" to="." method="_on_Stats_no_health"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
 

@@ -24,6 +24,7 @@ onready var manabar = get_parent().get_node("Camera2D/WizardUI/ManaFull")
 onready var powerCount = get_parent().get_node("Camera2D/WizardUI/PowerCt")
 onready var speedCount = get_parent().get_node("Camera2D/WizardUI/BootCt")
 onready var bonusCount = get_parent().get_node("Camera2D/WizardUI/BonusCt")
+onready var hurtbox = $HurtBoxE
 
 
 func _ready():
@@ -289,6 +290,7 @@ func create_hit_effect():
 
 func _on_HurtBox_area_entered(area):
 	create_hit_effect()
+	hurtbox.start_invincibility(1)
 	if stats.health <= 1:
 		stats.health -= 1
 		return

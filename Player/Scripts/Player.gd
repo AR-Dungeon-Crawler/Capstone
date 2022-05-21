@@ -159,9 +159,8 @@ func death():
 	get_tree().change_scene("res://Menu/EndGame.tscn")
 	
 
-
 func _on_Hurtbox_area_entered(area):
-	hurtbox.start_invincibility(0.5)
+	hurtbox.start_invincibility(1)
 	create_hit_effect()
 	create_hit_sound()
 	stats.health -= 1
