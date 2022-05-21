@@ -283,8 +283,10 @@ func _on_HurtBox_area_entered(area):
 func _on_StatsP_no_health():
 	state = DYING
 	
+	
 func free():
 	queue_free()
+	
 	
 func load_win_scene():
 	get_tree().change_scene("res://Menu/WinGameDefault.tscn")

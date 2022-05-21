@@ -33,11 +33,6 @@ func _ready():
 	stats.connect("no_health", self, "death")
 	randomize()
 	C.player = self
-#	if stats.health == 0:
-#		stats.health = 5
-#		C.arrows = 1
-#		C.speed = 0
-#		C.accuracy = 0
 
 
 func _input(event):
@@ -152,6 +147,7 @@ func create_hit_sound():
 	
 func death():
 	get_parent().add_child(PlayerDeathSound.instance())
+	# Reset all stats to default values after death.
 	stats.health = 5
 	C.arrows = 1
 	C.speed = 0
@@ -174,6 +170,9 @@ func _on_Hurtbox_area_entered(area):
 #################### UI and Powerups Management ####################
 
 func update_UI():
+	"""
+	Update arrow charge bar, and powerups counter.
+	"""
 	chargebar.rect_size.x = countDelta * 100
 	if countDelta == 1:
 		chargebar.rect_size.x = 59
