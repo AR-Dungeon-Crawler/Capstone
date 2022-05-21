@@ -96,7 +96,7 @@ func pushback(target):
 func apply_slow():
 	var speedTimer = Timer.new()
 	speedTimer.set_one_shot(true)
-	speedTimer.set_wait_time(2)
+	speedTimer.set_wait_time(2.5)
 	speedTimer.connect("timeout", self, "_restore_speed")
 	add_child(speedTimer)
 	speedTimer.start()

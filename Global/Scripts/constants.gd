@@ -20,7 +20,7 @@ var wizSpeed = 0
 var wizManaBonus = 0
 
 var wizACCEL = 500
-var wizMAX_SPEED = 45
+var wizMAX_SPEED = 50
 var wizFRICTION = 500
 
 
