@@ -302,7 +302,7 @@ func death():
 
 func _on_Hitbox_area_entered(area):
 	"""
-	Powerup chest entered hitbox.
+	Powerup chest entered Wizard's hitbox, grant random powerup.
 	"""
 	if area.get_parent().is_in_group('Chest'):
 		var power = powerups[randi() % powerups.size()]
