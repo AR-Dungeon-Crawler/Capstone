@@ -43,7 +43,6 @@ func make_maze():
 	# the player and bat can start on random locations 
 	for x in range(width):
 		for y in range(height):
-
 			unvisited.append(Vector2(x, y))
 			Map.set_cellv(Vector2(x, y), 1)
 		
@@ -63,17 +62,15 @@ func make_maze():
 			unvisited.erase(current)
 		elif stack:
 			current = stack.pop_back()
-		yield(get_tree(), "idle_frame")
 	
 	player_coordinates = (Vector2(round(player.global_position[0] / 16), round(player.global_position[1] / 16)))
 	Map.set_cellv(player_coordinates, 2)
 	
 	for bat in get_tree().get_nodes_in_group("Enemy"):
 		bat_coordinates = (Vector2(round(bat.global_position[0] / 16), round(bat.global_position[1] / 16)))
-	
+		Map.set_cellv(bat_coordinates, 2)
 	# add additional layer of wall to the existing maze 
 	for x in range(-1, width + 1):
 		for y in range(-1, height + 1):
 			if x == -1 or x == width or y == -1 or y == height:
 				Map.set_cellv(Vector2(x, y), 1)
-				yield(get_tree(), "idle_frame")
