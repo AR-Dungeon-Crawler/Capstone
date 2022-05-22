@@ -14,7 +14,6 @@ var height = 10  # height of map (in tiles)
 var rng = RandomNumberGenerator.new()
 var player_coordinates
 var bat_coordinates
-var bat_locations_array = []
 
 # get a reference to the map for convenience
 onready var Map = $TileMap
@@ -42,18 +41,9 @@ func make_maze():
 	
 	# set the player and bat locations to be a walkable tile. This needs to be updated so 
 	# the player and bat can start on random locations 
-	player_coordinates = (Vector2(round(player.global_position[0] / 16), round(player.global_position[1] / 16)))
-	Map.set_cellv(player_coordinates, 2)
-	
-	for bat in get_tree().get_nodes_in_group("Enemy"):
-		bat_coordinates = (Vector2(round(bat.global_position[0] / 16), round(bat.global_position[1] / 16)))
-		bat_locations_array.append(bat_coordinates)
-		Map.set_cellv(bat_coordinates, 2)
-		
 	for x in range(width):
 		for y in range(height):
-			if Vector2(x, y) in bat_locations_array or Vector2(x, y) == player_coordinates:
-				continue
+
 			unvisited.append(Vector2(x, y))
 			Map.set_cellv(Vector2(x, y), 1)
 		
@@ -74,6 +64,12 @@ func make_maze():
 		elif stack:
 			current = stack.pop_back()
 		yield(get_tree(), "idle_frame")
+	
+	player_coordinates = (Vector2(round(player.global_position[0] / 16), round(player.global_position[1] / 16)))
+	Map.set_cellv(player_coordinates, 2)
+	
+	for bat in get_tree().get_nodes_in_group("Enemy"):
+		bat_coordinates = (Vector2(round(bat.global_position[0] / 16), round(bat.global_position[1] / 16)))
 	
 	# add additional layer of wall to the existing maze 
 	for x in range(-1, width + 1):

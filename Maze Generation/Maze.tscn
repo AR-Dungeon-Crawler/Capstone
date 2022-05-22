@@ -9,7 +9,6 @@
 [ext_resource path="res://Music and Sounds/Audio Files/Music.mp3" type="AudioStream" id=7]
 [ext_resource path="res://Maze Generation/Maze.gd" type="Script" id=8]
 
-
 [sub_resource type="AnimationNodeStateMachinePlayback" id=108]
 
 [sub_resource type="ConvexPolygonShape2D" id=106]
@@ -161,4 +160,5 @@ autoplay = true
 
 [editable path="Player"]
 [editable path="Player/Hitbox"]
+[editable path="Player/PlayerHurtbox"]
 [editable path="Camera2D/HealthUI"]
