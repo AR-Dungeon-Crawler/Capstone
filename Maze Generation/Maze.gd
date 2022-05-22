@@ -9,8 +9,8 @@ var cell_walls = {Vector2(0, -1): N, Vector2(1, 0): E,
 				  Vector2(0, 1): S, Vector2(-1, 0): W}
 
 var tile_size = 16  # tile size (in pixels)
-var width = 12  # width of map (in tiles)
-var height = 10  # height of map (in tiles)
+var width = 20  # width of map (in tiles)
+var height = 16  # height of map (in tiles)
 var rng = RandomNumberGenerator.new()
 var player_coordinates
 var bat_coordinates
