@@ -38,13 +38,6 @@ margin_right = 241.0
 margin_bottom = 144.0
 text = "Play Again!"
 
-[node name="Random Maze" type="Button" parent="."]
-margin_left = 92.0
-margin_top = 124.0
-margin_right = 241.0
-margin_bottom = 144.0
-text = "Play Again!"
-
 [node name="MainMenu" type="Button" parent="."]
 margin_left = 91.0
 margin_top = 152.0
@@ -53,8 +46,8 @@ margin_bottom = 172.0
 text = "Back to Main Menu"
 
 [node name="SpriteE" type="Sprite" parent="."]
-position = Vector2( 163.822, 50 )
-scale = Vector2( 1.17138, 0.908573 )
+position = Vector2( 154.833, 51 )
+scale = Vector2( 1.17138, 1.09639 )
 z_index = 2
 texture = ExtResource( 2 )
 normal_map = SubResource( 2 )
@@ -63,5 +56,4 @@ vframes = 6
 frame = 30
 
 [connection signal="pressed" from="PlayAgainWiz" to="." method="_on_PlayAgainWiz_pressed"]
-[connection signal="pressed" from="Random Maze" to="." method="_on_Random_Maze_pressed"]
 [connection signal="pressed" from="MainMenu" to="." method="_on_MainMenu_pressed"]
