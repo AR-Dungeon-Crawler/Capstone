@@ -30,31 +30,31 @@ margin_right = 320.0
 margin_bottom = 185.0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/CenterContainer2"]
-margin_left = 105.0
+margin_left = 109.0
 margin_top = 46.0
-margin_right = 214.0
+margin_right = 211.0
 margin_bottom = 138.0
 
 [node name="StartButton" type="Button" parent="MarginContainer/CenterContainer2/VBoxContainer2"]
-margin_right = 109.0
+margin_right = 102.0
 margin_bottom = 20.0
 text = "Start"
 
 [node name="Instructions" type="Button" parent="MarginContainer/CenterContainer2/VBoxContainer2"]
 margin_top = 24.0
-margin_right = 109.0
+margin_right = 102.0
 margin_bottom = 44.0
 text = "Instructions"
 
 [node name="Maze generation" type="Button" parent="MarginContainer/CenterContainer2/VBoxContainer2"]
 margin_top = 48.0
-margin_right = 109.0
+margin_right = 102.0
 margin_bottom = 68.0
-text = "Generate Maze"
+text = "Random Maze"
 
 [node name="Quit" type="Button" parent="MarginContainer/CenterContainer2/VBoxContainer2"]
 margin_top = 72.0
-margin_right = 109.0
+margin_right = 102.0
 margin_bottom = 92.0
 text = "Quit"
 

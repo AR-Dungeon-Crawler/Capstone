@@ -16,4 +16,5 @@ func _on_RandomMazeWin_pressed():
 func _on_MainMenuWin_pressed():
 	get_tree().change_scene("res://Menu/Menu.tscn")
 
-
+func _on_Random_Maze_pressed():
+	get_tree().change_scene("res://Maze Generation/Maze.tscn")
