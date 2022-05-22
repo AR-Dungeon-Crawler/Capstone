@@ -139,6 +139,9 @@ position = Vector2( 71, 110 )
 [node name="Chest4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 134, 154 )
 
+[node name="Chest5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 146, 104 )
+
 [node name="EnemyCountTimer" type="Timer" parent="."]
 autostart = true
 
