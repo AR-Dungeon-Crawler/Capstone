@@ -30,10 +30,17 @@ text = "Congratulations, You Won!"
 
 [node name="PlayAgainWin" type="Button" parent="."]
 margin_left = 61.0
+margin_top = 99.0
+margin_right = 271.0
+margin_bottom = 119.0
+text = "Keep Powerups and Play Again!"
+
+[node name="RandomMazeWin" type="Button" parent="."]
+margin_left = 61.0
 margin_top = 125.0
 margin_right = 271.0
 margin_bottom = 145.0
-text = "Keep Powerups and Play Again!"
+text = "Random Maze with Powerups!"
 
 [node name="MainMenuWin" type="Button" parent="."]
 margin_left = 91.0
@@ -43,12 +50,13 @@ margin_bottom = 172.0
 text = "Back to Main Menu"
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 155, 75 )
-scale = Vector2( 1.40625, 1.40625 )
+position = Vector2( 160, 63 )
+scale = Vector2( 1.18929, 1.05791 )
 texture = ExtResource( 3 )
 hframes = 13
 vframes = 21
 frame = 31
 
 [connection signal="pressed" from="PlayAgainWin" to="." method="_on_PlayAgainWin_pressed"]
+[connection signal="pressed" from="RandomMazeWin" to="." method="_on_RandomMazeWin_pressed"]
 [connection signal="pressed" from="MainMenuWin" to="." method="_on_MainMenuWin_pressed"]
