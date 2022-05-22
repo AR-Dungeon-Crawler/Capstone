@@ -63,14 +63,28 @@ func make_maze():
 		elif stack:
 			current = stack.pop_back()
 	
-	player_coordinates = (Vector2(round(player.global_position[0] / 16), round(player.global_position[1] / 16)))
-	Map.set_cellv(player_coordinates, 2)
+	set_neighbor_cells(round(player.global_position[0] / 16), round(player.global_position[1] / 16))
 	
 	for bat in get_tree().get_nodes_in_group("Enemy"):
-		bat_coordinates = (Vector2(round(bat.global_position[0] / 16), round(bat.global_position[1] / 16)))
-		Map.set_cellv(bat_coordinates, 2)
+		var x = round(bat.global_position[0] / 16)
+		var y = round(bat.global_position[1] / 16)
+		set_neighbor_cells(x, y)
+		
 	# add additional layer of wall to the existing maze 
 	for x in range(-1, width + 1):
 		for y in range(-1, height + 1):
 			if x == -1 or x == width or y == -1 or y == height:
 				Map.set_cellv(Vector2(x, y), 1)
+				
+func set_neighbor_cells(x, y):
+	Map.set_cellv(Vector2(x, y), 2)
+	for neighbor in [[1, 0], [-1, 0], [0, 1], [0, -1]]:
+		var dx = neighbor[0]
+		var dy = neighbor[1]
+		Map.set_cellv(Vector2(x + dx, y + dy), 2)
+		
+		
+		
+		
+		
+	
