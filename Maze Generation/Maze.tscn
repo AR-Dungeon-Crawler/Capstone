@@ -107,7 +107,7 @@ wait_time = 3.0
 autostart = true
 
 [node name="Bat4" parent="." instance=ExtResource( 5 )]
-position = Vector2( 72, 137 )
+position = Vector2( 70, 155 )
 
 [node name="Timer2" type="Timer" parent="Bat4"]
 wait_time = 3.0
@@ -131,10 +131,13 @@ autostart = true
 position = Vector2( 167, 57 )
 
 [node name="Chest2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 173, 126 )
+position = Vector2( 180, 122 )
 
 [node name="Chest3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 71, 110 )
+
+[node name="Chest4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 134, 154 )
 
 [node name="EnemyCountTimer" type="Timer" parent="."]
 autostart = true

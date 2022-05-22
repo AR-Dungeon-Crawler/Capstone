@@ -70,6 +70,11 @@ func make_maze():
 		var y = round(bat.global_position[1] / 16)
 		set_neighbor_cells(x, y)
 		
+	for chest in get_tree().get_nodes_in_group("Chest"):
+		var x = round(chest.global_position[0] / 16)
+		var y = round(chest.global_position[1] / 16)
+		set_neighbor_cells(x, y)
+		
 	# add additional layer of wall to the existing maze 
 	for x in range(-1, width + 1):
 		for y in range(-1, height + 1):
