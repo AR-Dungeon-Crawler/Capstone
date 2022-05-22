@@ -9,12 +9,11 @@ var cell_walls = {Vector2(0, -1): N, Vector2(1, 0): E,
 				  Vector2(0, 1): S, Vector2(-1, 0): W}
 
 var tile_size = 16  # tile size (in pixels)
-var width = 12  # width of map (in tiles)
-var height = 10  # height of map (in tiles)
+var width = 20  # width of map (in tiles)
+var height = 16  # height of map (in tiles)
 var rng = RandomNumberGenerator.new()
 var player_coordinates
 var bat_coordinates
-var bat_locations_array = []
 
 # get a reference to the map for convenience
 onready var Map = $TileMap
@@ -42,18 +41,8 @@ func make_maze():
 	
 	# set the player and bat locations to be a walkable tile. This needs to be updated so 
 	# the player and bat can start on random locations 
-	player_coordinates = (Vector2(round(player.global_position[0] / 16), round(player.global_position[1] / 16)))
-	Map.set_cellv(player_coordinates, 2)
-	
-	for bat in get_tree().get_nodes_in_group("Enemy"):
-		bat_coordinates = (Vector2(round(bat.global_position[0] / 16), round(bat.global_position[1] / 16)))
-		bat_locations_array.append(bat_coordinates)
-		Map.set_cellv(bat_coordinates, 2)
-		
 	for x in range(width):
 		for y in range(height):
-			if Vector2(x, y) in bat_locations_array or Vector2(x, y) == player_coordinates:
-				continue
 			unvisited.append(Vector2(x, y))
 			Map.set_cellv(Vector2(x, y), 1)
 		
@@ -73,11 +62,34 @@ func make_maze():
 			unvisited.erase(current)
 		elif stack:
 			current = stack.pop_back()
-		yield(get_tree(), "idle_frame")
 	
+	set_neighbor_cells(round(player.global_position[0] / 16), round(player.global_position[1] / 16))
+	
+	for bat in get_tree().get_nodes_in_group("Enemy"):
+		var x = round(bat.global_position[0] / 16)
+		var y = round(bat.global_position[1] / 16)
+		set_neighbor_cells(x, y)
+		
+	for chest in get_tree().get_nodes_in_group("Chest"):
+		var x = round(chest.global_position[0] / 16)
+		var y = round(chest.global_position[1] / 16)
+		set_neighbor_cells(x, y)
+		
 	# add additional layer of wall to the existing maze 
 	for x in range(-1, width + 1):
 		for y in range(-1, height + 1):
 			if x == -1 or x == width or y == -1 or y == height:
 				Map.set_cellv(Vector2(x, y), 1)
-				yield(get_tree(), "idle_frame")
+				
+func set_neighbor_cells(x, y):
+	Map.set_cellv(Vector2(x, y), 2)
+	for neighbor in [[1, 0], [-1, 0], [0, 1], [0, -1]]:
+		var dx = neighbor[0]
+		var dy = neighbor[1]
+		Map.set_cellv(Vector2(x + dx, y + dy), 2)
+		
+		
+		
+		
+		
+	

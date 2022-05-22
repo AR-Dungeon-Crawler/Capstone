@@ -7,8 +7,7 @@
 [ext_resource path="res://Enemies/Bat/Bat.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Music and Sounds/Audio Files/Music.mp3" type="AudioStream" id=7]
-[ext_resource path="res://Maze Generation/Maze.gd" type="Script" id=8]
-
+[ext_resource path="res://Maze Generation/new folder/Maze.gd" type="Script" id=8]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=108]
 
@@ -101,14 +100,14 @@ __meta__ = {
 }
 
 [node name="Bat" parent="." instance=ExtResource( 5 )]
-position = Vector2( 103, 55 )
+position = Vector2( 39, 45 )
 
 [node name="Timer" type="Timer" parent="Bat"]
 wait_time = 3.0
 autostart = true
 
 [node name="Bat4" parent="." instance=ExtResource( 5 )]
-position = Vector2( 72, 137 )
+position = Vector2( 70, 155 )
 
 [node name="Timer2" type="Timer" parent="Bat4"]
 wait_time = 3.0
@@ -131,6 +130,18 @@ autostart = true
 [node name="Chest" parent="." instance=ExtResource( 4 )]
 position = Vector2( 167, 57 )
 
+[node name="Chest2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 180, 122 )
+
+[node name="Chest3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 71, 110 )
+
+[node name="Chest4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 134, 154 )
+
+[node name="Chest5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 146, 104 )
+
 [node name="EnemyCountTimer" type="Timer" parent="."]
 autostart = true
 
@@ -147,10 +158,19 @@ margin_right = -126.0
 margin_bottom = 78.0
 
 [node name="Bat5" parent="." instance=ExtResource( 5 )]
-position = Vector2( 136, 55 )
+position = Vector2( 136, 38 )
 
 [node name="Bat6" parent="." instance=ExtResource( 5 )]
-position = Vector2( 168, 73 )
+position = Vector2( 239, 43 )
+
+[node name="Bat7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 194, 153 )
+
+[node name="Bat8" parent="." instance=ExtResource( 5 )]
+position = Vector2( 48, 110 )
+
+[node name="Bat9" parent="." instance=ExtResource( 5 )]
+position = Vector2( 235, 128 )
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
@@ -161,4 +181,5 @@ autoplay = true
 
 [editable path="Player"]
 [editable path="Player/Hitbox"]
+[editable path="Player/PlayerHurtbox"]
 [editable path="Camera2D/HealthUI"]

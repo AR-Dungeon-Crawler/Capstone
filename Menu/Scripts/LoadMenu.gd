@@ -23,7 +23,7 @@ func _ready():
 	var file2 = File.new()
 	while !file2.file_exists(temp_path):
 		continue
-	
+
 	yield(get_tree().create_timer(0.25), "timeout")
 	
 	# Run main menu scene.

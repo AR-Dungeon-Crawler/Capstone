@@ -13,6 +13,7 @@ font_data = ExtResource( 1 )
 [node name="EndGameWizard" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_scale = Vector2( 1.00108, 1 )
 script = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -37,6 +38,13 @@ margin_right = 241.0
 margin_bottom = 144.0
 text = "Play Again!"
 
+[node name="Random Maze" type="Button" parent="."]
+margin_left = 92.0
+margin_top = 124.0
+margin_right = 241.0
+margin_bottom = 144.0
+text = "Play Again!"
+
 [node name="MainMenu" type="Button" parent="."]
 margin_left = 91.0
 margin_top = 152.0
@@ -45,8 +53,8 @@ margin_bottom = 172.0
 text = "Back to Main Menu"
 
 [node name="SpriteE" type="Sprite" parent="."]
-position = Vector2( 148, 61 )
-scale = Vector2( 1.36237, 1.24211 )
+position = Vector2( 163.822, 50 )
+scale = Vector2( 1.17138, 0.908573 )
 z_index = 2
 texture = ExtResource( 2 )
 normal_map = SubResource( 2 )
@@ -55,4 +63,5 @@ vframes = 6
 frame = 30
 
 [connection signal="pressed" from="PlayAgainWiz" to="." method="_on_PlayAgainWiz_pressed"]
+[connection signal="pressed" from="Random Maze" to="." method="_on_Random_Maze_pressed"]
 [connection signal="pressed" from="MainMenu" to="." method="_on_MainMenu_pressed"]

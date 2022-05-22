@@ -31,20 +31,27 @@ custom_fonts/font = SubResource( 1 )
 
 [node name="PlayAgain" type="Button" parent="."]
 margin_left = 86.0
-margin_top = 127.0
+margin_top = 105.0
 margin_right = 235.0
-margin_bottom = 147.0
+margin_bottom = 125.0
 text = "Play Again!"
 
+[node name="Random Maze" type="Button" parent="."]
+margin_left = 86.0
+margin_top = 129.0
+margin_right = 235.0
+margin_bottom = 149.0
+text = "Random Maze"
+
 [node name="Main" type="Button" parent="."]
-margin_left = 87.0
+margin_left = 86.0
 margin_top = 154.0
-margin_right = 237.0
+margin_right = 236.0
 margin_bottom = 174.0
 text = "Back to Main Menu"
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 155, 75 )
+position = Vector2( 156, 52 )
 scale = Vector2( 1.40625, 1.40625 )
 texture = ExtResource( 3 )
 hframes = 13
@@ -62,4 +69,5 @@ custom_fonts/font = SubResource( 2 )
 text = "Game Over"
 
 [connection signal="pressed" from="PlayAgain" to="." method="_on_PlayAgain_pressed"]
+[connection signal="pressed" from="Random Maze" to="." method="_on_Random_Maze_pressed"]
 [connection signal="pressed" from="Main" to="." method="_on_Main_pressed"]
