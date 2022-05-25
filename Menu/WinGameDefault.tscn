@@ -29,18 +29,18 @@ custom_fonts/font = SubResource( 1 )
 text = "Congratulations, You Won!"
 
 [node name="PlayAgainWin" type="Button" parent="."]
-margin_left = 61.0
+margin_left = 11.0
 margin_top = 99.0
-margin_right = 271.0
+margin_right = 312.0
 margin_bottom = 119.0
-text = "Keep Powerups and Play Again!"
+text = "Keep Powerups and Play Custom Maze Again!"
 
 [node name="RandomMazeWin" type="Button" parent="."]
-margin_left = 61.0
+margin_left = 54.0
 margin_top = 125.0
-margin_right = 271.0
+margin_right = 281.0
 margin_bottom = 145.0
-text = "Random Maze with Powerups!"
+text = "Random Maze Keeping Powerups!"
 
 [node name="MainMenuWin" type="Button" parent="."]
 margin_left = 91.0

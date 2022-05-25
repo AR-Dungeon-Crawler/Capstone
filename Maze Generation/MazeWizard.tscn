@@ -6,7 +6,7 @@
 [ext_resource path="res://Enemies/Bat/Bat.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/WizardUI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Music and Sounds/Audio Files/Music.mp3" type="AudioStream" id=7]
-[ext_resource path="res://Maze Generation/new folder/Maze.gd" type="Script" id=8]
+[ext_resource path="res://Maze Generation/Scripts/Maze.gd" type="Script" id=8]
 [ext_resource path="res://Effects/shockwave.shader" type="Shader" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
@@ -1228,3 +1228,5 @@ position = Vector2( 48, 110 )
 
 [node name="Bat10" parent="." instance=ExtResource( 5 )]
 position = Vector2( 235, 128 )
+
+[connection signal="timeout" from="EnemyCountTimer" to="Navigation2D/Maze" method="_on_EnemyCountTimer_timeout"]

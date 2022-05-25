@@ -6,7 +6,7 @@
 [ext_resource path="res://Enemies/Bat/Bat.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Music and Sounds/Audio Files/Music.mp3" type="AudioStream" id=7]
-[ext_resource path="res://Maze Generation/new folder/Maze.gd" type="Script" id=8]
+[ext_resource path="res://Maze Generation/Scripts/Maze.gd" type="Script" id=8]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=108]
 
@@ -140,7 +140,7 @@ position = Vector2( 134, 154 )
 [node name="Chest5" parent="." instance=ExtResource( 4 )]
 position = Vector2( 146, 104 )
 
-[node name="EnemyCountTimer" type="Timer" parent="."]
+[node name="EnemyCountTimerArcher" type="Timer" parent="."]
 autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -175,7 +175,7 @@ stream = ExtResource( 7 )
 volume_db = -13.11
 autoplay = true
 
-[connection signal="timeout" from="EnemyCountTimer" to="." method="_on_EnemyCountTimer_timeout"]
+[connection signal="timeout" from="EnemyCountTimerArcher" to="Navigation2D/Maze" method="_on_EnemyCountTimerArcher_timeout"]
 
 [editable path="Player"]
 [editable path="Player/Hitbox"]

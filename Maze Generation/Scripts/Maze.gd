@@ -93,3 +93,21 @@ func set_neighbor_cells(x, y):
 		
 		
 	
+
+
+func _on_EnemyCountTimer_timeout():
+	"""
+	Check enemy numbers, if 0 then load boss scene.
+	"""
+	var enemy_number = (get_tree().get_nodes_in_group("Enemy").size())
+	if enemy_number <= 0:
+		get_tree().change_scene("res://Menu/WinGameWizard.tscn")
+
+
+func _on_EnemyCountTimerArcher_timeout():
+	"""
+	Check enemy numbers, if 0 then load boss scene.
+	"""
+	var enemy_number = (get_tree().get_nodes_in_group("Enemy").size())
+	if enemy_number <= 0:
+		get_tree().change_scene("res://World/BossRoom.tscn")

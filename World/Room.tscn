@@ -1,10 +1,9 @@
-[gd_scene load_steps=115 format=2]
+[gd_scene load_steps=114 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Tilemap/grey-tilemap-16.png" type="Texture" id=2]
 [ext_resource path="res://World/Scripts/Room.gd" type="Script" id=3]
 [ext_resource path="res://World/Chest.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Enemies/Bat/Bat.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Music and Sounds/Audio Files/Music.mp3" type="AudioStream" id=7]
 
@@ -1060,21 +1059,6 @@ position = Vector2( 311, 88 )
 
 [node name="EnemyCountTimer" type="Timer" parent="."]
 autostart = true
-
-[node name="Bat" parent="." instance=ExtResource( 5 )]
-position = Vector2( 50, 35 )
-
-[node name="Bat2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 299, 39 )
-
-[node name="Bat3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 310, 218 )
-
-[node name="Bat4" parent="." instance=ExtResource( 5 )]
-position = Vector2( 38, 206 )
-
-[node name="Bat5" parent="." instance=ExtResource( 5 )]
-position = Vector2( 234, 118 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 164, 88 )

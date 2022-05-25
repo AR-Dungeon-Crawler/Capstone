@@ -31,8 +31,8 @@ custom_fonts/font = SubResource( 1 )
 text = "Congratulations, You Won!"
 
 [node name="SpriteE" type="Sprite" parent="."]
-position = Vector2( 169, 78 )
-scale = Vector2( 1.09682, 1 )
+position = Vector2( 170, 63 )
+scale = Vector2( 0.914979, 0.834211 )
 z_index = 2
 texture = ExtResource( 2 )
 normal_map = SubResource( 2 )
@@ -41,11 +41,11 @@ vframes = 6
 frame = 45
 
 [node name="PlayAgainWizWin" type="Button" parent="."]
-margin_left = 61.0
-margin_top = 125.0
-margin_right = 271.0
-margin_bottom = 145.0
-text = "Keep Powerups and Play Again!"
+margin_left = 9.0
+margin_top = 102.0
+margin_right = 310.0
+margin_bottom = 122.0
+text = "Keep Powerups and Play Custom Maze Again!"
 
 [node name="MainMenuWinWiz" type="Button" parent="."]
 margin_left = 91.0
@@ -54,5 +54,13 @@ margin_right = 241.0
 margin_bottom = 172.0
 text = "Back to Main Menu"
 
+[node name="PlayAgainRanWizWin2" type="Button" parent="."]
+margin_left = 6.0
+margin_top = 127.0
+margin_right = 313.0
+margin_bottom = 147.0
+text = "Keep Powerups and Play Random Room Again!"
+
 [connection signal="pressed" from="PlayAgainWizWin" to="." method="_on_PlayAgainWizWin_pressed"]
 [connection signal="pressed" from="MainMenuWinWiz" to="." method="_on_MainMenuWinWiz_pressed"]
+[connection signal="pressed" from="PlayAgainRanWizWin2" to="." method="_on_PlayAgainRanWizWin2_pressed"]
