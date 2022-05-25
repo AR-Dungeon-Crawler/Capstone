@@ -11,14 +11,10 @@ func _ready():
 	pass
 
 func _on_StartButton_pressed():
-	get_tree().change_scene("res://Menu/ClassSelection.tscn")
+	get_tree().change_scene("res://Menu/Menu2.tscn")
 
 func _on_Instructions_pressed():
 	get_tree().change_scene("res://Menu/Instructions.tscn")
-
-
-func _on_Maze_generation_pressed():
-	get_tree().change_scene("res://Maze Generation/Maze.tscn")
 
 func _on_Quit_pressed():
 	get_tree().quit()

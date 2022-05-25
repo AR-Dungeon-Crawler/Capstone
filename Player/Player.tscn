@@ -600,20 +600,22 @@ extents = Vector2( 5.5, 5 )
 extents = Vector2( 5, 10.5 )
 
 [node name="Player" type="KinematicBody2D"]
+position = Vector2( 0, -2 )
 z_index = 2
 collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 7 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
+offset = Vector2( -0.215, -22.284 )
 hframes = 13
 vframes = 21
 frame = 144
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 0, 12 )
+position = Vector2( 0, 8 )
 rotation = 1.5708
 shape = SubResource( 24 )
 
@@ -662,7 +664,7 @@ collision_layer = 4
 collision_mask = 128
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2( 0.5, 9 )
+position = Vector2( 0, 6 )
 shape = SubResource( 78 )
 
 [node name="Timer" type="Timer" parent="."]
@@ -679,7 +681,7 @@ collision_layer = 32
 collision_mask = 32768
 
 [node name="CollisionShape2D" parent="PlayerHurtbox" index="0"]
-position = Vector2( 0, 3 )
+position = Vector2( 0, 1 )
 shape = SubResource( 79 )
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]

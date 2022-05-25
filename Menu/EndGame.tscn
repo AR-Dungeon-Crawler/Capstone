@@ -30,18 +30,18 @@ margin_bottom = 176.0
 custom_fonts/font = SubResource( 1 )
 
 [node name="PlayAgain" type="Button" parent="."]
-margin_left = 86.0
-margin_top = 105.0
-margin_right = 235.0
-margin_bottom = 125.0
-text = "Play Again!"
+margin_left = 39.0
+margin_top = 104.0
+margin_right = 279.0
+margin_bottom = 124.0
+text = "Play Again With Custom Input Maze"
 
 [node name="Random Maze" type="Button" parent="."]
-margin_left = 86.0
+margin_left = 41.0
 margin_top = 129.0
-margin_right = 235.0
+margin_right = 276.0
 margin_bottom = 149.0
-text = "Random Maze"
+text = "Play Again With Randomized Room"
 
 [node name="Main" type="Button" parent="."]
 margin_left = 86.0

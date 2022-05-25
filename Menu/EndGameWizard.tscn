@@ -32,11 +32,11 @@ custom_fonts/font = SubResource( 1 )
 text = "Game Over"
 
 [node name="PlayAgainWiz" type="Button" parent="."]
-margin_left = 92.0
-margin_top = 124.0
-margin_right = 241.0
-margin_bottom = 144.0
-text = "Play Again!"
+margin_left = 43.9525
+margin_top = 104.0
+margin_right = 283.953
+margin_bottom = 124.0
+text = "Play Again With Custom Input Maze"
 
 [node name="MainMenu" type="Button" parent="."]
 margin_left = 91.0
@@ -55,5 +55,13 @@ hframes = 8
 vframes = 6
 frame = 30
 
+[node name="Random Maze" type="Button" parent="."]
+margin_left = 44.9515
+margin_top = 129.0
+margin_right = 279.951
+margin_bottom = 149.0
+text = "Play Again With Randomized Room"
+
 [connection signal="pressed" from="PlayAgainWiz" to="." method="_on_PlayAgainWiz_pressed"]
 [connection signal="pressed" from="MainMenu" to="." method="_on_MainMenu_pressed"]
+[connection signal="pressed" from="Random Maze" to="." method="_on_Random_Maze_pressed"]

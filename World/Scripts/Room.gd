@@ -10,8 +10,6 @@ var enemyScene = load("res://Enemies/Bat/Bat.tscn")
 
 func setup() -> void:
 	
-	return 
-	
 	# TEST version
 	var temp_path = ProjectSettings.globalize_path("res://dungeon.txt")
 	var img2grid_path = ProjectSettings.globalize_path("res://PhotoToGrid.exe")
@@ -60,8 +58,8 @@ func setup() -> void:
 	#OS.set_window_size(1 * map_size_px)
 	
 	# Remove dungeon.txt file so that it can be generated anew each time.
-	var file_remove = Directory.new()
-	file_remove.remove(temp_path)
+#	var file_remove = Directory.new()
+#	file_remove.remove(temp_path)
 	
 	_tile_map.update_bitmask_region()
 
