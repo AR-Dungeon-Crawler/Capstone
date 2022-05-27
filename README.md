@@ -36,7 +36,7 @@ In addition several programs were utilized for editing / customizing different s
 
 ## Gameplay Development Screenshots
 First sprite added to game with animations and proper turning
-![](./Screenshots/movement.gif =100x)
+![](./Screenshots/movement.gif=100x)
 
 Tilemap added and basic collision with player
 ![](./Screenshots/sliding.gif)
