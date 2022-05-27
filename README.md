@@ -16,4 +16,4 @@ This project was created for our Senior Capstone at Oregon State university. Aft
 ### Godot Engine
 Each project member spiked a different platform for development of this game. Between PyGame, Godot, and T-Engine4, the team decided to use Godot as there were ample resources available on it and it was repeatedly rated among the best (or the best) free game development engines available.
 
-<img src="./Screenshots/engine.png" width="500" height="200">
+<img src="./Screenshots/engine.png" width="500" height="281">
