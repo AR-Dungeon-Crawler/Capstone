@@ -42,7 +42,7 @@ Tilemap added and basic collision with player
 ![](./Screenshots/sliding.gif)
 
 First enemies added and mouse based turning
-![]("./Screenshots/mouse turning.gif")
+<img src="./Screenshots/mouse turning.gif">
 
 Bow draw and arrow firing animation
 ![](./Screenshots/shooting.gif)
