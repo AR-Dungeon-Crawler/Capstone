@@ -65,4 +65,4 @@ In addition several programs were utilized for editing / customizing different s
 ![](./Screenshots/superbats.gif)
 
 ### Playable wizard class
-![](./Screenshots/wizard demo.gif)
+![](./Screenshots/wizard&#32;demo.gif)
