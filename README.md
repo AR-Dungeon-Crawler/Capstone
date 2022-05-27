@@ -64,5 +64,5 @@ In addition several programs were utilized for editing / customizing different s
 ### Added enemy variety and updated enemy skills so red bats can fireballs at player with appropriate hitboxes and collision
 ![](./Screenshots/superbats.gif)
 
-### Playable wizard class (and slightly out of bounds powerup in a chest... oops!)
-![](./Screenshots/wizard2.gif)
+### Playable wizard class
+![](./Screenshots/wizard demo.gif)
