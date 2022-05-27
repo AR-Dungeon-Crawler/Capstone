@@ -48,7 +48,7 @@ Bow draw and arrow firing animation
 ![](./Screenshots/shooting.gif)
 
 Enemy hitbox and death added
-![](./Screenshots/enemy hitbox.gif)
+![](./Screenshots/enemy&#32;hitbox.gif)
 
 Sprite sheet of playable wizard class (also the boss!)
 ![](./Screenshots/fullsheet.png)
