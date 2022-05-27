@@ -21,6 +21,8 @@ Each project member spiked a different platform for development of this game. Be
 ### OpenCV
 To build the AR component of the game, the Python library OpenCV was used. This took a hand drawn or computer drawn image on graph paper and converted it into a 2D array using thresholding, Gaussian blur, and bit masking. This 2D array could then be parsed and translated into a dungeon layout inside Godot. The creator can use 4 different elements when drawing the dungeon to affect the layout: edges for walls, triangles for enemy spawn positions, a square for the player starting position, and an asterisk which is currently unused.
 
+![](./Screenshots/conversionAlgo.gif)
+
 Here is a link to the algorithm created by Danny Chung: https://github.com/chungd87/Image-to-Graid-Conversion-Algorithm
 
 ### Various Free Open Source Artwork and Audio Resources
