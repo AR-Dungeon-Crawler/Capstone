@@ -35,32 +35,32 @@ In addition several programs were utilized for editing / customizing different s
 - https://pixlr.com/x/
 
 ## Gameplay Development Screenshots
-First sprite added to game with animations and proper turning
+### First sprite added to game with animations and proper turning
 ![](./Screenshots/movement.gif)
 
-Tilemap added and basic collision with player
+### Tilemap added and basic collision with player
 ![](./Screenshots/sliding.gif)
 
-First enemies added and mouse based turning
+### First enemies added and mouse based turning
 ![](./Screenshots/mouse&#32;turning.gif)
 
-Bow draw and arrow firing animation
+### Bow draw and arrow firing animation
 ![](./Screenshots/shooting.gif)
 
-Enemy hitbox and death added
+### Enemy hitbox and death added
 ![](./Screenshots/enemy&#32;hitbox.gif)
 
-Sprite sheet of playable wizard class (also the boss!)
+### Sprite sheet of playable wizard class (also the boss!)
 ![](./Screenshots/fullsheet.png)
 
-New character select screen and preview of UI elements
+### New character select screen and preview of UI elements
 ![](./Screenshots/select.png)
 
-Screenshot of UI components and powerup system (here player can shoot 4 arrows at once)
+### Screenshot of UI components and powerup system (here player can shoot 4 arrows at once)
 ![](./Screenshots/boss.png)
 
-Added enemy variety and updated enemy skills so red bats can fireballs at player with appropriate hitboxes and collision
+### Added enemy variety and updated enemy skills so red bats can fireballs at player with appropriate hitboxes and collision
 ![](./Screenshots/superbats.gif)
 
-Playable wizard class (and slightly out of bounds powerup in a chest... oops!)
+### Playable wizard class (and slightly out of bounds powerup in a chest... oops!)
 ![](./Screenshots/wizard2.gif)
