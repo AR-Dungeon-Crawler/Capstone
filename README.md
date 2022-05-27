@@ -23,7 +23,7 @@ To build the AR component of the game, the Python library OpenCV was used. This 
 
 ![](./Screenshots/conversionAlgo.gif)
 
-Here is a link to the algorithm created by Danny Chung: 
+Here is a link to the algorithm created by Danny Chung: <br>
 https://github.com/chungd87/Image-to-Grid-Conversion-Algorithm
 
 ### Various Free Open Source Artwork and Audio Resources
