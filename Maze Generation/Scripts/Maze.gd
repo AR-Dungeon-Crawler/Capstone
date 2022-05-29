@@ -26,7 +26,7 @@ func _ready():
 	
 	
 func check_neighbors(cell, unvisited):
-	# returns an array of cell's unvisited neighbors
+	"""returns an array of cell's unvisited neighbors"""
 	var list = []
 	for n in cell_walls.keys():
 		if cell + n in unvisited:
@@ -34,6 +34,7 @@ func check_neighbors(cell, unvisited):
 	return list
 	
 func make_maze():
+	"""generate a random maze"""
 	var unvisited = []  # array of unvisited tiles
 	var stack = []
 	# fill the map with wall tiles initially 
@@ -63,18 +64,21 @@ func make_maze():
 		elif stack:
 			current = stack.pop_back()
 	
+	# set the player and their neighbor cells to be walkable area
 	set_neighbor_cells(round(player.global_position[0] / 16), round(player.global_position[1] / 16))
 	
+	# set the bats and their neighbor cells to be walkable area
 	for bat in get_tree().get_nodes_in_group("Enemy"):
 		var x = round(bat.global_position[0] / 16)
 		var y = round(bat.global_position[1] / 16)
 		set_neighbor_cells(x, y)
-		
+
+	# set the chest and its neighbor cells to be walkable area
 	for chest in get_tree().get_nodes_in_group("Chest"):
 		var x = round(chest.global_position[0] / 16)
 		var y = round(chest.global_position[1] / 16)
 		set_neighbor_cells(x, y)
-		
+	
 	# add additional layer of wall to the existing maze 
 	for x in range(-1, width + 1):
 		for y in range(-1, height + 1):
@@ -82,17 +86,12 @@ func make_maze():
 				Map.set_cellv(Vector2(x, y), 1)
 				
 func set_neighbor_cells(x, y):
+	"""set the neighbor(up, down, left, right) cell of the curr cell to be walkable area"""
 	Map.set_cellv(Vector2(x, y), 2)
 	for neighbor in [[1, 0], [-1, 0], [0, 1], [0, -1]]:
 		var dx = neighbor[0]
 		var dy = neighbor[1]
 		Map.set_cellv(Vector2(x + dx, y + dy), 2)
-		
-		
-		
-		
-		
-	
 
 
 func _on_EnemyCountTimer_timeout():
