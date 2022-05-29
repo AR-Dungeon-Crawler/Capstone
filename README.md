@@ -69,4 +69,5 @@ In addition several programs were utilized for editing / customizing different s
 ![](./Screenshots/wizard&#32;demo.gif)
 
 ### Maze generation
-![](https://ezgif.com/video-to-gif/ezgif-5-a389e1d1c645.mov)
+![](https://user-images.githubusercontent.com/64568573/170893947-a405522e-f33a-489f-b8d6-dc3ad1ca4b94.gif)
+
