@@ -67,3 +67,6 @@ In addition several programs were utilized for editing / customizing different s
 
 ### Playable wizard class
 ![](./Screenshots/wizard&#32;demo.gif)
+
+### Maze generation
+![](https://ezgif.com/video-to-gif/ezgif-5-a389e1d1c645.mov)
