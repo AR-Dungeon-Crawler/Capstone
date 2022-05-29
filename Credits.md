@@ -7,6 +7,7 @@ Open Source and Free Artwork Credits:
 [Potions Pack](https://varipixels.itch.io/potions-sprites) ([Author: VanPixels](https://varipixels.itch.io/))  
 [RPG Items Pack](https://alexs-assets.itch.io/16x16-rpg-item-pack) ([Author: Alex's Assets](https://alexs-assets.itch.io/))  
 [HealthBars/LifeBars](https://spikerman.itch.io/health-bars-life-bars) ([Author: SpikerMan](https://spikerman.itch.io/)) 
+[Bat Sprite](https://github.com/uheartbeast/youtube-tutorials/tree/master/Action%20RPG/Enemies) ([Author: uheartbeast](https://github.com/uheartbeast))
 
 Open Source and Free Audio Credits:  
 [Bat Death Sound](https://opengameart.org/content/items-door-fire-weapon-hits) (Author: Jute)  
@@ -16,9 +17,12 @@ Open Source and Free Audio Credits:
 [Hit Sound](https://opengameart.org/content/punch-slap-n-kick) ([Author: CGEffex](https://freesound.org/people/CGEffex/))  
 [Player Hurt and Death Sounds](https://opengameart.org/content/5-hit-sounds-dying) ([Author: TinyWorlds](https://opengameart.org/users/tinyworlds))
 [Boss Attack Sounds](https://opengameart.org/content/63-digital-sound-effects-lasers-phasers-space-etc) ([Author: Kenny](https://opengameart.org/users/kenney))
-
 [Universal LPC Spritesheet Generator](https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator/)
 Authors: Stephen Challener (Redshrike), Johannes Sjölund (wulax), Manuel Riecke (MrBeast), bluecarrot16, David Conway Jr. (JaidynReiman), Thane Brimhall (pennomi), laetissima, Joe White, Matthew Krohn (makrohn)
+
+[Path Finding Algorithm](https://github.com/IvessJohn/basic-pathfinding-Godot) ([Author: IvessJohn](https://github.com/IvessJohn))
+
+- fireball.png: "https://www.pikpng.com/pngvi/obbwbx_fireball-clipart-pixel-sprite-fireball-png-gif-pixel/"
 
 - body/male/human/white.png: by Stephen Challener (Redshrike), Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
     - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
@@ -56,3 +60,5 @@ Authors: Stephen Challener (Redshrike), Johannes Sjölund (wulax), Manuel Riecke
 
 - ammo/arrow.png: by Johannes Sjölund (wulax). License(s): CC-BY-SA 3.0, GPL 3.0. 
     - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+
+
