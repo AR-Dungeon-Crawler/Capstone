@@ -10,13 +10,13 @@ var enemyScene = load("res://Enemies/Bat/Bat.tscn")
 
 func setup() -> void:
 	
-#	# TEST version
-#	var temp_path = ProjectSettings.globalize_path("res://dungeon.txt")
-#	var img2grid_path = ProjectSettings.globalize_path("res://PhotoToGrid.exe")
+	# TEST version
+	var temp_path = ProjectSettings.globalize_path("res://dungeon.txt")
+	var img2grid_path = ProjectSettings.globalize_path("res://PhotoToGrid.exe")
 	
-	# BUILD version
-	var temp_path = str(OS.get_executable_path().get_base_dir()) + "/dungeon.txt"
-	var img2grid_path = str(OS.get_executable_path().get_base_dir()) + "/PhotoToGrid.exe"
+#	# BUILD version
+#	var temp_path = str(OS.get_executable_path().get_base_dir()) + "/dungeon.txt"
+#	var img2grid_path = str(OS.get_executable_path().get_base_dir()) + "/PhotoToGrid.exe"
 
 	var file = File.new()
 	file.open(temp_path, file.READ)
