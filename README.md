@@ -21,7 +21,10 @@ Each project member spiked a different platform for development of this game. Be
 ### OpenCV
 To build the AR component of the game, the Python library OpenCV was used. This took a hand drawn or computer drawn image on graph paper and converted it into a 2D array using thresholding, Gaussian blur, and bit masking. This 2D array could then be parsed and translated into a dungeon layout inside Godot. The creator can use 4 different elements when drawing the dungeon to affect the layout: edges for walls, triangles for enemy spawn positions, a square for the player starting position, and an asterisk which is currently unused.
 
-Here is a link to the algorithm created by Danny Chung: https://github.com/chungd87/Image-to-Graid-Conversion-Algorithm
+![](./Screenshots/conversionAlgo.gif)
+
+Here is a link to the algorithm created by Danny Chung: <br>
+https://github.com/chungd87/Image-to-Grid-Conversion-Algorithm
 
 ### Various Free Open Source Artwork and Audio Resources
 A variety of resources were used to produce the artwork and audio in this game. For a detailed description, please refer to the Credits.md file. But in general, most artwork and audio were sourced from:
@@ -62,5 +65,5 @@ In addition several programs were utilized for editing / customizing different s
 ### Added enemy variety and updated enemy skills so red bats can fireballs at player with appropriate hitboxes and collision
 ![](./Screenshots/superbats.gif)
 
-### Playable wizard class (and slightly out of bounds powerup in a chest... oops!)
-![](./Screenshots/wizard2.gif)
+### Playable wizard class
+![](./Screenshots/wizard&#32;demo.gif)
