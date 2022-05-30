@@ -89,7 +89,7 @@ func _physics_process(delta):
 			countDelta = 0
 			add_charge()
 		# Smooth transition to MOVE state when releasing spacebar.
-		if Input.is_action_pressed("space"):
+		if Input.is_action_pressed("space") or Input.is_action_pressed("right_mouse"):
 			state = CHARGE
 		else:
 			countDelta = 0
@@ -181,17 +181,17 @@ func move_state(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, C.wizFRICTION * delta)
 		
 	# State on pressed spacebar is CHARGE.
-	if Input.is_action_pressed("space"):
+	if Input.is_action_pressed("space") or Input.is_action_pressed("right_mouse"):
 		if mana <= 1:
 			return
 		state = CHARGE
 	
 	# State on released spacebar is MOVE.
-	if Input.is_action_just_released("space"):
+	if Input.is_action_just_released("space") or Input.is_action_just_released("right_mouse"):
 		state = MOVE
 	
 	# State on pressed 'enter' key is CAST.
-	if Input.is_action_just_pressed("enter"):
+	if Input.is_action_just_pressed("enter") or Input.is_action_just_pressed("i_shoot"):
 		state = CAST
 		# Don't cast anything if not enough charges.
 		if charge_count < 1:
@@ -218,7 +218,7 @@ func move_state(delta):
 		charge_count = 0
 	
 	# State on pressed 'right alt' key is REPEL.
-	if Input.is_action_just_pressed("r_alt"):
+	if Input.is_action_just_pressed("r_alt") or Input.is_action_just_pressed("middle_mouse"):
 		# Need at least this much mana to cast REPEL.
 		if mana < 20:
 			return
