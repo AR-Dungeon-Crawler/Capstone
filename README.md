@@ -1,7 +1,7 @@
 # AR Dungeon Crawler (Senior Capstone Project)
 
 ## Contributors
-- Danny Chung
+- Danny Chung (chungd87)
 - Matthew Roberts (robertm8 / mrobert09)
 - Jin Wu
 
