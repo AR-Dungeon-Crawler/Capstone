@@ -2,13 +2,13 @@ extends Control
 
 func _ready():
 
-	# TEST version.
-	var temp_path = ProjectSettings.globalize_path("res://dungeon.txt")
-	var img2grid_path = ProjectSettings.globalize_path("res://PhotoToGrid.exe")
-#
-#	# BUILD version
-#	var temp_path = str(OS.get_executable_path().get_base_dir()) + "/dungeon.txt"
-#	var img2grid_path = str(OS.get_executable_path().get_base_dir()) + "/PhotoToGrid.exe"
+#	# TEST version.
+#	var temp_path = ProjectSettings.globalize_path("res://dungeon.txt")
+#	var img2grid_path = ProjectSettings.globalize_path("res://PhotoToGrid.exe")
+
+	# BUILD version
+	var temp_path = str(OS.get_executable_path().get_base_dir()) + "/dungeon.txt"
+	var img2grid_path = str(OS.get_executable_path().get_base_dir()) + "/PhotoToGrid.exe"
 
 	# Check for and remove any old dungeon.txt files.
 	var file = File.new()

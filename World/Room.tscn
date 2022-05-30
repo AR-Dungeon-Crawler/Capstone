@@ -1,9 +1,8 @@
-[gd_scene load_steps=114 format=2]
+[gd_scene load_steps=113 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Tilemap/grey-tilemap-16.png" type="Texture" id=2]
 [ext_resource path="res://World/Scripts/Room.gd" type="Script" id=3]
-[ext_resource path="res://World/Chest.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Music and Sounds/Audio Files/Music.mp3" type="AudioStream" id=7]
 
@@ -1044,18 +1043,6 @@ parameters/playback = SubResource( 108 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
-
-[node name="Chest" parent="." instance=ExtResource( 4 )]
-position = Vector2( 119, 201 )
-
-[node name="Chest2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 217, 200 )
-
-[node name="Chest3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 214, 10 )
-
-[node name="Chest4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 311, 88 )
 
 [node name="EnemyCountTimer" type="Timer" parent="."]
 autostart = true
